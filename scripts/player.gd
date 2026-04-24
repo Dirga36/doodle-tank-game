@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var move_speed: float = 120.0
-@export var turn_speed: float = 90.0       # degrees per second
+@export var turn_speed: float = 90.0         # degrees per second
 @export var turret_track_speed: float = 8.0  # lerp factor
 
 var turret_angle: float = 0.0

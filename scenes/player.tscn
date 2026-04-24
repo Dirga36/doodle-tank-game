@@ -2,32 +2,33 @@
 
 [ext_resource type="Texture2D" uid="uid://dqfyl1a3dxajx" path="res://icon.svg" id="1_3vyb7"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
-size = Vector2(120, 140)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qhqgy"]
 size = Vector2(50, 50)
 
-[node name="Tank" type="Node2D" unique_id=346936656]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
+size = Vector2(120, 140)
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=2064407111]
+[node name="Tank" type="CharacterBody2D" unique_id=2064407111]
+position = Vector2(474, 188)
 scale = Vector2(0.99999994, 0.99999994)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1023509431]
+[node name="Turret" type="CharacterBody2D" parent="." unique_id=1696166598]
 scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_g2els")
 
-[node name="Turret" type="Node2D" parent="CharacterBody2D" unique_id=1384545779]
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="CharacterBody2D/Turret" unique_id=1696166598]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Turret/CharacterBody2D" unique_id=1212309328]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Turret" unique_id=1212309328]
 position = Vector2(1.0000037, -1.9999999)
 scale = Vector2(0.99999964, 0.99999964)
 shape = SubResource("RectangleShape2D_qhqgy")
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D/Turret" unique_id=478035933]
+[node name="TurretSprite" type="Sprite2D" parent="Turret" unique_id=355822871]
+z_index = 1
+scale = Vector2(0.5, 2)
+texture = ExtResource("1_3vyb7")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1475937527]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1023509431]
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("RectangleShape2D_g2els")
+
+[node name="TankSprite" type="Sprite2D" parent="." unique_id=1475937527]
 scale = Vector2(0.85, 1)
 texture = ExtResource("1_3vyb7")

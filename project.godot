@@ -11,7 +11,9 @@ config_version=5
 [application]
 
 config/name="Doodle Tank - Game"
-run/main_scene="uid://b00gwxywihued"
+config/description="My game project."
+config/version="0"
+run/main_scene="uid://lknpsy3aam45"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
