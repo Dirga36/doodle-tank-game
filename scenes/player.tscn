@@ -1,22 +1,23 @@
 [gd_scene format=3 uid="uid://lknpsy3aam45"]
 
 [ext_resource type="Texture2D" uid="uid://dqfyl1a3dxajx" path="res://icon.svg" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://ors78wx7a02h" path="res://scripts/player.gd" id="1_g2els"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qhqgy"]
-size = Vector2(50, 50)
+size = Vector2(70, 270)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
 size = Vector2(120, 140)
 
 [node name="Tank" type="CharacterBody2D" unique_id=2064407111]
-position = Vector2(474, 188)
 scale = Vector2(0.99999994, 0.99999994)
+script = ExtResource("1_g2els")
 
 [node name="Turret" type="CharacterBody2D" parent="." unique_id=1696166598]
 scale = Vector2(0.99999994, 0.99999994)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Turret" unique_id=1212309328]
-position = Vector2(1.0000037, -1.9999999)
+position = Vector2(1, 0.5)
 scale = Vector2(0.99999964, 0.99999964)
 shape = SubResource("RectangleShape2D_qhqgy")
 
