@@ -1,35 +1,20 @@
 [gd_scene format=3 uid="uid://lknpsy3aam45"]
 
-[ext_resource type="Texture2D" uid="uid://dqfyl1a3dxajx" path="res://icon.svg" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://ors78wx7a02h" path="res://scripts/player.gd" id="1_g2els"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qhqgy"]
-size = Vector2(70, 270)
+[ext_resource type="Texture2D" uid="uid://bgaamje081hqn" path="res://assets/images/ground_shaker_asset/Camo/Bodies/body_tracks.png" id="3_dqkch"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
-size = Vector2(120, 140)
+size = Vector2(89.00003, 82.00001)
 
 [node name="Tank" type="CharacterBody2D" unique_id=2064407111]
 scale = Vector2(0.99999994, 0.99999994)
 script = ExtResource("1_g2els")
 
-[node name="Turret" type="CharacterBody2D" parent="." unique_id=1696166598]
-scale = Vector2(0.99999994, 0.99999994)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Turret" unique_id=1212309328]
-position = Vector2(1, 0.5)
-scale = Vector2(0.99999964, 0.99999964)
-shape = SubResource("RectangleShape2D_qhqgy")
-
-[node name="TurretSprite" type="Sprite2D" parent="Turret" unique_id=355822871]
-z_index = 1
-scale = Vector2(0.5, 2)
-texture = ExtResource("1_3vyb7")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1023509431]
-scale = Vector2(0.9999999, 0.9999999)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=838328344]
+position = Vector2(-1.5000001, 0.9999984)
+scale = Vector2(0.9999996, 0.9999996)
 shape = SubResource("RectangleShape2D_g2els")
 
-[node name="TankSprite" type="Sprite2D" parent="." unique_id=1475937527]
-scale = Vector2(0.85, 1)
-texture = ExtResource("1_3vyb7")
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1950353393]
+rotation = 1.5707964
+texture = ExtResource("3_dqkch")
