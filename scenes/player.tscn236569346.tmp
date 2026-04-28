@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://lknpsy3aam45"]
+
+[ext_resource type="Script" uid="uid://ors78wx7a02h" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://bgaamje081hqn" path="res://assets/images/ground_shaker_asset/Camo/Bodies/body_tracks.png" id="3_dqkch"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1869769912]
+up_direction = Vector2(1, 0)
+script = ExtResource("1_g2els")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=688589990]
+shape = SubResource("RectangleShape2D_g2els")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=827267486]
+texture = ExtResource("3_dqkch")
