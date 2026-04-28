@@ -66,7 +66,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_d2wvv")
 }],
 "loop": true,
-"name": &"default",
+"name": &"shoot",
 "speed": 20.0
 }]
 
@@ -85,8 +85,7 @@ shape = SubResource("CircleShape2D_dqkch")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Turret" unique_id=1109663253]
 sprite_frames = SubResource("SpriteFrames_a8ls1")
-frame = 4
-frame_progress = 0.102915846
+animation = &"shoot"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=688589990]
 shape = SubResource("RectangleShape2D_g2els")
