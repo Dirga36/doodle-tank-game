@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://dvidbn6s5yxmk"]
+
+[ext_resource type="Script" uid="uid://cn7bnwbdp6h5i" path="res://turrets/turret.gd" id="1_gwjo0"]
+[ext_resource type="Texture2D" uid="uid://br3im1rf2pcge" path="res://assets/images/Tanks/Player/turret_01_mk1.png" id="1_x3mc5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_el7wl"]
+atlas = ExtResource("1_x3mc5")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_485p4"]
+atlas = ExtResource("1_x3mc5")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pp6j5"]
+atlas = ExtResource("1_x3mc5")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6fjxm"]
+atlas = ExtResource("1_x3mc5")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dirdf"]
+atlas = ExtResource("1_x3mc5")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqfwu"]
+atlas = ExtResource("1_x3mc5")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0dv4j"]
+atlas = ExtResource("1_x3mc5")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tg0ex"]
+atlas = ExtResource("1_x3mc5")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eo4u0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_el7wl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_485p4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pp6j5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6fjxm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dirdf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mqfwu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0dv4j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tg0ex")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="Turret" type="Node2D" unique_id=781297037]
+script = ExtResource("1_gwjo0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1445545280]
+rotation = 1.5707964
+sprite_frames = SubResource("SpriteFrames_eo4u0")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=298049512]
+position = Vector2(51, 0)
