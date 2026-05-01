@@ -6,4 +6,5 @@
 
 [node name="Tank" parent="." unique_id=649656741 instance=ExtResource("1_ig7tw")]
 position = Vector2(589, 240)
+scale = Vector2(5, 5)
 slide_on_ceiling = false

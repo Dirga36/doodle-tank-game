@@ -62,9 +62,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tg0ex")
 }],
-"loop": true,
-"name": &"default",
-"speed": 15.0
+"loop": false,
+"name": &"shoot",
+"speed": 60.0
 }]
 
 [node name="Turret" type="Node2D" unique_id=781297037]
@@ -73,6 +73,7 @@ script = ExtResource("1_gwjo0")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1445545280]
 rotation = 1.5707964
 sprite_frames = SubResource("SpriteFrames_eo4u0")
+animation = &"shoot"
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=298049512]
 position = Vector2(51, 0)
