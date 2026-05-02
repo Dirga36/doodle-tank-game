@@ -13,6 +13,9 @@ confirm_new_game = true
 options_packed_scene = ExtResource("3_0jpat")
 credits_packed_scene = ExtResource("4_m0ubd")
 
+[node name="TitleLabel" parent="MenuContainer/TitleMargin/TitleContainer" parent_id_path=PackedInt32Array(556427956) index="0" unique_id=359406872]
+text = "Doodle Tank - Game"
+
 [node name="ContinueGameButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" parent_id_path=PackedInt32Array(2017477786) index="1" unique_id=2077321160]
 unique_name_in_owner = true
 visible = false
