@@ -25,3 +25,5 @@ Exports/
 
 # Plugin specific
 addons/script-ide/*
+
+*.uid
