@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dvidbn6s5yxmk"]
 
-[ext_resource type="Script" uid="uid://celu7ivt31xim" path="res://4005/turret/turret.gd" id="1_ng2vo"]
+[ext_resource type="Script" uid="uid://dpu1wsc04xlwx" path="res://4005/turret/turret.gd" id="1_ng2vo"]
 [ext_resource type="Texture2D" uid="uid://s3ohk6xswlo7" path="res://assets/tanks/4005/4005-turret.png" id="1_uowe7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ng2vo"]
@@ -76,4 +76,4 @@ sprite_frames = SubResource("SpriteFrames_1svwd")
 animation = &"shoot"
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=298049512]
-position = Vector2(58, 0)
+position = Vector2(60, 0)

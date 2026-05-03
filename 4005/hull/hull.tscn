@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bhqcrxdbq25l0"]
 
-[ext_resource type="Script" uid="uid://dbao3uarrrhv5" path="res://4005/hull/hull.gd" id="1_7tq1l"]
+[ext_resource type="Script" uid="uid://dml3chtbsce6n" path="res://4005/hull/hull.gd" id="1_7tq1l"]
 [ext_resource type="Texture2D" uid="uid://co52vusuc400m" path="res://assets/tanks/4005/4005-hull.png" id="1_se4od"]
 [ext_resource type="PackedScene" uid="uid://dvidbn6s5yxmk" path="res://4005/turret/turret.tscn" id="3_01nm4"]
 

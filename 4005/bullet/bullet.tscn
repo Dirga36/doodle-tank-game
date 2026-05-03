@@ -1,12 +1,11 @@
 [gd_scene format=3 uid="uid://bu57k351bvlwo"]
 
-[ext_resource type="Script" uid="uid://ba0hesgvk3tvd" path="res://4005/bullet/bullet.gd" id="1_t5vqx"]
+[ext_resource type="Script" uid="uid://betjhshrlpqhn" path="res://4005/bullet/bullet.gd" id="1_t5vqx"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(13, 6)
 
 [node name="Bullet" type="Area2D" unique_id=829623255]
-scale = Vector2(5, 5)
 collision_layer = 16
 collision_mask = 8
 script = ExtResource("1_t5vqx")
@@ -20,3 +19,5 @@ shape = SubResource("1")
 
 [node name="VisibilityNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=50166608]
 rect = Rect2(-3, -3, 6, 6)
+
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_visibility_notifier_2d_screen_exited"]
