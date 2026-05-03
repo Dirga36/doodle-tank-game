@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dvidbn6s5yxmk" path="res://player/turret/turret.tscn" id="3_c3shd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7tq1l"]
+size = Vector2(84, 86.5)
 
 [node name="Body" type="CharacterBody2D" unique_id=1521241092]
 script = ExtResource("1_pxvwr")

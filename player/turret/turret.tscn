@@ -76,4 +76,4 @@ sprite_frames = SubResource("SpriteFrames_1svwd")
 animation = &"shoot"
 
 [node name="Muzzle" type="Marker2D" parent="." unique_id=298049512]
-position = Vector2(60, 0)
+position = Vector2(53, 0)
