@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bhqcrxdbq25l0"]
+
+[ext_resource type="Script" uid="uid://dml3chtbsce6n" path="res://player/body/body.gd" id="1_pxvwr"]
+[ext_resource type="Texture2D" uid="uid://co52vusuc400m" path="res://assets/tanks/4005/4005-hull.png" id="2_hnbt4"]
+[ext_resource type="PackedScene" uid="uid://dvidbn6s5yxmk" path="res://player/turret/turret.tscn" id="3_c3shd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7tq1l"]
+
+[node name="Body" type="CharacterBody2D" unique_id=1521241092]
+script = ExtResource("1_pxvwr")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1996500823]
+texture = ExtResource("2_hnbt4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1645839866]
+shape = SubResource("RectangleShape2D_7tq1l")
+
+[node name="Turret" parent="." unique_id=781297037 instance=ExtResource("3_c3shd")]
