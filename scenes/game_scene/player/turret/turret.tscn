@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://dvidbn6s5yxmk"]
+
+[ext_resource type="Script" uid="uid://bu4i57c8tnp18" path="res://scenes/game_scene/player/turret/turret.gd" id="1_cg2vo"]
+[ext_resource type="Texture2D" uid="uid://s3ohk6xswlo7" path="res://assets/tanks/4005/4005-turret.png" id="1_uowe7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ng2vo"]
+atlas = ExtResource("1_uowe7")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qgh6e"]
+atlas = ExtResource("1_uowe7")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ljkl"]
+atlas = ExtResource("1_uowe7")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60wng"]
+atlas = ExtResource("1_uowe7")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oi1rj"]
+atlas = ExtResource("1_uowe7")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yh320"]
+atlas = ExtResource("1_uowe7")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lbid1"]
+atlas = ExtResource("1_uowe7")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ykcya"]
+atlas = ExtResource("1_uowe7")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1svwd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ng2vo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qgh6e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ljkl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_60wng")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oi1rj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yh320")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lbid1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ykcya")
+}],
+"loop": true,
+"name": &"shoot",
+"speed": 60.0
+}]
+
+[node name="Turret" type="Node2D" unique_id=781297037]
+script = ExtResource("1_cg2vo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1682361508]
+rotation = 1.5707964
+sprite_frames = SubResource("SpriteFrames_1svwd")
+animation = &"shoot"
+
+[node name="Muzzle" type="Marker2D" parent="." unique_id=298049512]
+position = Vector2(53, 0)
