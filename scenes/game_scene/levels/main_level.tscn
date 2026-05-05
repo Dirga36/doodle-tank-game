@@ -1,19 +1,20 @@
 [gd_scene format=3 uid="uid://da00hutaakwk6"]
 
-[ext_resource type="Script" uid="uid://qi4qdfy4cte8" path="res://scenes/game_scene/levels/level.gd" id="1_623lg"]
-[ext_resource type="Script" uid="uid://1nf36h0gms3q" path="res://addons/maaacks_game_template/base/nodes/utilities/capture_focus.gd" id="2_sycfm"]
-[ext_resource type="Script" uid="uid://ch8aaykixbwn5" path="res://scenes/game_scene/input_display_label.gd" id="3_pmyid"]
-[ext_resource type="Script" uid="uid://bll85ag2um7hl" path="res://scenes/game_scene/tutorial_manager.gd" id="4_bsimd"]
-[ext_resource type="PackedScene" uid="uid://ks83y4cfd5a5" path="res://scenes/game_scene/tutorials/tutorial_1.tscn" id="5_fmabn"]
+[ext_resource type="Script" uid="uid://qi4qdfy4cte8" path="res://scenes/game_scene/levels/level.gd" id="1_vjfca"]
+[ext_resource type="Script" uid="uid://1nf36h0gms3q" path="res://addons/maaacks_game_template/base/nodes/utilities/capture_focus.gd" id="2_dr0pd"]
+[ext_resource type="PackedScene" uid="uid://b53q3q08egtfd" path="res://scenes/game_scene/Battlefield.tscn" id="3_q6xyk"]
+[ext_resource type="Script" uid="uid://ch8aaykixbwn5" path="res://scenes/game_scene/input_display_label.gd" id="4_rpijs"]
+[ext_resource type="Script" uid="uid://bll85ag2um7hl" path="res://scenes/game_scene/tutorial_manager.gd" id="5_vfmqg"]
+[ext_resource type="PackedScene" uid="uid://ks83y4cfd5a5" path="res://scenes/game_scene/tutorials/tutorial_1.tscn" id="6_cgimh"]
 
-[node name="Level1" type="Control" unique_id=266725257]
+[node name="MainLevel" type="Control" unique_id=266725257]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_623lg")
+script = ExtResource("1_vjfca")
 next_level_path = "res://scenes/game_scene/levels/level_2.tscn"
 
 [node name="BackgroundColor" type="ColorRect" parent="." unique_id=488494201]
@@ -45,7 +46,7 @@ theme_override_constants/separation = 16
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=153752389]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-text = "Example Level #1"
+text = "Survive"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -56,17 +57,10 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 32
-script = ExtResource("2_sycfm")
+script = ExtResource("2_dr0pd")
 
-[node name="LoseButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=479791323]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Lose"
-
-[node name="WinButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=177671711]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Win"
+[node name="TestArena" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=337173573 instance=ExtResource("3_q6xyk")]
+position = Vector2(-21, -111)
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=420490874]
 layout_mode = 2
@@ -79,7 +73,7 @@ text = "Tutorial"
 layout_mode = 2
 size_flags_horizontal = 3
 horizontal_alignment = 1
-script = ExtResource("3_pmyid")
+script = ExtResource("4_rpijs")
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=111486398]
 layout_mode = 2
@@ -92,10 +86,8 @@ text = "Change Color"
 
 [node name="TutorialManager" type="Node" parent="." unique_id=448883273]
 unique_name_in_owner = true
-script = ExtResource("4_bsimd")
-tutorial_scenes = Array[PackedScene]([ExtResource("5_fmabn")])
+script = ExtResource("5_vfmqg")
+tutorial_scenes = Array[PackedScene]([ExtResource("6_cgimh")])
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/LoseButton" to="." method="_on_lose_button_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/WinButton" to="." method="_on_win_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer2/TutorialButton" to="." method="_on_tutorial_button_pressed"]
 [connection signal="color_changed" from="MarginContainer/VBoxContainer/HBoxContainer2/ColorPickerButton" to="." method="_on_color_picker_button_color_changed"]
