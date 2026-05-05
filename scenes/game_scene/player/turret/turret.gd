@@ -35,8 +35,6 @@ func _shoot() -> void:
 	if bullet == null:
 		return
 	bullet.global_transform = Muzzle.global_transform
-	var spawn_parent := get_tree().current_scene
-	if spawn_parent == null:
-		spawn_parent = get_tree().root
+	var spawn_parent := get_tree().root
 	spawn_parent.add_child(bullet)
 	_cooldown_timer = fire_cooldown
