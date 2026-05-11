@@ -1,5 +1,6 @@
 extends Area2D
 
+@export var damage: int = 10
 @export var speed: float = 700.0
 @export var Bullet: PackedScene = preload("res://scenes/game_scene/player/bullet/bullet.tscn")
 
@@ -12,7 +13,9 @@ func _on_visibility_notifier_2d_screen_exited() -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.name == "Enemy":
-		print("hello enemy")
+	if body.is_in_group("enemies"):
+		if body.has_method("take_damage"):
+			body.take_damage(damage)
+		queue_free()
 
 	

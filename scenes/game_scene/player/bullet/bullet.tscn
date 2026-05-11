@@ -7,7 +7,7 @@ size = Vector2(13, 6)
 
 [node name="Bullet" type="Area2D" unique_id=829623255]
 collision_layer = 16
-collision_mask = 8
+collision_mask = 9
 script = ExtResource("1_t5vqx")
 
 [node name="Polygon2D" type="Polygon2D" parent="." unique_id=1720360563]
