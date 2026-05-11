@@ -26,6 +26,17 @@ func _ready() -> void:
 	%BackgroundColor.color = level_state.color
 	if not level_state.tutorial_read:
 		open_tutorials()
+	_connect_player_death()
 
 func _on_tutorial_button_pressed() -> void:
 	open_tutorials()
+
+
+func _connect_player_death() -> void:
+	for player in get_tree().get_nodes_in_group("player"):
+		if player.has_signal("died") and not player.died.is_connected(_on_player_died):
+			player.died.connect(_on_player_died)
+
+
+func _on_player_died() -> void:
+	level_lost.emit()
