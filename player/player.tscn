@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bsrn5vy51dj3u"]
+
+[ext_resource type="Texture2D" uid="uid://dwmt4cyg2402q" path="res://assets/images/Camo/Bodies/body_tracks.png" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://d288m3yprbxp" path="res://player/player.gd" id="1_i3pqv"]
+[ext_resource type="PackedScene" uid="uid://dbrfarya6an21" path="res://player/turret.tscn" id="2_onrkg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4flbx"]
+size = Vector2(77.5, 83.5)
+
+[node name="Player" type="CharacterBody2D" unique_id=1079493297]
+script = ExtResource("1_i3pqv")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2116445566]
+shape = SubResource("RectangleShape2D_4flbx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1095696541]
+texture = ExtResource("1_4flbx")
+
+[node name="Turret" parent="." unique_id=1934434579 instance=ExtResource("2_onrkg")]
