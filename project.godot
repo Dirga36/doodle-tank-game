@@ -16,6 +16,10 @@ run/main_scene="uid://d3sdw05lph2dw"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="uid://4q335xxs2p"
 
+[autoload]
+
+Global="*uid://b2hho3yg76d65"
+
 [input]
 
 turn_left={

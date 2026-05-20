@@ -4,6 +4,11 @@ extends CharacterBody2D
 @export var rotation_speed: float = 2.0
 @export var backward_multiplier: float = 0.6
 
+@onready var collision_shape: CollisionShape2D = $CollisionShape2D
+
+func _ready():
+	Global.player_node = self
+
 var health: int = 0
 var rotation_direction: float = 0.0
 	
