@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dbrfarya6an21"]
 
 [ext_resource type="Texture2D" uid="uid://chgr7k7aqquer" path="res://assets/images/Camo/Weapons/turret_01_mk1.png" id="1_3oylf"]
-[ext_resource type="Script" uid="uid://bqsrgiwr1uxop" path="res://player/turret.gd" id="2_tjdg3"]
+[ext_resource type="Script" uid="uid://bqsrgiwr1uxop" path="res://scenes/game_scene/player/turret.gd" id="2_tjdg3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tjdg3"]
 atlas = ExtResource("1_3oylf")
@@ -79,7 +79,7 @@ sprite_frames = SubResource("SpriteFrames_60y6o")
 animation = &"shoot"
 
 [node name="Muzzle" type="Marker2D" parent="." unique_id=171710973]
-position = Vector2(56, 0)
+position = Vector2(64, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=941721556]
 shape = SubResource("CircleShape2D_3oylf")

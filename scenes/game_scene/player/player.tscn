@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://bsrn5vy51dj3u"]
 
 [ext_resource type="Texture2D" uid="uid://dwmt4cyg2402q" path="res://assets/images/Camo/Bodies/body_tracks.png" id="1_4flbx"]
-[ext_resource type="Script" uid="uid://d288m3yprbxp" path="res://player/player.gd" id="1_i3pqv"]
-[ext_resource type="PackedScene" uid="uid://dbrfarya6an21" path="res://player/turret.tscn" id="2_onrkg"]
-[ext_resource type="Script" uid="uid://dn30auvoqi3q6" path="res://player/camera.gd" id="4_yw30f"]
+[ext_resource type="Script" uid="uid://d288m3yprbxp" path="res://scenes/game_scene/player/player.gd" id="1_i3pqv"]
+[ext_resource type="PackedScene" uid="uid://dbrfarya6an21" path="res://scenes/game_scene/player/turret.tscn" id="2_onrkg"]
+[ext_resource type="Script" uid="uid://dn30auvoqi3q6" path="res://scenes/game_scene/player/camera.gd" id="4_yw30f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4flbx"]
 size = Vector2(77.5, 83.5)

@@ -7,7 +7,7 @@ extends CharacterBody2D
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 @onready var player: CharacterBody2D = Global.player_node
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if player:
 		# Calculate direction from enemy to player
 		var direction: Vector2 = global_position.direction_to(player.global_position)

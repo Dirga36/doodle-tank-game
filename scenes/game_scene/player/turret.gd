@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var Bullet: PackedScene = preload("res://player/bullet.tscn")
+@export var Bullet: PackedScene = preload("res://scenes/game_scene/player/bullet.tscn")
 @export var fire_cooldown: float = 0.5
 @onready var Muzzle: Marker2D = $Muzzle
 
