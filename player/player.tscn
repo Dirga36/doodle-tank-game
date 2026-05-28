@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dwmt4cyg2402q" path="res://assets/images/Camo/Bodies/body_tracks.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://d288m3yprbxp" path="res://player/player.gd" id="1_i3pqv"]
 [ext_resource type="PackedScene" uid="uid://dbrfarya6an21" path="res://player/turret.tscn" id="2_onrkg"]
+[ext_resource type="Script" uid="uid://dn30auvoqi3q6" path="res://player/camera.gd" id="4_yw30f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4flbx"]
 size = Vector2(77.5, 83.5)
@@ -18,3 +19,9 @@ shape = SubResource("RectangleShape2D_4flbx")
 texture = ExtResource("1_4flbx")
 
 [node name="Turret" parent="." unique_id=1934434579 instance=ExtResource("2_onrkg")]
+
+[node name="Camera" type="Camera2D" parent="." unique_id=1897013504]
+limit_enabled = false
+script = ExtResource("4_yw30f")
+zoom_speed = 0.6
+max_zoom = 5.0
