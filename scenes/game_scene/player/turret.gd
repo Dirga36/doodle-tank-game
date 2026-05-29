@@ -29,12 +29,11 @@ func _can_fire() -> bool:
 
 
 func _shoot() -> void:
-	if Bullet == null:
-		return
 	var bullet := Bullet.instantiate() as Area2D
 	if bullet == null:
 		return
 	bullet.global_transform = Muzzle.global_transform
 	var spawn_parent := get_tree().root
 	spawn_parent.add_child(bullet)
+	$AnimatedSprite2D.play("shoot")
 	_cooldown_timer = fire_cooldown

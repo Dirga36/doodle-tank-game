@@ -1,70 +1,49 @@
 [gd_scene format=3 uid="uid://dbrfarya6an21"]
 
-[ext_resource type="Texture2D" uid="uid://chgr7k7aqquer" path="res://assets/images/Camo/Weapons/turret_01_mk1.png" id="1_3oylf"]
 [ext_resource type="Script" uid="uid://bqsrgiwr1uxop" path="res://scenes/game_scene/player/turret.gd" id="2_tjdg3"]
+[ext_resource type="Texture2D" uid="uid://dgkfbmp315qvm" path="res://assets/images/turret.png" id="3_nidy3"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tjdg3"]
-atlas = ExtResource("1_3oylf")
-region = Rect2(0, 0, 128, 128)
+[sub_resource type="AtlasTexture" id="AtlasTexture_3phw2"]
+atlas = ExtResource("3_nidy3")
+region = Rect2(0, 0, 256, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_c5apd"]
-atlas = ExtResource("1_3oylf")
-region = Rect2(128, 0, 128, 128)
+[sub_resource type="AtlasTexture" id="AtlasTexture_nidy3"]
+atlas = ExtResource("3_nidy3")
+region = Rect2(0, 48, 256, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_coqkk"]
-atlas = ExtResource("1_3oylf")
-region = Rect2(256, 0, 128, 128)
+[sub_resource type="AtlasTexture" id="AtlasTexture_y7b7t"]
+atlas = ExtResource("3_nidy3")
+region = Rect2(0, 96, 256, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2kw7u"]
-atlas = ExtResource("1_3oylf")
-region = Rect2(384, 0, 128, 128)
+[sub_resource type="AtlasTexture" id="AtlasTexture_8myq8"]
+atlas = ExtResource("3_nidy3")
+region = Rect2(0, 144, 256, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mhatg"]
-atlas = ExtResource("1_3oylf")
-region = Rect2(512, 0, 128, 128)
+[sub_resource type="AtlasTexture" id="AtlasTexture_hwok1"]
+atlas = ExtResource("3_nidy3")
+region = Rect2(0, 192, 256, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vt3mo"]
-atlas = ExtResource("1_3oylf")
-region = Rect2(640, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rcf7x"]
-atlas = ExtResource("1_3oylf")
-region = Rect2(768, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_n42ok"]
-atlas = ExtResource("1_3oylf")
-region = Rect2(896, 0, 128, 128)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_60y6o"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_s27pb"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_tjdg3")
+"texture": SubResource("AtlasTexture_3phw2")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_c5apd")
+"texture": SubResource("AtlasTexture_nidy3")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_coqkk")
+"texture": SubResource("AtlasTexture_y7b7t")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2kw7u")
+"texture": SubResource("AtlasTexture_8myq8")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mhatg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vt3mo")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rcf7x")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_n42ok")
+"texture": SubResource("AtlasTexture_hwok1")
 }],
-"loop": true,
+"loop": false,
 "name": &"shoot",
-"speed": 5.0
+"speed": 20.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3oylf"]
@@ -73,13 +52,15 @@ radius = 25.298222
 [node name="Turret" type="Area2D" unique_id=1934434579]
 script = ExtResource("2_tjdg3")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1977625370]
-rotation = 1.5707964
-sprite_frames = SubResource("SpriteFrames_60y6o")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1526957025]
+position = Vector2(88, 0)
+sprite_frames = SubResource("SpriteFrames_s27pb")
 animation = &"shoot"
 
 [node name="Muzzle" type="Marker2D" parent="." unique_id=171710973]
-position = Vector2(64, 0)
+position = Vector2(128, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=941721556]
 shape = SubResource("CircleShape2D_3oylf")
+
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
