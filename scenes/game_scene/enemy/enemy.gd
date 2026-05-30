@@ -5,8 +5,6 @@ extends CharacterBody2D
 @export var health = max_health
 @export var damage = 10
 
-var target = 10
-
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 @onready var player: CharacterBody2D = Global.player_node
 @onready var attack_cooldown: Timer = $"AttackCooldown"

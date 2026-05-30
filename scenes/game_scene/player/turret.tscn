@@ -50,6 +50,7 @@ animations = [{
 radius = 25.298222
 
 [node name="Turret" type="Area2D" unique_id=1934434579]
+monitorable = false
 script = ExtResource("2_tjdg3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1526957025]

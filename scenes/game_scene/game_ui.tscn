@@ -4,7 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://ifixnv5s74dh" path="res://scenes/windows/pause_menu_layer.tscn" id="2_7aihr"]
 [ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_game_template/base/nodes/music_players/background_music_player.tscn" id="3_3re04"]
 [ext_resource type="PackedScene" uid="uid://2g4agkd2jsfg" path="res://scenes/game_scene/enemy/enemy.tscn" id="4_ul61k"]
+[ext_resource type="PackedScene" uid="uid://f085gjxj2736" path="res://scenes/game_scene/hud/hud.tscn" id="5_bqcs8"]
 [ext_resource type="PackedScene" uid="uid://bsrn5vy51dj3u" path="res://scenes/game_scene/player/player.tscn" id="5_vbgr5"]
+[ext_resource type="Script" uid="uid://dn30auvoqi3q6" path="res://scenes/game_scene/camera2d.gd" id="6_vbgr5"]
 [ext_resource type="Script" uid="uid://denl76p2uaiy3" path="res://scenes/game_scene/configurable_sub_viewport.gd" id="11_ulq3g"]
 [ext_resource type="Script" uid="uid://d3rla8bg7wxl7" path="res://scenes/game_scene/game_timer.gd" id="12_gpor5"]
 
@@ -40,10 +42,16 @@ size = Vector2i(1152, 648)
 render_target_update_mode = 4
 script = ExtResource("11_ulq3g")
 
+[node name="HUD" parent="ViewportContainer" unique_id=746464302 instance=ExtResource("5_bqcs8")]
+
 [node name="Node" type="Node" parent="ViewportContainer" unique_id=55832242]
 
 [node name="Player" parent="ViewportContainer/Node" unique_id=1079493297 instance=ExtResource("5_vbgr5")]
 position = Vector2(280, 320)
+
+[node name="Camera2D" type="Camera2D" parent="ViewportContainer/Node/Player" unique_id=1390444234]
+script = ExtResource("6_vbgr5")
+zoom_speed = 0.5
 
 [node name="Enemy" parent="ViewportContainer/Node" unique_id=994043892 instance=ExtResource("4_ul61k")]
 position = Vector2(696, 320)

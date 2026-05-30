@@ -1,9 +1,8 @@
 [gd_scene format=3 uid="uid://bsrn5vy51dj3u"]
 
 [ext_resource type="Script" uid="uid://d288m3yprbxp" path="res://scenes/game_scene/player/player.gd" id="1_i3pqv"]
-[ext_resource type="Texture2D" uid="uid://l2gj5x2ucxma" path="res://assets/images/player.png" id="2_kyjql"]
+[ext_resource type="Texture2D" uid="uid://l2gj5x2ucxma" path="res://assets/images/Player/player.png" id="2_kyjql"]
 [ext_resource type="PackedScene" uid="uid://dbrfarya6an21" path="res://scenes/game_scene/player/turret.tscn" id="2_onrkg"]
-[ext_resource type="Script" uid="uid://dn30auvoqi3q6" path="res://scenes/game_scene/player/camera.gd" id="4_yw30f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4flbx"]
 size = Vector2(48, 104)
@@ -24,12 +23,6 @@ texture = ExtResource("2_kyjql")
 
 [node name="Turret" parent="." unique_id=1934434579 instance=ExtResource("2_onrkg")]
 position = Vector2(0, -8)
-
-[node name="Camera" type="Camera2D" parent="." unique_id=1897013504]
-limit_enabled = false
-script = ExtResource("4_yw30f")
-zoom_speed = 0.6
-max_zoom = 5.0
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1208316025]
 

@@ -8,7 +8,6 @@ signal player_die
 @export var max_health: int = 40
 @export var health: int = max_health
 
-@onready var collision_shape: CollisionShape2D = $CollisionShape2D
 
 func _ready():
 	Global.player_node = self
