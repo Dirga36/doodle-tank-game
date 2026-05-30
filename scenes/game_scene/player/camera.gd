@@ -21,6 +21,6 @@ func _unhandled_input(event: InputEvent) -> void:
 			target_zoom.x = clamp(target_zoom.x, min_zoom, max_zoom)
 			target_zoom.y = clamp(target_zoom.y, min_zoom, max_zoom)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	# Lerp (linear interpolation) creates a smooth zooming effect
 	zoom = zoom.lerp(target_zoom, 0.1)

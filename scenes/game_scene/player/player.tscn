@@ -6,6 +6,9 @@
 [ext_resource type="Script" uid="uid://dn30auvoqi3q6" path="res://scenes/game_scene/player/camera.gd" id="4_yw30f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4flbx"]
+size = Vector2(48, 104)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kyjql"]
 size = Vector2(64, 120)
 
 [node name="Player" type="CharacterBody2D" unique_id=1079493297]
@@ -27,3 +30,10 @@ limit_enabled = false
 script = ExtResource("4_yw30f")
 zoom_speed = 0.6
 max_zoom = 5.0
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1208316025]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=543232319]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_kyjql")
+debug_color = Color(0, 0.64142996, 0.3393981, 0.41960785)

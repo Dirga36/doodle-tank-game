@@ -13,6 +13,12 @@ Author: [Name]()
 Source: [Domain : webpage.html]()  
 License: [License]()
 
+### Sprites
+#### Pixel Health bar
+Author: [BDragon1727](https://bdragon1727.itch.io)  
+Source: [https://bdragon1727.itch.io/basic-pixel-health-bar-and-scroll-bar](https://bdragon1727.itch.io/basic-pixel-health-bar-and-scroll-bar)  
+License: Free to use on non-commercial games
+
 #### Godot Engine Logo
 Author: Andrea Calabró  
 Source: [godotengine.org : press](https://godotengine.org/press/)  

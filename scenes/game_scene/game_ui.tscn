@@ -32,12 +32,6 @@ grow_horizontal = 2
 grow_vertical = 2
 stretch = true
 
-[node name="Player" parent="ViewportContainer" unique_id=1079493297 instance=ExtResource("5_vbgr5")]
-position = Vector2(280, 320)
-
-[node name="Enemy" parent="ViewportContainer" unique_id=994043892 instance=ExtResource("4_ul61k")]
-position = Vector2(696, 320)
-
 [node name="ConfigurableSubViewport" type="SubViewport" parent="ViewportContainer" unique_id=204786699]
 handle_input_locally = false
 audio_listener_enable_2d = true
@@ -45,6 +39,14 @@ audio_listener_enable_3d = true
 size = Vector2i(1152, 648)
 render_target_update_mode = 4
 script = ExtResource("11_ulq3g")
+
+[node name="Node" type="Node" parent="ViewportContainer" unique_id=55832242]
+
+[node name="Player" parent="ViewportContainer/Node" unique_id=1079493297 instance=ExtResource("5_vbgr5")]
+position = Vector2(280, 320)
+
+[node name="Enemy" parent="ViewportContainer/Node" unique_id=994043892 instance=ExtResource("4_ul61k")]
+position = Vector2(696, 320)
 
 [node name="GameTimer" type="Node" parent="." unique_id=116840261]
 script = ExtResource("12_gpor5")

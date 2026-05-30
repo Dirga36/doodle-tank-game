@@ -1,15 +1,18 @@
 extends CharacterBody2D
+signal player_die
 
 @export var speed: float = 500.0
 @export var rotation_speed: float = 2.0
 @export var backward_multiplier: float = 0.6
+
+@export var max_health: int = 40
+@export var health: int = max_health
 
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 
 func _ready():
 	Global.player_node = self
 
-var health: int = 0
 var rotation_direction: float = 0.0
 	
 func get_input() -> void:
@@ -26,3 +29,13 @@ func _physics_process(delta: float) -> void:
 	get_input()
 	rotation += rotation_direction * rotation_speed * delta
 	move_and_slide()
+
+func die():
+	player_die.emit()
+	print("Player died")
+
+func take_damage(amount: int) -> void:
+	health -= amount
+	print("-", amount)
+	if health <= 0:
+		die()

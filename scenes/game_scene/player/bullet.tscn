@@ -12,7 +12,6 @@ script = ExtResource("1_v7oki")
 shape = SubResource("RectangleShape2D_rtl8c")
 
 [node name="Polygon2D" type="Polygon2D" parent="." unique_id=1084989954]
-color = Color(1, 0.6862745, 0, 1)
 polygon = PackedVector2Array(-16, -8, -16, 8, 0, 8, 16, 0, 0, -8)
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1062470238]

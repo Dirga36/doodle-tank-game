@@ -1,16 +1,31 @@
 [gd_scene format=3 uid="uid://2g4agkd2jsfg"]
 
-[ext_resource type="Script" uid="uid://b61dtq3yy5oo7" path="res://scenes/game_scene/enemy/enemy.gd" id="1_2mvqj"]
+[ext_resource type="Script" uid="uid://b5woyx7d2kgv1" path="res://scenes/game_scene/enemy/enemy.gd" id="1_2mvqj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7xaro"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_grsbq"]
 size = Vector2(32, 32)
 
 [node name="Enemy" type="CharacterBody2D" unique_id=994043892]
 script = ExtResource("1_2mvqj")
 
 [node name="Polygon2D" type="Polygon2D" parent="." unique_id=1838910600]
-color = Color(0, 0, 0, 1)
+color = Color(0.91276854, 0.49182153, 0, 1)
 polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2127871398]
 shape = SubResource("RectangleShape2D_7xaro")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=742422248]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1246828933]
+shape = SubResource("RectangleShape2D_grsbq")
+debug_color = Color(0, 0.6403249, 0.35628343, 0.41960785)
+
+[node name="AttackCooldown" type="Timer" parent="." unique_id=986968014]
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_exited" from="Hitbox" to="." method="_on_hitbox_body_exited"]
+[connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]
