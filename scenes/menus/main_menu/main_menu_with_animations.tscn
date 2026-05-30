@@ -338,6 +338,7 @@ stretch_mode = 6
 
 [node name="MenuContainer" parent="." index="5" unique_id=396616752]
 offset_right = -736.0
+offset_bottom = -192.0
 
 [node name="TitleMargin" parent="MenuContainer" index="0" unique_id=2112060331]
 z_index = 1

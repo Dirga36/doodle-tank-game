@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://f085gjxj2736"]
 
 [ext_resource type="Texture2D" uid="uid://bhe4ohsoelejp" path="res://assets/images/HUD/Healthbar/40.png" id="1_fbr1r"]
+[ext_resource type="Script" uid="uid://8xn3g3lctfc2" path="res://scenes/game_scene/hud/health_bar.gd" id="2_10q6n"]
 
 [node name="HUD" type="CanvasLayer" unique_id=746464302]
 layer = 2
@@ -20,8 +21,9 @@ offset_right = 224.0
 offset_bottom = 64.0
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="Container/VBoxContainer" unique_id=1121665366]
+[node name="HealthBar" type="TextureRect" parent="Container/VBoxContainer" unique_id=1121665366]
 layout_mode = 2
 texture = ExtResource("1_fbr1r")
 expand_mode = 5
 stretch_mode = 4
+script = ExtResource("2_10q6n")

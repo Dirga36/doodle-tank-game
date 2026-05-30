@@ -25,6 +25,21 @@ focused_viewport = NodePath("../ViewportContainer/ConfigurableSubViewport")
 
 [node name="BackgroundMusicPlayer" parent="." unique_id=986713811 instance=ExtResource("3_3re04")]
 
+[node name="HUD" parent="." unique_id=746464302 instance=ExtResource("5_bqcs8")]
+layer = 1
+
+[node name="Node" type="Node" parent="." unique_id=55832242]
+
+[node name="Player" parent="Node" unique_id=1079493297 instance=ExtResource("5_vbgr5")]
+position = Vector2(280, 320)
+
+[node name="Camera2D" type="Camera2D" parent="Node/Player" unique_id=1390444234]
+script = ExtResource("6_vbgr5")
+zoom_speed = 0.5
+
+[node name="Enemy" parent="Node" unique_id=994043892 instance=ExtResource("4_ul61k")]
+position = Vector2(696, 320)
+
 [node name="ViewportContainer" type="SubViewportContainer" parent="." unique_id=1831513653]
 layout_mode = 1
 anchors_preset = 15
@@ -41,20 +56,6 @@ audio_listener_enable_3d = true
 size = Vector2i(1152, 648)
 render_target_update_mode = 4
 script = ExtResource("11_ulq3g")
-
-[node name="HUD" parent="ViewportContainer" unique_id=746464302 instance=ExtResource("5_bqcs8")]
-
-[node name="Node" type="Node" parent="ViewportContainer" unique_id=55832242]
-
-[node name="Player" parent="ViewportContainer/Node" unique_id=1079493297 instance=ExtResource("5_vbgr5")]
-position = Vector2(280, 320)
-
-[node name="Camera2D" type="Camera2D" parent="ViewportContainer/Node/Player" unique_id=1390444234]
-script = ExtResource("6_vbgr5")
-zoom_speed = 0.5
-
-[node name="Enemy" parent="ViewportContainer/Node" unique_id=994043892 instance=ExtResource("4_ul61k")]
-position = Vector2(696, 320)
 
 [node name="GameTimer" type="Node" parent="." unique_id=116840261]
 script = ExtResource("12_gpor5")
