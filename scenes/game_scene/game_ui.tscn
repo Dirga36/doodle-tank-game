@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://f085gjxj2736" path="res://scenes/game_scene/hud/hud.tscn" id="5_bqcs8"]
 [ext_resource type="PackedScene" uid="uid://bsrn5vy51dj3u" path="res://scenes/game_scene/player/player.tscn" id="5_vbgr5"]
 [ext_resource type="Script" uid="uid://dn30auvoqi3q6" path="res://scenes/game_scene/camera2d.gd" id="6_vbgr5"]
+[ext_resource type="PackedScene" uid="uid://c8kn6pu4yoms1" path="res://scenes/game_scene/map/world_root.tscn" id="8_onvsj"]
 [ext_resource type="Script" uid="uid://denl76p2uaiy3" path="res://scenes/game_scene/configurable_sub_viewport.gd" id="11_ulq3g"]
 [ext_resource type="Script" uid="uid://d3rla8bg7wxl7" path="res://scenes/game_scene/game_timer.gd" id="12_gpor5"]
 
@@ -30,15 +31,27 @@ layer = 1
 
 [node name="Node" type="Node" parent="." unique_id=55832242]
 
-[node name="Player" parent="Node" unique_id=1079493297 instance=ExtResource("5_vbgr5")]
-position = Vector2(280, 320)
+[node name="WorldRoot" parent="Node" unique_id=392409886 instance=ExtResource("8_onvsj")]
+top_level = true
+texture_filter = 1
+scale = Vector2(3, 3)
 
-[node name="Camera2D" type="Camera2D" parent="Node/Player" unique_id=1390444234]
+[node name="Node2D" type="Node2D" parent="Node" unique_id=937688459]
+z_index = 1
+position = Vector2(838, 648)
+
+[node name="Player" parent="Node/Node2D" unique_id=1079493297 instance=ExtResource("5_vbgr5")]
+position = Vector2(677, 566)
+speed = 300.0
+
+[node name="Camera2D" type="Camera2D" parent="Node/Node2D/Player" unique_id=1390444234]
 script = ExtResource("6_vbgr5")
 zoom_speed = 0.5
+min_zoom = 0.75
+max_zoom = 3.0
 
-[node name="Enemy" parent="Node" unique_id=994043892 instance=ExtResource("4_ul61k")]
-position = Vector2(696, 320)
+[node name="Enemy" parent="Node/Node2D" unique_id=994043892 instance=ExtResource("4_ul61k")]
+position = Vector2(1152, 0)
 
 [node name="ViewportContainer" type="SubViewportContainer" parent="." unique_id=1831513653]
 layout_mode = 1

@@ -32,19 +32,19 @@ func die():
 	collision_shape.set_deferred("disabled", true) 
 	queue_free()
 
-func _do_attack(target: CharacterBody2D) -> void:
+func _do_attack(target) -> void:
 	if not can_attack:
 		return
 	can_attack = false
 	target.take_damage(damage)
 	attack_cooldown.start()
 
-func _on_hitbox_body_entered(body: CharacterBody2D) -> void:
+func _on_hitbox_body_entered(body) -> void:
 	if body.name == "Player":
 		player_in_range = true
 		_do_attack(body)
 
-func _on_hitbox_body_exited(body: CharacterBody2D) -> void:
+func _on_hitbox_body_exited(body) -> void:
 	if body.name == "Player":
 		player_in_range = false
 
