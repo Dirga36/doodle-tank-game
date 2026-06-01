@@ -6,7 +6,7 @@ signal player_die
 @export var backward_multiplier: float = 0.6
 
 @export var max_health: int = 40
-@export var health: int = max_health
+var health: int = max_health
 
 
 func _ready():
@@ -35,6 +35,6 @@ func die():
 
 func take_damage(amount: int) -> void:
 	health -= amount
-	print("-", amount)
+	print("player: -", amount)
 	if health <= 0:
 		die()

@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var speed: float = 100.0
 @export var max_health = 30
-@export var health = max_health
+var health = max_health
 @export var damage = 10
 
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D

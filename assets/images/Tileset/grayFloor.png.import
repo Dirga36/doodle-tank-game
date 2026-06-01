@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5qop5a0kimvb"
-path="res://.godot/imported/HP.png-f95597084b4f2f94aa6d125527b201cb.ctex"
+uid="uid://dwfrousp0ljb3"
+path="res://.godot/imported/grayFloor.png-7b30c5c0e1707b7453030257ade2705a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/HUD/HP.png"
-dest_files=["res://.godot/imported/HP.png-f95597084b4f2f94aa6d125527b201cb.ctex"]
+source_file="res://assets/images/Tileset/grayFloor.png"
+dest_files=["res://.godot/imported/grayFloor.png-7b30c5c0e1707b7453030257ade2705a.ctex"]
 
 [params]
 

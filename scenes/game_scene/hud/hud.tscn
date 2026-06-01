@@ -34,3 +34,29 @@ script = ExtResource("2_10q6n")
 [node name="ObjectiveLabel" type="Label" parent="Container/VBoxContainer" unique_id=1039107586]
 layout_mode = 2
 text = "Objective: Stand on your ground until 20.00"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Container" unique_id=271213171]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = -96.0
+offset_right = -64.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="Label" type="Label" parent="Container/VBoxContainer2" unique_id=1807971380]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "The Base Health"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="Container/VBoxContainer2" unique_id=1833624548]
+layout_mode = 2
+value = 100.0
+show_percentage = false
