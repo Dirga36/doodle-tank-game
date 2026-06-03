@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b2illx8d5k2pm"]
 
-[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_awufw"]
+[ext_resource type="Texture2D" uid="uid://empkdrh6b60a" path="res://assets/images/Ending Title Cards/you_lose.png" id="1_awufw"]
 
 [node name="Lose" type="Control" unique_id=110405307]
 layout_mode = 3

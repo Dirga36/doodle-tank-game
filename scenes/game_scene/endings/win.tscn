@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://enqsuvolsvrm"]
 
-[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_ho4up"]
+[ext_resource type="Texture2D" uid="uid://favp5d6gleqi" path="res://assets/images/Ending Title Cards/you_win.png" id="1_ho4up"]
 
 [node name="Win" type="Control" unique_id=110405307]
 layout_mode = 3

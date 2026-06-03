@@ -29,12 +29,12 @@ func _physics_process(delta: float) -> void:
 	rotation += rotation_direction * rotation_speed * delta
 	move_and_slide()
 
-func die():
-	player_die.emit()
-	print("Player died")
-
 func take_damage(amount: int) -> void:
 	health -= amount
 	print("player: -", amount)
 	if health <= 0:
 		die()
+
+func die():
+	player_die.emit()
+	print("Player died")

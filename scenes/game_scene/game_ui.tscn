@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://c8kn6pu4yoms1" path="res://scenes/game_scene/map/world_root.tscn" id="8_onvsj"]
 [ext_resource type="Script" uid="uid://denl76p2uaiy3" path="res://scenes/game_scene/configurable_sub_viewport.gd" id="11_ulq3g"]
 [ext_resource type="Script" uid="uid://d3rla8bg7wxl7" path="res://scenes/game_scene/game_timer.gd" id="12_gpor5"]
+[ext_resource type="Script" uid="uid://bmlwpkrav3q56" path="res://addons/maaacks_game_template/extras/scripts/win_lose_manager.gd" id="13_wnl2j"]
 
 [node name="GameUI" type="Control" unique_id=1609552811]
 layout_mode = 3
@@ -72,3 +73,8 @@ script = ExtResource("11_ulq3g")
 
 [node name="GameTimer" type="Node" parent="." unique_id=116840261]
 script = ExtResource("12_gpor5")
+
+[node name="WinLoseManager" type="Node" parent="." unique_id=1108283022]
+script = ExtResource("13_wnl2j")
+
+[connection signal="player_die" from="Node/Node2D/Player" to="WinLoseManager" method="_on_player_player_die"]
