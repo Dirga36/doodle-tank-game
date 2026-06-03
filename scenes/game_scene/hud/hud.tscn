@@ -5,6 +5,8 @@
 
 [sub_resource type="GDScript" id="GDScript_10q6n"]
 
+[sub_resource type="Theme" id="Theme_10q6n"]
+
 [node name="HUD" type="CanvasLayer" unique_id=746464302]
 layer = 2
 
@@ -17,25 +19,27 @@ grow_horizontal = 2
 grow_vertical = 2
 script = SubResource("GDScript_10q6n")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Container" unique_id=1394741573]
+[node name="TankHP" type="VBoxContainer" parent="Container" unique_id=1394741573]
 layout_mode = 0
 offset_left = 16.0
 offset_right = 367.0
 offset_bottom = 96.0
 alignment = 1
 
-[node name="HealthBar" type="TextureRect" parent="Container/VBoxContainer" unique_id=1121665366]
+[node name="HealthBar" type="TextureRect" parent="Container/TankHP" unique_id=1121665366]
 layout_mode = 2
 texture = ExtResource("1_fbr1r")
 expand_mode = 5
 stretch_mode = 4
 script = ExtResource("2_10q6n")
 
-[node name="ObjectiveLabel" type="Label" parent="Container/VBoxContainer" unique_id=1039107586]
+[node name="ObjectiveLabel" type="Label" parent="Container/TankHP" unique_id=1039107586]
 layout_mode = 2
+theme = SubResource("Theme_10q6n")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Objective: Stand on your ground until 20.00"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="Container" unique_id=271213171]
+[node name="TheBaseHP" type="VBoxContainer" parent="Container" unique_id=271213171]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -49,14 +53,15 @@ grow_horizontal = 2
 grow_vertical = 0
 alignment = 1
 
-[node name="Label" type="Label" parent="Container/VBoxContainer2" unique_id=1807971380]
+[node name="Label" type="Label" parent="Container/TheBaseHP" unique_id=1807971380]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "The Base Health"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ProgressBar" type="ProgressBar" parent="Container/VBoxContainer2" unique_id=1833624548]
+[node name="ProgressBar" type="ProgressBar" parent="Container/TheBaseHP" unique_id=1833624548]
 layout_mode = 2
 value = 100.0
 show_percentage = false

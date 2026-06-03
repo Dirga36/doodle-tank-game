@@ -15,6 +15,8 @@ func _ready() -> void:
 	_resolve_player()
 	_update_healthbar()
 	set_process(true)
+	
+	
 
 func _process(_delta: float) -> void:
 	if not is_instance_valid(player):
