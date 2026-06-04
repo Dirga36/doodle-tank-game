@@ -1,27 +1,8 @@
 [gd_scene format=3 uid="uid://b2illx8d5k2pm"]
 
-[ext_resource type="Texture2D" uid="uid://empkdrh6b60a" path="res://assets/images/Ending Title Cards/you_lose.png" id="1_awufw"]
+[ext_resource type="PackedScene" uid="uid://dalkjhvhxdug4" path="res://scenes/windows/level_lost_window.tscn" id="1_awufw"]
 
-[node name="Lose" type="Control" unique_id=110405307]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Lose" type="CanvasLayer" unique_id=998602748]
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=337573395]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 64.0
-offset_top = 64.0
-offset_right = -64.0
-offset_bottom = -72.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer" unique_id=1358959373]
-layout_mode = 2
-texture = ExtResource("1_awufw")
+[node name="LevelLostWindow" parent="." unique_id=493104306 instance=ExtResource("1_awufw")]
+ui_cancel_closes = false
