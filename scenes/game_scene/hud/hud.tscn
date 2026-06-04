@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://f085gjxj2736"]
 
 [ext_resource type="Texture2D" uid="uid://bhe4ohsoelejp" path="res://assets/images/HUD/Healthbar/40.png" id="1_fbr1r"]
-[ext_resource type="Script" uid="uid://8xn3g3lctfc2" path="res://scenes/game_scene/hud/health_bar.gd" id="2_10q6n"]
+[ext_resource type="Script" path="res://scenes/game_scene/hud/health_bar.gd" id="2_10q6n"]
+[ext_resource type="Script" uid="uid://3cn0rdckmqhs" path="res://scenes/game_scene/hud/time_played.gd" id="3_2w51u"]
 
 [sub_resource type="GDScript" id="GDScript_10q6n"]
 
@@ -33,11 +34,18 @@ expand_mode = 5
 stretch_mode = 4
 script = ExtResource("2_10q6n")
 
-[node name="ObjectiveLabel" type="Label" parent="Container/TankHP" unique_id=1039107586]
+[node name="HBoxContainer" type="HBoxContainer" parent="Container/TankHP" unique_id=1302464817]
+layout_mode = 2
+
+[node name="ObjectiveLabel" type="Label" parent="Container/TankHP/HBoxContainer" unique_id=1039107586]
 layout_mode = 2
 theme = SubResource("Theme_10q6n")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Objective: Stand on your ground until 20.00"
+text = "Objective: Stand on your ground until"
+
+[node name="TimePlayed" type="Label" parent="Container/TankHP/HBoxContainer" unique_id=1251327896]
+layout_mode = 2
+script = ExtResource("3_2w51u")
 
 [node name="TheBaseHP" type="VBoxContainer" parent="Container" unique_id=271213171]
 layout_mode = 1

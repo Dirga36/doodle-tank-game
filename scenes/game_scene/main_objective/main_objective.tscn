@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://buwj1mx1vas54"]
+
+[ext_resource type="Script" uid="uid://78sobnfigylr" path="res://scenes/game_scene/main_objective/main_objective.gd" id="1_pnml3"]
+
+[node name="Mainobjective" type="Node" unique_id=468190658]
+script = ExtResource("1_pnml3")

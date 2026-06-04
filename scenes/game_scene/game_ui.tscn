@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://scenes/game_scene/camera2d.gd" id="6_vbgr5"]
 [ext_resource type="PackedScene" uid="uid://c8kn6pu4yoms1" path="res://scenes/game_scene/map/world_root.tscn" id="8_onvsj"]
 [ext_resource type="Script" uid="uid://denl76p2uaiy3" path="res://scenes/game_scene/configurable_sub_viewport.gd" id="11_ulq3g"]
+[ext_resource type="PackedScene" uid="uid://buwj1mx1vas54" path="res://scenes/game_scene/main_objective/main_objective.tscn" id="12_bmy5n"]
 [ext_resource type="Script" uid="uid://d3rla8bg7wxl7" path="res://scenes/game_scene/game_timer.gd" id="12_gpor5"]
 [ext_resource type="Script" uid="uid://bmlwpkrav3q56" path="res://addons/maaacks_game_template/extras/scripts/win_lose_manager.gd" id="13_wnl2j"]
 
@@ -77,4 +78,7 @@ script = ExtResource("12_gpor5")
 [node name="WinLoseManager" type="Node" parent="." unique_id=1108283022]
 script = ExtResource("13_wnl2j")
 
+[node name="MainObjective" parent="." unique_id=468190658 instance=ExtResource("12_bmy5n")]
+
 [connection signal="player_die" from="Node/Node2D/Player" to="WinLoseManager" method="_on_player_player_die"]
+[connection signal="game_win" from="MainObjective" to="WinLoseManager" method="_on_main_objective_game_win"]

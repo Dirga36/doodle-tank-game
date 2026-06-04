@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bsrn5vy51dj3u"]
 
-[ext_resource type="Script" uid="uid://d288m3yprbxp" path="res://scenes/game_scene/player/player.gd" id="1_i3pqv"]
+[ext_resource type="Script" path="res://scenes/game_scene/player/player.gd" id="1_i3pqv"]
 [ext_resource type="Texture2D" uid="uid://l2gj5x2ucxma" path="res://assets/images/Player/player.png" id="2_kyjql"]
 [ext_resource type="PackedScene" uid="uid://dbrfarya6an21" path="res://scenes/game_scene/player/turret.tscn" id="2_onrkg"]
 
