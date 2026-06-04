@@ -2,7 +2,7 @@ extends Node
 
 signal game_win
 
-const WIN_PLAY_TIME_SECONDS := 20 * 60
+const WIN_PLAY_TIME_SECONDS := 1 * 60
 
 @onready var _game_timer := get_node_or_null("../GameTimer")
 var _has_won := false

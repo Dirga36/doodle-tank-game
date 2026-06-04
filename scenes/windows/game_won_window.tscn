@@ -7,6 +7,7 @@
 [node name="GameWonWindow" unique_id=862385343 instance=ExtResource("1_lpba5")]
 custom_minimum_size = Vector2(432, 240)
 script = ExtResource("2_rvsdo")
+ending_scene_path = null
 update_content = true
 text = "You won!"
 close_button_text = "Continue"
@@ -23,18 +24,19 @@ vertical = false
 
 [node name="ExitButton" type="Button" parent="ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="0" unique_id=809131362]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Exit"
 
 [node name="MainMenuButton" type="Button" parent="ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="1" unique_id=1169131466]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Main Menu"
 
 [node name="CloseButton" parent="ContentContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="2" unique_id=314526102]
-visible = false
 size_flags_horizontal = 3
 text = "Continue"
 
