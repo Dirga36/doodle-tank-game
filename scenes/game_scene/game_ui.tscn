@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://cyh0d64pfygbl" path="res://addons/maaacks_game_template/base/nodes/utilities/pause_menu_controller.gd" id="1_bmy5n"]
 [ext_resource type="PackedScene" uid="uid://ifixnv5s74dh" path="res://scenes/windows/pause_menu_layer.tscn" id="2_7aihr"]
 [ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_game_template/base/nodes/music_players/background_music_player.tscn" id="3_3re04"]
-[ext_resource type="PackedScene" uid="uid://2g4agkd2jsfg" path="res://scenes/game_scene/enemy/enemy.tscn" id="4_ul61k"]
 [ext_resource type="PackedScene" uid="uid://f085gjxj2736" path="res://scenes/game_scene/hud/hud.tscn" id="5_bqcs8"]
 [ext_resource type="PackedScene" uid="uid://bsrn5vy51dj3u" path="res://scenes/game_scene/player/player.tscn" id="5_vbgr5"]
 [ext_resource type="Script" path="res://scenes/game_scene/camera2d.gd" id="6_vbgr5"]
@@ -12,6 +11,13 @@
 [ext_resource type="PackedScene" uid="uid://buwj1mx1vas54" path="res://scenes/game_scene/main_objective/main_objective.tscn" id="12_bmy5n"]
 [ext_resource type="Script" uid="uid://d3rla8bg7wxl7" path="res://scenes/game_scene/game_timer.gd" id="12_gpor5"]
 [ext_resource type="Script" uid="uid://bmlwpkrav3q56" path="res://addons/maaacks_game_template/extras/scripts/win_lose_manager.gd" id="13_wnl2j"]
+[ext_resource type="Script" uid="uid://cte7pwuqe2apw" path="res://scenes/game_scene/enemy/enemy_spawner.gd" id="14_ascoc"]
+
+[sub_resource type="Curve2D" id="Curve2D_bmy5n"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 3456, 0, 0, 0, 0, 0, 3456, 1920, 0, 0, 0, 0, 0, 1920, 0, 0, 0, 0, 0, 0)
+}
+point_count = 4
 
 [node name="GameUI" type="Control" unique_id=1609552811]
 layout_mode = 3
@@ -52,8 +58,15 @@ zoom_speed = 0.5
 min_zoom = 0.75
 max_zoom = 3.0
 
-[node name="Enemy" parent="Node/Node2D" unique_id=994043892 instance=ExtResource("4_ul61k")]
-position = Vector2(1152, 0)
+[node name="EnemyPath" type="Path2D" parent="Node" unique_id=177829687]
+curve = SubResource("Curve2D_bmy5n")
+
+[node name="EnemySpawnLocation" type="PathFollow2D" parent="Node/EnemyPath" unique_id=754468866]
+position = Vector2(3456, 0)
+rotation = 1.5707964
+
+[node name="EnemyTimer" type="Timer" parent="Node" unique_id=1892554253]
+wait_time = 2.0
 
 [node name="ViewportContainer" type="SubViewportContainer" parent="." unique_id=1831513653]
 layout_mode = 1
@@ -80,5 +93,9 @@ script = ExtResource("13_wnl2j")
 
 [node name="MainObjective" parent="." unique_id=468190658 instance=ExtResource("12_bmy5n")]
 
+[node name="EnemySpawner" type="Node" parent="." unique_id=763286358]
+script = ExtResource("14_ascoc")
+
 [connection signal="player_die" from="Node/Node2D/Player" to="WinLoseManager" method="_on_player_player_die"]
+[connection signal="timeout" from="Node/EnemyTimer" to="EnemySpawner" method="_on_enemy_timer_timeout"]
 [connection signal="game_win" from="MainObjective" to="WinLoseManager" method="_on_main_objective_game_win"]

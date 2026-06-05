@@ -48,6 +48,7 @@ layout_mode = 2
 script = ExtResource("3_2w51u")
 
 [node name="TheBaseHP" type="VBoxContainer" parent="Container" unique_id=271213171]
+visible = false
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0

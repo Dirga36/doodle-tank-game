@@ -7,7 +7,7 @@
 [node name="GameWonWindow" unique_id=862385343 instance=ExtResource("1_lpba5")]
 custom_minimum_size = Vector2(432, 240)
 script = ExtResource("2_rvsdo")
-ending_scene_path = null
+ending_scene_path = ""
 update_content = true
 text = "You won!"
 close_button_text = "Continue"
