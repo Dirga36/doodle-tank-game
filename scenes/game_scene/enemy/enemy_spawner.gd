@@ -1,16 +1,21 @@
 extends Node
 
 @export var enemy_scene: PackedScene = preload("res://scenes/game_scene/enemy/enemy.tscn")
+@export var spawn_count: int = 10
+@onready var enemy_spawn_location: Marker2D = $"../Marker2D"
 
-func _on_enemy_timer_timeout() -> void:
-	# Create a new instance of the enemy scene.
-	var enemy = enemy_scene.instantiate()
+func _ready() -> void:
+	if enemy_scene == null:
+		push_warning("EnemySpawner: enemy_scene is not assigned.")
+		return
 
-	# Choose a random location on Path2D.
-	var enemy_spawn_location = $"../Node/EnemyPath/EnemySpawnLocation"
-	enemy_spawn_location.progress_ratio = randf()
+	if enemy_spawn_location == null:
+		push_warning("EnemySpawner: spawn Marker2D was not found.")
+		return
 
-	# Set the enemy position to the random location.
-	enemy.position = enemy_spawn_location.position
-	
-	add_child(enemy)
+	for i in range(spawn_count):
+		var enemy = enemy_scene.instantiate()
+		get_parent().add_child.call_deferred(enemy)
+		if enemy is Node2D:
+			enemy.global_position = enemy_spawn_location.global_position
+		print("Spawned enemy #" + str(i + 1))

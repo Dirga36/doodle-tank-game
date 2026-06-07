@@ -13,5 +13,4 @@ func take_damage(amount):
 		die()
 
 func die():
-	collision_shape.set_deferred("disabled", true) 
 	queue_free()

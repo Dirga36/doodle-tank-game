@@ -3,6 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://doqtphk66a6re" path="res://scenes/windows/game_won_window.tscn" id="1_ho4up"]
 
 [node name="Win" type="CanvasLayer" unique_id=992870361]
+layer = 5
 
 [node name="GameWonWindow" parent="." unique_id=862385343 instance=ExtResource("1_ho4up")]
+process_mode = 3
+pauses_game = true
 ui_cancel_closes = false

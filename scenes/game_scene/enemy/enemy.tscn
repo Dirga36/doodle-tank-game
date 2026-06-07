@@ -8,8 +8,9 @@ size = Vector2(16, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_grsbq"]
 size = Vector2(32, 32)
 
-[node name="Enemy" type="CharacterBody2D" unique_id=994043892]
+[node name="Enemy" type="CharacterBody2D" unique_id=994043892 groups=["enemies"]]
 script = ExtResource("1_2mvqj")
+speed = 500.0
 
 [node name="Polygon2D" type="Polygon2D" parent="." unique_id=1838910600]
 color = Color(0.27450982, 0.28235295, 0.28627452, 1)

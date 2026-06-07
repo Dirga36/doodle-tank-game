@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://b2illx8d5k2pm"]
 
-[ext_resource type="PackedScene" uid="uid://dalkjhvhxdug4" path="res://scenes/windows/level_lost_window.tscn" id="1_awufw"]
+[ext_resource type="PackedScene" uid="uid://dalkjhvhxdug4" path="res://scenes/windows/game_lost_window.tscn" id="1_awufw"]
 
 [node name="Lose" type="CanvasLayer" unique_id=998602748]
+layer = 5
 
 [node name="LevelLostWindow" parent="." unique_id=493104306 instance=ExtResource("1_awufw")]
+process_mode = 3
+pauses_game = true
 ui_cancel_closes = false
