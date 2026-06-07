@@ -17,7 +17,7 @@ sources/3 = SubResource("TileSetAtlasSource_w6s3v")
 sources/4 = SubResource("TileSetAtlasSource_2utpk")
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_w6s3v"]
-a = Vector2(6.1035156e-05, 1152)
+a = Vector2(0, 640)
 b = Vector2(0, 0)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_2utpk"]

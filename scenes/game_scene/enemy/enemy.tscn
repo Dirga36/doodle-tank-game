@@ -2,8 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/game_scene/enemy/enemy.gd" id="1_2mvqj"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7xaro"]
-size = Vector2(16, 16)
+[sub_resource type="CircleShape2D" id="CircleShape2D_grsbq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_grsbq"]
 size = Vector2(32, 32)
@@ -17,7 +16,7 @@ color = Color(0.27450982, 0.28235295, 0.28627452, 1)
 polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2127871398]
-shape = SubResource("RectangleShape2D_7xaro")
+shape = SubResource("CircleShape2D_grsbq")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=742422248]
 
