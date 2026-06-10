@@ -19,7 +19,7 @@
 [sub_resource type="Resource" id="Resource_j3kkf"]
 script = ExtResource("16_j3kkf")
 scene = ExtResource("17_w8g0j")
-speed = 500.0
+speed = 100.0
 max_health = 30
 damage = 10
 
@@ -59,13 +59,29 @@ script = ExtResource("14_7w0uj")
 position = Vector2(8, 8)
 script = ExtResource("15_wmgo8")
 enemy_scene = SubResource("Resource_j3kkf")
-enemy_amount_per_spawner = 8
+enemy_amount_per_spawner = 1000
+use_random_time = true
 
 [node name="SpawnerB" type="Marker2D" parent="GameWorld/SpawnerContainer" unique_id=1879213640]
 position = Vector2(3448, 1912)
 script = ExtResource("15_wmgo8")
 enemy_scene = SubResource("Resource_j3kkf")
-enemy_amount_per_spawner = 8
+enemy_amount_per_spawner = 1000
+use_random_time = true
+
+[node name="SpawnerC" type="Marker2D" parent="GameWorld/SpawnerContainer" unique_id=2128653522]
+position = Vector2(3448, 8)
+script = ExtResource("15_wmgo8")
+enemy_scene = SubResource("Resource_j3kkf")
+enemy_amount_per_spawner = 1000
+use_random_time = true
+
+[node name="SpawnerD" type="Marker2D" parent="GameWorld/SpawnerContainer" unique_id=1694210492]
+position = Vector2(8, 1912)
+script = ExtResource("15_wmgo8")
+enemy_scene = SubResource("Resource_j3kkf")
+enemy_amount_per_spawner = 1000
+use_random_time = true
 
 [node name="ViewportContainer" type="SubViewportContainer" parent="." unique_id=1831513653]
 layout_mode = 1
