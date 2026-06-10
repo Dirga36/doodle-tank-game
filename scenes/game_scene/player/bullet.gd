@@ -12,7 +12,7 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 
 
 func _on_body_entered(body):
-	# Check if the is the enemy
-	if body.name == "Enemy":
+	# Check if the body is the enemy's body
+	if body.is_in_group("enemies"):
 		body.take_damage(damage)
 		queue_free() # Destroy the bullet on impact
