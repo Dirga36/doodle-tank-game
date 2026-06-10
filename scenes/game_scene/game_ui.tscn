@@ -11,6 +11,17 @@
 [ext_resource type="Script" uid="uid://78sobnfigylr" path="res://scenes/game_scene/main_objective/main_objective.gd" id="12_bmy5n"]
 [ext_resource type="Script" uid="uid://d3rla8bg7wxl7" path="res://scenes/game_scene/game_timer.gd" id="12_gpor5"]
 [ext_resource type="Script" uid="uid://bmlwpkrav3q56" path="res://addons/maaacks_game_template/extras/scripts/win_lose_manager.gd" id="13_wnl2j"]
+[ext_resource type="Script" uid="uid://bjl146x7iekrx" path="res://addons/spawner/scripts/spawner_container.gd" id="14_7w0uj"]
+[ext_resource type="Script" uid="uid://c4v7hf5xwc8ey" path="res://addons/spawner/scripts/single_spawner.gd" id="15_wmgo8"]
+[ext_resource type="Script" uid="uid://tvxru0odebvt" path="res://addons/spawner/cuztomizable_packed_scenes/cuztomizable_packed_scene.gd" id="16_j3kkf"]
+[ext_resource type="PackedScene" uid="uid://2g4agkd2jsfg" path="res://scenes/game_scene/enemy/enemy.tscn" id="17_w8g0j"]
+
+[sub_resource type="Resource" id="Resource_j3kkf"]
+script = ExtResource("16_j3kkf")
+scene = ExtResource("17_w8g0j")
+speed = 500.0
+max_health = 30
+damage = 10
 
 [node name="GameUI" type="Control" unique_id=1609552811]
 layout_mode = 3
@@ -40,6 +51,21 @@ position = Vector2(1120, 952)
 
 [node name="Camera2D" type="Camera2D" parent="GameWorld/Player" unique_id=386916899]
 script = ExtResource("6_vbgr5")
+
+[node name="SpawnerContainer" type="Node2D" parent="GameWorld" unique_id=1114459023]
+script = ExtResource("14_7w0uj")
+
+[node name="SpawnerA" type="Marker2D" parent="GameWorld/SpawnerContainer" unique_id=1711364024]
+position = Vector2(8, 8)
+script = ExtResource("15_wmgo8")
+enemy_scene = SubResource("Resource_j3kkf")
+enemy_amount_per_spawner = 8
+
+[node name="SpawnerB" type="Marker2D" parent="GameWorld/SpawnerContainer" unique_id=1879213640]
+position = Vector2(3448, 1912)
+script = ExtResource("15_wmgo8")
+enemy_scene = SubResource("Resource_j3kkf")
+enemy_amount_per_spawner = 8
 
 [node name="ViewportContainer" type="SubViewportContainer" parent="." unique_id=1831513653]
 layout_mode = 1
