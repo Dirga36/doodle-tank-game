@@ -14,6 +14,7 @@ config/name="Doodle Tank"
 config/description="Top down shooter game, but you drive a tank.
 
 Survive 20 minutes from a horde of enemies, destroy them before they destroy you."
+config/version="1.0.0"
 run/main_scene="res://scenes/opening/opening.tscn"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="uid://4q335xxs2p"
