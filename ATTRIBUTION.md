@@ -7,10 +7,24 @@
 ## Sourced
 
 ### Sprites
-#### Pixel Health bar
+#### Pixel health bar
 Author: [BDragon1727](https://bdragon1727.itch.io)  
 Source: [https://bdragon1727.itch.io/basic-pixel-health-bar-and-scroll-bar](https://bdragon1727.itch.io/basic-pixel-health-bar-and-scroll-bar)  
 License: Free to use on non-commercial games
+
+### SFX
+#### Player shoot sound
+Powerful Cannon Shot
+Author: [Universfield](https://pixabay.com/users/universfield-28281460/)  
+Source: [https://pixabay.com/sound-effects/film-special-effects-powerful-cannon-shot-352459/](https://pixabay.com/sound-effects/film-special-effects-powerful-cannon-shot-352459/)  
+License: Free for use under the Pixabay [Content License](https://pixabay.com/service/license-summary/)
+
+### BGM
+#### Main Menu Music
+happy plucked strings sound effect - no copyright
+Author: [PoorArtistt](https://pixabay.com/users/poorartistt-45918667/)  
+Source: [https://pixabay.com/sound-effects/musical-happy-plucked-strings-sound-effect-no-copyright-338981/](https://pixabay.com/sound-effects/musical-happy-plucked-strings-sound-effect-no-copyright-338981/)  
+License: Free for use under the Pixabay [Content License](https://pixabay.com/service/license-summary/)
 
 #### Godot Engine Logo
 Author: Andrea Calabró  

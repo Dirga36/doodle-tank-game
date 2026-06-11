@@ -3,6 +3,8 @@ extends Node2D
 @export var Bullet: PackedScene = preload("res://scenes/game_scene/player/bullet.tscn")
 @export var fire_cooldown: float = 0.5
 @onready var Muzzle: Marker2D = $Muzzle
+@onready var turret_sprite: AnimatedSprite2D = $TurretSprite
+@onready var shoot_sound: AudioStreamPlayer2D = $ShootSound
 
 var _cooldown_timer: float = 0.0
 
@@ -35,5 +37,6 @@ func _shoot() -> void:
 	bullet.global_transform = Muzzle.global_transform
 	var spawn_parent := get_tree().root
 	spawn_parent.add_child(bullet)
-	$AnimatedSprite2D.play("shoot")
+	turret_sprite.play("shoot")
+	shoot_sound.play()
 	_cooldown_timer = fire_cooldown

@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://dbrfarya6an21"]
 
 [ext_resource type="Script" uid="uid://bqsrgiwr1uxop" path="res://scenes/game_scene/player/turret.gd" id="2_tjdg3"]
-[ext_resource type="Texture2D" uid="uid://dgkfbmp315qvm" path="res://assets/images/turret.png" id="3_nidy3"]
+[ext_resource type="Texture2D" uid="uid://dgkfbmp315qvm" path="res://assets/images/Player/turret.png" id="3_nidy3"]
+[ext_resource type="AudioStream" uid="uid://dcyyvgb43cmuy" path="res://assets/sounds/sfx/universfield-powerful-cannon-shot-352459.mp3" id="3_y7b7t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3phw2"]
 atlas = ExtResource("3_nidy3")
@@ -53,7 +54,7 @@ radius = 25.298222
 monitorable = false
 script = ExtResource("2_tjdg3")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1526957025]
+[node name="TurretSprite" type="AnimatedSprite2D" parent="." unique_id=1526957025]
 position = Vector2(88, 0)
 sprite_frames = SubResource("SpriteFrames_s27pb")
 animation = &"shoot"
@@ -63,5 +64,11 @@ position = Vector2(128, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=941721556]
 shape = SubResource("CircleShape2D_3oylf")
+
+[node name="ShootSound" type="AudioStreamPlayer2D" parent="." unique_id=750937564]
+stream = ExtResource("3_y7b7t")
+volume_db = 3.0
+pitch_scale = 5.0
+autoplay = true
 
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
