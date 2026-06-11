@@ -1,13 +1,14 @@
 [gd_scene format=3 uid="uid://ifixnv5s74dh"]
 
-[ext_resource type="Script" path="res://scenes/windows/pause_menu_layer.gd" id="1_i1w7n"]
-[ext_resource type="PackedScene" path="res://addons/maaacks_game_template/base/nodes/windows/overlaid_window.tscn" id="2_1r40g"]
-[ext_resource type="Script" path="res://scenes/windows/pause_menu.gd" id="3_okuwl"]
-[ext_resource type="PackedScene" path="res://scenes/windows/pause_menu_options_window.tscn" id="4_mh1be"]
-[ext_resource type="PackedScene" path="res://addons/maaacks_game_template/base/nodes/windows/confirmation_overlaid_window.tscn" id="5_bgbk1"]
+[ext_resource type="Script" uid="uid://bkwe6rn6ehcbg" path="res://scenes/windows/pause_menu_layer.gd" id="1_i1w7n"]
+[ext_resource type="PackedScene" uid="uid://6gdbfi0172ji" path="res://addons/maaacks_game_template/base/nodes/windows/overlaid_window.tscn" id="2_1r40g"]
+[ext_resource type="Script" uid="uid://s0vm6lubxnos" path="res://scenes/windows/pause_menu.gd" id="3_okuwl"]
+[ext_resource type="PackedScene" uid="uid://qbn1q4saoj30" path="res://scenes/windows/pause_menu_options_window.tscn" id="4_mh1be"]
+[ext_resource type="PackedScene" uid="uid://cwt4p3bufkke5" path="res://addons/maaacks_game_template/base/nodes/windows/confirmation_overlaid_window.tscn" id="5_bgbk1"]
 
 [node name="PauseMenuLayer" type="CanvasLayer" unique_id=914002369]
 process_mode = 3
+layer = 5
 script = ExtResource("1_i1w7n")
 
 [node name="PauseMenu" parent="." unique_id=6629802 instance=ExtResource("2_1r40g")]

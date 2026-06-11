@@ -1,17 +1,10 @@
 # Attribution
 ## Collaborators
 
-### Role
-Person 1  
-Person 2  
-[Person w/ Link]()  
+### Created by 
+[Dirge](https://github.com/Dirga36)  
 
 ## Sourced
-### Asset Type
-#### Use Case
-Author: [Name]()  
-Source: [Domain : webpage.html]()  
-License: [License]()
 
 ### Sprites
 #### Pixel Health bar
@@ -35,7 +28,13 @@ License: [MIT License](https://github.com/godotengine/godot/blob/master/LICENSE.
 ![Maaack Plugin Icon](/assets/plugin_logo/logo.png)  
 Author: [Marek Belski and contributors](https://github.com/Maaack/Godot-Game-Template/graphs/contributors)  
 Source: [github: Godot-Game-Template](https://github.com/Maaack/Godot-Game-Template)  
-License: [MIT License](LICENSE.txt)  
+License: [MIT License](/addons/maaacks_game_template/LICENSE.txt)  
+
+#### Spawner
+![Spawner Plugin Icon](addons/spawner/icons/SpawnerContainerIcon.svg)  
+Author: [ArtinTheCoder](https://github.com/ArtinTheCoder)  
+Source: [github: Spawner-Godot-Plugin](https://github.com/ArtinTheCoder/Spawner-Godot-Plugin)  
+License: [MIT License](/addons/spawner/LICENSE)  
 
 #### Git
 ![Git Logo](/assets/git_logo/Git-Logo-2Color.png)  
