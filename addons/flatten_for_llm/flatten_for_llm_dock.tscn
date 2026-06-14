@@ -1,0 +1,116 @@
+[gd_scene format=3 uid="uid://dtp0s4k7f8q2b"]
+
+[ext_resource type="Script" uid="uid://db3lyjbqe8j43" path="res://addons/flatten_for_llm/flatten_for_llm_dock.gd" id="1_fdd1"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_uuqde"]
+
+[node name="Flatten" type="PanelContainer" unique_id=2104270915]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fdd1")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1520559011]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer" unique_id=614919143]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/MarginContainer" unique_id=843084800]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="OutputLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=55362562]
+layout_mode = 2
+text = "Output Directory:"
+
+[node name="OutputContainer" type="HBoxContainer" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=1732127992]
+layout_mode = 2
+
+[node name="OutputPathEdit" type="LineEdit" parent="ScrollContainer/MarginContainer/VBoxContainer/OutputContainer" unique_id=1592454874]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "res://"
+
+[node name="BrowseButton" type="Button" parent="ScrollContainer/MarginContainer/VBoxContainer/OutputContainer" unique_id=1430634583]
+layout_mode = 2
+text = "Browse"
+
+[node name="FoldersLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=1249783343]
+layout_mode = 2
+text = "Folders (comma separated):"
+
+[node name="FilterModeContainer" type="HBoxContainer" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=1445090560]
+layout_mode = 2
+
+[node name="RadioExclude" type="CheckBox" parent="ScrollContainer/MarginContainer/VBoxContainer/FilterModeContainer" unique_id=1703296661]
+layout_mode = 2
+button_pressed = true
+button_group = SubResource("ButtonGroup_uuqde")
+text = "Exclude"
+
+[node name="RadioInclude" type="CheckBox" parent="ScrollContainer/MarginContainer/VBoxContainer/FilterModeContainer" unique_id=615093951]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_uuqde")
+text = "Include Only"
+
+[node name="FoldersContainer" type="HBoxContainer" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=233640350]
+layout_mode = 2
+
+[node name="FoldersEdit" type="LineEdit" parent="ScrollContainer/MarginContainer/VBoxContainer/FoldersContainer" unique_id=1532218935]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "addons, .godot"
+
+[node name="TypesLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=2027813971]
+layout_mode = 2
+text = "File Types to Export:"
+
+[node name="TogglesContainer" type="GridContainer" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=449878110]
+layout_mode = 2
+columns = 2
+
+[node name="CheckGD" type="CheckBox" parent="ScrollContainer/MarginContainer/VBoxContainer/TogglesContainer" unique_id=84625795]
+layout_mode = 2
+button_pressed = true
+text = ".gd"
+
+[node name="CheckTSCN" type="CheckBox" parent="ScrollContainer/MarginContainer/VBoxContainer/TogglesContainer" unique_id=557686246]
+layout_mode = 2
+text = ".tscn"
+
+[node name="CheckTRES" type="CheckBox" parent="ScrollContainer/MarginContainer/VBoxContainer/TogglesContainer" unique_id=1772268042]
+layout_mode = 2
+text = ".tres"
+
+[node name="CheckGDShader" type="CheckBox" parent="ScrollContainer/MarginContainer/VBoxContainer/TogglesContainer" unique_id=805017364]
+layout_mode = 2
+text = ".gdshader"
+
+[node name="GenerateButton" type="Button" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=1245089343]
+layout_mode = 2
+text = "Generate Markdown Context"
+
+[node name="StatusLabel" type="Label" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=1537294447]
+layout_mode = 2
+text = "Status: Ready."
+
+[node name="OpenFolderButton" type="Button" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=577335248]
+layout_mode = 2
+text = "Open Containing Folder"
+
+[node name="FileDialog" type="FileDialog" parent="." unique_id=663024208]
+title = "Open a Directory"
+size = Vector2i(600, 450)
+ok_button_text = "Select Current Folder"
+file_mode = 2
+access = 2
