@@ -1,12 +1,30 @@
 [gd_scene format=3 uid="uid://cc8djsxlofw2t"]
 
+[ext_resource type="Script" uid="uid://c3y15x7a1h3cf" path="res://scenes/game_scene/the_base/the_weapon.gd" id="1_kq5en"]
+[ext_resource type="PackedScene" uid="uid://b5y1eohfoecdx" path="res://scenes/game_scene/allied_projectile/bullet.tscn" id="2_rqrva"]
+[ext_resource type="Script" uid="uid://tvxru0odebvt" path="res://addons/spawner/cuztomizable_packed_scenes/cuztomizable_packed_scene.gd" id="3_f3x4c"]
+
+[sub_resource type="Resource" id="Resource_jmh0m"]
+script = ExtResource("3_f3x4c")
+scene = ExtResource("2_rqrva")
+speed = 500.0
+damage = 30
+metadata/_custom_type_script = "uid://tvxru0odebvt"
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_f3bdl"]
 radius = 16.0
 
 [node name="TheWeapon" type="Area2D" unique_id=1633694544]
+script = ExtResource("1_kq5en")
+Bullet = SubResource("Resource_jmh0m")
+fire_cooldown = 0.7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=992043781]
 shape = SubResource("CircleShape2D_f3bdl")
 
-[node name="Marker2D" type="Marker2D" parent="." unique_id=2046560728]
-position = Vector2(16, 0)
+[node name="Muzzle" type="Marker2D" parent="." unique_id=2046560728]
+position = Vector2(40, 0)
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1095805717]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-8, -16, -16, -8, -16, 8, -8, 16, 8, 16, 16, 8, 32, 8, 32, -8, 16, -8, 8, -16)

@@ -21,6 +21,7 @@ script = ExtResource("16_j3kkf")
 scene = ExtResource("17_w8g0j")
 speed = 100.0
 max_health = 30
+health = 30
 damage = 10
 
 [node name="GameUI" type="Control" unique_id=1609552811]
@@ -51,6 +52,9 @@ position = Vector2(1120, 952)
 
 [node name="Camera2D" type="Camera2D" parent="GameWorld/Player" unique_id=386916899]
 script = ExtResource("6_vbgr5")
+zoom_speed = 1.0
+min_zoom = 0.5
+max_zoom = 2.0
 
 [node name="SpawnerContainer" type="Node2D" parent="GameWorld" unique_id=1114459023]
 script = ExtResource("14_7w0uj")

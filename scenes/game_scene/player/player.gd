@@ -1,12 +1,12 @@
 extends CharacterBody2D
 signal player_die
 
-@export var speed: float = 500.0
-@export var rotation_speed: float = 2.0
-@export var backward_multiplier: float = 0.6
+@export var speed: float
+@export var rotation_speed: float
+@export var backward_multiplier: float
 
-@export var max_health: int = 40
-var health: int = max_health
+@export var max_health: int
+@export var health: int
 
 
 func _ready():
@@ -31,10 +31,8 @@ func _physics_process(delta: float) -> void:
 
 func take_damage(amount: int) -> void:
 	health -= amount
-	print("player: -", amount)
 	if health <= 0:
 		die()
 
 func die():
 	player_die.emit()
-	print("Player died")

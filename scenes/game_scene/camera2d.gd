@@ -1,8 +1,8 @@
 extends Camera2D
 
-@export var zoom_speed: float = 0.1
-@export var min_zoom: float = 0.5
-@export var max_zoom: float = 2.0
+@export var zoom_speed: float
+@export var min_zoom: float
+@export var max_zoom: float
 
 var target_zoom: Vector2 = Vector2(1.0, 1.0)
 

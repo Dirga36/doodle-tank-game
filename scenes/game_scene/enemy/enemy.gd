@@ -1,16 +1,16 @@
 extends CharacterBody2D
 
-@export var speed: float = 100.0
-@export var max_health = 30
-var health = max_health
-@export var damage = 10
+@export var speed: float
+@export var max_health: int
+@export var health: int
+@export var damage: int
 
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 @onready var player: CharacterBody2D = Global.player_node
 @onready var attack_cooldown: Timer = $"AttackCooldown"
 
 var can_attack: bool = true
-var player_in_range: bool = false
+var target_in_range: bool = false
 
 func _physics_process(_delta):
 	if player:
@@ -23,12 +23,11 @@ func _physics_process(_delta):
 
 func take_damage(amount):
 	health -= amount
-	print("enemy: -", amount)
 	if health <= 0:
 		die()
 
 func die():
-	# Disable collisions so dead enemies don't block the player
+	# Disable collisions so dead enemies don't block
 	collision_shape.set_deferred("disabled", true) 
 	queue_free()
 
@@ -40,15 +39,15 @@ func _do_attack(target) -> void:
 	attack_cooldown.start()
 
 func _on_hitbox_body_entered(body) -> void:
-	if body.name == "Player":
-		player_in_range = true
+	if body.is_in_group("ally"):
+		target_in_range = true
 		_do_attack(body)
 
 func _on_hitbox_body_exited(body) -> void:
-	if body.name == "Player":
-		player_in_range = false
+	if body.is_in_group("ally"):
+		target_in_range = false
 
 func _on_attack_cooldown_timeout() -> void:
 	can_attack = true
-	if player_in_range and player:
+	if target_in_range and player:
 		_do_attack(player)

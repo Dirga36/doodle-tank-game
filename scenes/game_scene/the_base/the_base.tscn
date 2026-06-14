@@ -1,20 +1,22 @@
 [gd_scene format=3 uid="uid://dr70s2c1220ii"]
 
-[ext_resource type="Script" path="res://scenes/game_scene/the_base/the_base.gd" id="1_hlwjb"]
+[ext_resource type="Script" uid="uid://pn6vhoy611bn" path="res://scenes/game_scene/the_base/the_base.gd" id="1_hlwjb"]
 [ext_resource type="Texture2D" uid="uid://dcjrp4oma7lg5" path="res://assets/images/The Base/the_base.png" id="1_wocao"]
 [ext_resource type="PackedScene" uid="uid://cc8djsxlofw2t" path="res://scenes/game_scene/the_base/the_weapon.tscn" id="2_y2fgl"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_y2fgl"]
-size = Vector2(48, 48)
+[sub_resource type="CircleShape2D" id="CircleShape2D_hlwjb"]
+radius = 24.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wocao"]
 size = Vector2(64, 64)
 
-[node name="TheBase" type="StaticBody2D" unique_id=908871103]
+[node name="TheBase" type="StaticBody2D" unique_id=908871103 groups=["ally"]]
 script = ExtResource("1_hlwjb")
+max_health = 1
+health = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2025243663]
-shape = SubResource("RectangleShape2D_y2fgl")
+shape = SubResource("CircleShape2D_hlwjb")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1736108302]
 texture = ExtResource("1_wocao")

@@ -11,8 +11,13 @@ height = 120.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kyjql"]
 size = Vector2(64, 120)
 
-[node name="Player" type="CharacterBody2D" unique_id=1079493297]
+[node name="Player" type="CharacterBody2D" unique_id=1079493297 groups=["ally"]]
 script = ExtResource("1_i3pqv")
+speed = 500.0
+rotation_speed = 2.0
+backward_multiplier = 0.6
+max_health = 40
+health = 40
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2116445566]
