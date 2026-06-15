@@ -69,8 +69,8 @@ func game_won() -> void:
 	has_won_game = true
 	_load_win_screen_or_ending()
 
-func _on_player_player_die() -> void:
-	game_lost()
-
 func _on_main_objective_game_win() -> void:
 	game_won()
+
+func _on_the_base_base_destroyed() -> void:
+	game_lost()

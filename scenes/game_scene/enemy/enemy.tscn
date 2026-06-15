@@ -89,7 +89,6 @@ animations = [{
 
 [node name="Enemy" type="CharacterBody2D" unique_id=994043892 groups=["enemy"]]
 scale = Vector2(2, 2)
-slide_on_ceiling = false
 script = ExtResource("1_2mvqj")
 speed = 100.0
 max_health = 30
@@ -104,7 +103,6 @@ polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 shape = SubResource("CircleShape2D_grsbq")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=742422248]
-monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1246828933]
 shape = SubResource("RectangleShape2D_grsbq")
@@ -113,8 +111,12 @@ debug_color = Color(0, 0.6403249, 0.35628343, 0.41960785)
 [node name="AttackCooldown" type="Timer" parent="." unique_id=986968014]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1901009654]
+position = Vector2(4.7683716e-07, 4.7683716e-07)
+scale = Vector2(1.28, 1.28)
 sprite_frames = SubResource("SpriteFrames_kgdfs")
 animation = &"death"
+frame = 9
+frame_progress = 1.0
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="body_exited" from="Hitbox" to="." method="_on_hitbox_body_exited"]

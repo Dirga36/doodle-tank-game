@@ -51,14 +51,19 @@ script = ExtResource("3_2w51u")
 [node name="HP" type="VBoxContainer" parent="Container" unique_id=271213171]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.33333334
+anchor_left = 0.3342014
 anchor_top = 0.8765432
-anchor_right = 0.7152778
-anchor_bottom = 0.98919755
+anchor_right = 0.6119792
+anchor_bottom = 0.9768519
 grow_horizontal = 2
 grow_vertical = 0
 alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Container/HP" unique_id=53132235]
+layout_mode = 2
+text = "FV4005"
+vertical_alignment = 1
 
 [node name="HealthBar" type="TextureRect" parent="Container/HP" unique_id=1121665366]
 layout_mode = 2

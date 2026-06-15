@@ -3,12 +3,84 @@
 [ext_resource type="Script" uid="uid://pn6vhoy611bn" path="res://scenes/game_scene/the_base/the_base.gd" id="1_hlwjb"]
 [ext_resource type="Texture2D" uid="uid://dcjrp4oma7lg5" path="res://assets/images/The Base/the_base.png" id="1_wocao"]
 [ext_resource type="PackedScene" uid="uid://cc8djsxlofw2t" path="res://scenes/game_scene/the_base/the_weapon.tscn" id="2_y2fgl"]
+[ext_resource type="Texture2D" uid="uid://teeyqav7qxuh" path="res://assets/images/Particles/cross-explosion.png" id="4_37tka"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hlwjb"]
 radius = 24.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wocao"]
 size = Vector2(64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85c68"]
+atlas = ExtResource("4_37tka")
+region = Rect2(900, 600, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_amr2x"]
+atlas = ExtResource("4_37tka")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uj8la"]
+atlas = ExtResource("4_37tka")
+region = Rect2(0, 100, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d5b7m"]
+atlas = ExtResource("4_37tka")
+region = Rect2(0, 200, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jooyc"]
+atlas = ExtResource("4_37tka")
+region = Rect2(0, 300, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fgtxv"]
+atlas = ExtResource("4_37tka")
+region = Rect2(0, 400, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cowk2"]
+atlas = ExtResource("4_37tka")
+region = Rect2(0, 500, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ilu3g"]
+atlas = ExtResource("4_37tka")
+region = Rect2(0, 600, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q231b"]
+atlas = ExtResource("4_37tka")
+region = Rect2(800, 600, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r8w6p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85c68")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_amr2x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uj8la")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d5b7m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jooyc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fgtxv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cowk2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ilu3g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q231b")
+}],
+"loop": false,
+"name": &"destroyed",
+"speed": 15.0
+}]
 
 [node name="TheBase" type="StaticBody2D" unique_id=908871103 groups=["ally"]]
 script = ExtResource("1_hlwjb")
@@ -28,3 +100,9 @@ shape = SubResource("RectangleShape2D_wocao")
 debug_color = Color(0, 0.64142996, 0.3393981, 0.41960785)
 
 [node name="TheWeapon" parent="." unique_id=1633694544 instance=ExtResource("2_y2fgl")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1513021350]
+position = Vector2(-4.7683716e-07, -4.7683716e-07)
+scale = Vector2(1.28, 1.28)
+sprite_frames = SubResource("SpriteFrames_r8w6p")
+animation = &"destroyed"
