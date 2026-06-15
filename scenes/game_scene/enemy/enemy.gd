@@ -8,6 +8,8 @@ extends CharacterBody2D
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 @onready var player: CharacterBody2D = Global.player_node
 @onready var attack_cooldown: Timer = $"AttackCooldown"
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var polygon_2d: Polygon2D = $Polygon2D
 
 var can_attack: bool = true
 var target_in_range: bool = false
@@ -27,8 +29,16 @@ func take_damage(amount):
 		die()
 
 func die():
-	# Disable collisions so dead enemies don't block
-	collision_shape.set_deferred("disabled", true) 
+	# 1. Disable collisions to stop further interactions
+	polygon_2d.hide()
+	collision_shape.set_deferred("disabled", true)
+	speed = 0
+	
+	# 2. Play the death animation
+	animated_sprite_2d.play("death")
+	
+	# 3. Wait for the animation to finish before deleting the node
+	await animated_sprite_2d.animation_finished
 	queue_free()
 
 func _do_attack(target) -> void:

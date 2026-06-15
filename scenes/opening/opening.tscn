@@ -16,4 +16,3 @@ theme_override_constants/margin_bottom = 64
 [node name="TextureRect" type="TextureRect" parent="ImagesContainer" index="0" unique_id=788964712]
 layout_mode = 2
 texture = ExtResource("3_yhkvs")
-flip_v = true
