@@ -7,6 +7,9 @@ signal base_destroyed
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
+func _ready():
+	Global.the_base_node = self
+
 func take_damage(amount):
 	health -= amount
 	if health <= 0:

@@ -21,7 +21,7 @@ radius = 288.4441
 monitoring = false
 script = ExtResource("1_kq5en")
 Bullet = SubResource("Resource_rqrva")
-fire_cooldown = 0.7
+fire_cooldown = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=992043781]
 shape = SubResource("CircleShape2D_f3bdl")

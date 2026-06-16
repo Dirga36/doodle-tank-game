@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://f085gjxj2736"]
 
 [ext_resource type="Texture2D" uid="uid://bhe4ohsoelejp" path="res://assets/images/HUD/Healthbar/40.png" id="1_fbr1r"]
-[ext_resource type="Script" path="res://scenes/game_scene/hud/health_bar.gd" id="2_10q6n"]
+[ext_resource type="Script" uid="uid://8xn3g3lctfc2" path="res://scenes/game_scene/hud/health_bar.gd" id="2_10q6n"]
 [ext_resource type="Script" uid="uid://3cn0rdckmqhs" path="res://scenes/game_scene/hud/time_played.gd" id="3_2w51u"]
 
 [sub_resource type="GDScript" id="GDScript_10q6n"]
@@ -62,7 +62,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="Container/HP" unique_id=53132235]
 layout_mode = 2
-text = "FV4005"
+text = "Health"
 vertical_alignment = 1
 
 [node name="HealthBar" type="TextureRect" parent="Container/HP" unique_id=1121665366]

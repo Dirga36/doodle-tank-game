@@ -6,7 +6,7 @@ extends CharacterBody2D
 @export var damage: int
 
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
-@onready var player: CharacterBody2D = Global.player_node
+@onready var the_base = Global.the_base_node
 @onready var attack_cooldown: Timer = $"AttackCooldown"
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var polygon_2d: Polygon2D = $Polygon2D
@@ -15,13 +15,12 @@ var can_attack: bool = true
 var target_in_range: bool = false
 
 func _physics_process(_delta):
-	if player:
-		# Calculate direction from enemy to player
-		var direction: Vector2 = global_position.direction_to(player.global_position)
+	# Calculate direction from enemy to the_base
+	var direction: Vector2 = global_position.direction_to(the_base.global_position)
 		
-		# Set velocity and move
-		velocity = direction * speed
-		move_and_slide()
+	# Set velocity and move
+	velocity = direction * speed
+	move_and_slide()
 
 func take_damage(amount):
 	health -= amount
@@ -59,5 +58,5 @@ func _on_hitbox_body_exited(body) -> void:
 
 func _on_attack_cooldown_timeout() -> void:
 	can_attack = true
-	if target_in_range and player:
-		_do_attack(player)
+	if target_in_range and the_base:
+		_do_attack(the_base)
