@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dmdg70utj4tcl"]
 
-[ext_resource type="PackedScene" path="res://addons/maaacks_game_template/base/nodes/windows/overlaid_window.tscn" id="1_b2dkv"]
+[ext_resource type="PackedScene" uid="uid://6gdbfi0172ji" path="res://addons/maaacks_game_template/base/nodes/windows/overlaid_window.tscn" id="1_b2dkv"]
 
 [node name="OverlaidWindow" unique_id=1876550858 instance=ExtResource("1_b2dkv")]
 custom_minimum_size = Vector2(420, 200)
@@ -15,5 +15,6 @@ theme_override_font_sizes/font_size = 20
 text = "Tutorial"
 
 [node name="DescriptionLabel" parent="ContentContainer/BoxContainer/BodyMargin" parent_id_path=PackedInt32Array(590613964) index="0" unique_id=617407155]
-text = "Click the Win button to progress.
-Click the Lose button to try again."
+text = "To win, you have to survive within 20 minutes.
+
+But there are enemies that will kill you, so kill them before them will do."

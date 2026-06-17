@@ -1,14 +1,15 @@
 [gd_scene format=3 uid="uid://f085gjxj2736"]
 
 [ext_resource type="Texture2D" uid="uid://bhe4ohsoelejp" path="res://assets/images/HUD/Healthbar/40.png" id="1_fbr1r"]
+[ext_resource type="Script" uid="uid://xnwjif14jvxq" path="res://scenes/game_scene/hud/hud.gd" id="1_q2dkn"]
 [ext_resource type="Script" uid="uid://d14jmagbfrsrs" path="res://scenes/game_scene/hud/health_bar.gd" id="2_10q6n"]
 [ext_resource type="Script" uid="uid://c3cec40wfjgad" path="res://scenes/game_scene/hud/time_played.gd" id="3_2w51u"]
-[ext_resource type="Script" uid="uid://c6e70jp80rw3t" path="res://scenes/game_scene/tutorial_manager.gd" id="5_dl1nx"]
 
 [sub_resource type="Theme" id="Theme_10q6n"]
 
 [node name="HUD" type="CanvasLayer" unique_id=746464302]
 layer = 2
+script = ExtResource("1_q2dkn")
 
 [node name="Container" type="Control" parent="." unique_id=1676627280]
 layout_mode = 3
@@ -84,7 +85,4 @@ grow_horizontal = 0
 size_flags_horizontal = 8
 text = "Tutorial"
 
-[node name="tutorial_manager" type="Node" parent="." unique_id=1362361483]
-script = ExtResource("5_dl1nx")
-
-[connection signal="pressed" from="Container/TutorialButton" to="tutorial_manager" method="_on_tutorial_button_pressed"]
+[connection signal="pressed" from="Container/TutorialButton" to="." method="_on_tutorial_button_pressed"]
