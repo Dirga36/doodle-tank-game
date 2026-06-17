@@ -4,26 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://ifixnv5s74dh" path="res://scenes/windows/pause_menu_layer.tscn" id="2_7aihr"]
 [ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_game_template/base/nodes/music_players/background_music_player.tscn" id="3_3re04"]
 [ext_resource type="PackedScene" uid="uid://f085gjxj2736" path="res://scenes/game_scene/hud/hud.tscn" id="5_bqcs8"]
-[ext_resource type="PackedScene" uid="uid://bsrn5vy51dj3u" path="res://scenes/game_scene/player/player.tscn" id="5_vbgr5"]
-[ext_resource type="PackedScene" uid="uid://dr70s2c1220ii" path="res://scenes/game_scene/the_base/the_base.tscn" id="5_wr4n6"]
-[ext_resource type="Script" uid="uid://dn30auvoqi3q6" path="res://scenes/game_scene/camera2d.gd" id="6_vbgr5"]
-[ext_resource type="PackedScene" uid="uid://c8kn6pu4yoms1" path="res://scenes/game_scene/map/world_root.tscn" id="8_onvsj"]
+[ext_resource type="PackedScene" uid="uid://cv1335inruxil" path="res://scenes/game_scene/game_world/game_world.tscn" id="7_ul61k"]
 [ext_resource type="Script" uid="uid://denl76p2uaiy3" path="res://scenes/game_scene/configurable_sub_viewport.gd" id="11_ulq3g"]
-[ext_resource type="Script" uid="uid://78sobnfigylr" path="res://scenes/game_scene/main_objective/main_objective.gd" id="12_bmy5n"]
 [ext_resource type="Script" uid="uid://d3rla8bg7wxl7" path="res://scenes/game_scene/game_timer.gd" id="12_gpor5"]
-[ext_resource type="Script" uid="uid://bmlwpkrav3q56" path="res://addons/maaacks_game_template/extras/scripts/win_lose_manager.gd" id="13_wnl2j"]
-[ext_resource type="Script" uid="uid://bjl146x7iekrx" path="res://addons/spawner/scripts/spawner_container.gd" id="14_7w0uj"]
-[ext_resource type="Script" uid="uid://c4v7hf5xwc8ey" path="res://addons/spawner/scripts/single_spawner.gd" id="15_wmgo8"]
-[ext_resource type="Script" uid="uid://tvxru0odebvt" path="res://addons/spawner/cuztomizable_packed_scenes/cuztomizable_packed_scene.gd" id="16_j3kkf"]
-[ext_resource type="PackedScene" uid="uid://2g4agkd2jsfg" path="res://scenes/game_scene/enemy/enemy.tscn" id="17_w8g0j"]
-
-[sub_resource type="Resource" id="Resource_j3kkf"]
-script = ExtResource("16_j3kkf")
-scene = ExtResource("17_w8g0j")
-speed = 100.0
-max_health = 30
-health = 30
-damage = 10
 
 [node name="GameUI" type="Control" unique_id=1609552811]
 layout_mode = 3
@@ -39,57 +22,6 @@ pause_menu_packed = ExtResource("2_7aihr")
 focused_viewport = NodePath("../ViewportContainer/ConfigurableSubViewport")
 
 [node name="BackgroundMusicPlayer" parent="." unique_id=986713811 instance=ExtResource("3_3re04")]
-
-[node name="GameWorld" type="Node" parent="." unique_id=1474210972]
-
-[node name="WorldRoot" parent="GameWorld" unique_id=392409886 instance=ExtResource("8_onvsj")]
-scale = Vector2(3, 3)
-
-[node name="TheBase" parent="GameWorld/WorldRoot" unique_id=908871103 instance=ExtResource("5_wr4n6")]
-position = Vector2(581.3333, 317.33334)
-
-[node name="HUD" parent="GameWorld" unique_id=746464302 instance=ExtResource("5_bqcs8")]
-
-[node name="Player" parent="GameWorld" unique_id=1079493297 instance=ExtResource("5_vbgr5")]
-z_index = 1
-position = Vector2(1120, 952)
-
-[node name="Camera2D" type="Camera2D" parent="GameWorld/Player" unique_id=386916899]
-script = ExtResource("6_vbgr5")
-zoom_speed = 1.0
-min_zoom = 0.5
-max_zoom = 2.0
-
-[node name="SpawnerContainer" type="Node2D" parent="GameWorld" unique_id=1114459023]
-script = ExtResource("14_7w0uj")
-
-[node name="SpawnerA" type="Marker2D" parent="GameWorld/SpawnerContainer" unique_id=1711364024]
-position = Vector2(8, 8)
-script = ExtResource("15_wmgo8")
-enemy_scene = SubResource("Resource_j3kkf")
-enemy_amount_per_spawner = 9999999
-use_random_time = true
-
-[node name="SpawnerB" type="Marker2D" parent="GameWorld/SpawnerContainer" unique_id=1879213640]
-position = Vector2(3448, 1912)
-script = ExtResource("15_wmgo8")
-enemy_scene = SubResource("Resource_j3kkf")
-enemy_amount_per_spawner = 9999999
-use_random_time = true
-
-[node name="SpawnerC" type="Marker2D" parent="GameWorld/SpawnerContainer" unique_id=2128653522]
-position = Vector2(3448, 8)
-script = ExtResource("15_wmgo8")
-enemy_scene = SubResource("Resource_j3kkf")
-enemy_amount_per_spawner = 9999999
-use_random_time = true
-
-[node name="SpawnerD" type="Marker2D" parent="GameWorld/SpawnerContainer" unique_id=1694210492]
-position = Vector2(8, 1912)
-script = ExtResource("15_wmgo8")
-enemy_scene = SubResource("Resource_j3kkf")
-enemy_amount_per_spawner = 9999999
-use_random_time = true
 
 [node name="ViewportContainer" type="SubViewportContainer" parent="." unique_id=1831513653]
 layout_mode = 1
@@ -113,11 +45,6 @@ script = ExtResource("11_ulq3g")
 [node name="GameTimer" type="Node" parent="." unique_id=116840261]
 script = ExtResource("12_gpor5")
 
-[node name="WinLoseManager" type="Node" parent="." unique_id=1108283022]
-script = ExtResource("13_wnl2j")
+[node name="HUD" parent="." unique_id=746464302 instance=ExtResource("5_bqcs8")]
 
-[node name="MainObjective" type="Node" parent="." unique_id=561971914]
-script = ExtResource("12_bmy5n")
-
-[connection signal="player_die" from="GameWorld/Player" to="WinLoseManager" method="_on_player_player_die"]
-[connection signal="game_win" from="MainObjective" to="WinLoseManager" method="_on_main_objective_game_win"]
+[node name="GameWorld" parent="." unique_id=2011389920 instance=ExtResource("7_ul61k")]

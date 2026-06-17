@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://cv1335inruxil"]
+
+[ext_resource type="PackedScene" uid="uid://c8kn6pu4yoms1" path="res://scenes/game_scene/game_world/map/map.tscn" id="1_iywvg"]
+[ext_resource type="PackedScene" uid="uid://dr70s2c1220ii" path="res://scenes/game_scene/game_world/entities/the_base/the_base.tscn" id="2_rlcbl"]
+[ext_resource type="PackedScene" uid="uid://bsrn5vy51dj3u" path="res://scenes/game_scene/game_world/entities/player/player.tscn" id="4_v7vyc"]
+[ext_resource type="PackedScene" uid="uid://2g4agkd2jsfg" path="res://scenes/game_scene/game_world/entities/enemy/enemy.tscn" id="6_rlcbl"]
+[ext_resource type="Script" uid="uid://bjl146x7iekrx" path="res://addons/spawner/scripts/spawner_container.gd" id="6_uloni"]
+[ext_resource type="Script" uid="uid://c4v7hf5xwc8ey" path="res://addons/spawner/scripts/single_spawner.gd" id="7_7mc3r"]
+[ext_resource type="Script" uid="uid://tvxru0odebvt" path="res://addons/spawner/cuztomizable_packed_scenes/cuztomizable_packed_scene.gd" id="8_fki67"]
+[ext_resource type="Script" uid="uid://bmlwpkrav3q56" path="res://addons/maaacks_game_template/extras/scripts/win_lose_manager.gd" id="9_r33om"]
+[ext_resource type="Script" uid="uid://c1tuh5f3ddoi6" path="res://scenes/game_scene/game_world/main_objective.gd" id="10_v7vyc"]
+
+[sub_resource type="Resource" id="Resource_j3kkf"]
+script = ExtResource("8_fki67")
+scene = ExtResource("6_rlcbl")
+speed = 120.0
+max_health = 30
+health = 30
+damage = 10
+
+[node name="GameWorld" type="Node" unique_id=2011389920]
+
+[node name="Map" parent="." unique_id=392409886 instance=ExtResource("1_iywvg")]
+
+[node name="TheBase" parent="Map" unique_id=908871103 instance=ExtResource("2_rlcbl")]
+position = Vector2(581.3333, 317.33334)
+
+[node name="Player" parent="Map" unique_id=1079493297 instance=ExtResource("4_v7vyc")]
+z_index = 1
+position = Vector2(373.33334, 317.33334)
+scale = Vector2(0.33333334, 0.33333334)
+speed = 1000.0
+rotation_speed = 1.97
+
+[node name="SpawnerContainer" type="Node2D" parent="Map" unique_id=1194091660]
+scale = Vector2(0.33333334, 0.33333334)
+script = ExtResource("6_uloni")
+
+[node name="SpawnerA" type="Marker2D" parent="Map/SpawnerContainer" unique_id=1442036558]
+position = Vector2(8, 8)
+script = ExtResource("7_7mc3r")
+enemy_scene = SubResource("Resource_j3kkf")
+enemy_amount_per_spawner = 9999999
+use_random_time = true
+
+[node name="SpawnerB" type="Marker2D" parent="Map/SpawnerContainer" unique_id=879139704]
+position = Vector2(3448, 1912)
+script = ExtResource("7_7mc3r")
+enemy_scene = SubResource("Resource_j3kkf")
+enemy_amount_per_spawner = 9999999
+use_random_time = true
+
+[node name="SpawnerC" type="Marker2D" parent="Map/SpawnerContainer" unique_id=540753299]
+position = Vector2(3448, 8)
+script = ExtResource("7_7mc3r")
+enemy_scene = SubResource("Resource_j3kkf")
+enemy_amount_per_spawner = 9999999
+use_random_time = true
+
+[node name="SpawnerD" type="Marker2D" parent="Map/SpawnerContainer" unique_id=1085725863]
+position = Vector2(8, 1912)
+script = ExtResource("7_7mc3r")
+enemy_scene = SubResource("Resource_j3kkf")
+enemy_amount_per_spawner = 9999999
+use_random_time = true
+
+[node name="WinLoseManager" type="Node" parent="." unique_id=1379990250]
+script = ExtResource("9_r33om")
+
+[node name="MainObjective" type="Node" parent="." unique_id=2027438895]
+script = ExtResource("10_v7vyc")
+
+[connection signal="player_die" from="Map/Player" to="WinLoseManager" method="_on_player_player_die"]
+[connection signal="game_win" from="MainObjective" to="WinLoseManager" method="_on_main_objective_game_win"]

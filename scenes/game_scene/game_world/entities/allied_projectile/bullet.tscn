@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://b5y1eohfoecdx"]
 
-[ext_resource type="Script" uid="uid://dqffgjth37weh" path="res://scenes/game_scene/allied_projectile/bullet.gd" id="1_v7oki"]
+[ext_resource type="Script" uid="uid://bhf0v712yqe12" path="res://scenes/game_scene/game_world/entities/allied_projectile/bullet.gd" id="1_i52mj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rtl8c"]
 size = Vector2(32, 16)
 
 [node name="Bullet" type="Area2D" unique_id=1262913351]
 z_index = 1
-script = ExtResource("1_v7oki")
+script = ExtResource("1_i52mj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1018043175]
 shape = SubResource("RectangleShape2D_rtl8c")

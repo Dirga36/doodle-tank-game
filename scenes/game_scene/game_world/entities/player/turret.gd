@@ -2,6 +2,7 @@ extends Node2D
 
 @export var Bullet: CustomizablePackedScene
 @export var fire_cooldown: float
+
 @onready var Muzzle: Marker2D = $Muzzle
 @onready var turret_sprite: AnimatedSprite2D = $TurretSprite
 @onready var shoot_sound: AudioStreamPlayer2D = $ShootSound

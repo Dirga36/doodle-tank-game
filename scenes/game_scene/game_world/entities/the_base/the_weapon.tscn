@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://cc8djsxlofw2t"]
 
-[ext_resource type="Script" uid="uid://c3y15x7a1h3cf" path="res://scenes/game_scene/the_base/the_weapon.gd" id="1_kq5en"]
-[ext_resource type="PackedScene" uid="uid://b5y1eohfoecdx" path="res://scenes/game_scene/allied_projectile/bullet.tscn" id="2_rqrva"]
+[ext_resource type="Script" uid="uid://cc8h3o7kwh3rf" path="res://scenes/game_scene/game_world/entities/the_base/the_weapon.gd" id="1_v0dj1"]
+[ext_resource type="PackedScene" uid="uid://b5y1eohfoecdx" path="res://scenes/game_scene/game_world/entities/allied_projectile/bullet.tscn" id="2_rqrva"]
 [ext_resource type="Script" uid="uid://tvxru0odebvt" path="res://addons/spawner/cuztomizable_packed_scenes/cuztomizable_packed_scene.gd" id="3_f3x4c"]
 
-[sub_resource type="Resource" id="Resource_rqrva"]
+[sub_resource type="Resource" id="Resource_61ipg"]
 script = ExtResource("3_f3x4c")
 scene = ExtResource("2_rqrva")
 speed = 500.0
@@ -19,8 +19,8 @@ radius = 288.4441
 
 [node name="TheWeapon" type="Area2D" unique_id=1633694544]
 monitoring = false
-script = ExtResource("1_kq5en")
-Bullet = SubResource("Resource_rqrva")
+script = ExtResource("1_v0dj1")
+Bullet = SubResource("Resource_61ipg")
 fire_cooldown = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=992043781]
@@ -37,6 +37,3 @@ position = Vector2(40, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Radar" unique_id=286434241]
 shape = SubResource("CircleShape2D_kq5en")
-
-[node name="Cooldown" type="Timer" parent="." unique_id=1415248194]
-wait_time = 0.5

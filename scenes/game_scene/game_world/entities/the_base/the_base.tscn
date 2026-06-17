@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dr70s2c1220ii"]
 
-[ext_resource type="Script" uid="uid://pn6vhoy611bn" path="res://scenes/game_scene/the_base/the_base.gd" id="1_hlwjb"]
+[ext_resource type="Script" uid="uid://o1t6xpltp2ra" path="res://scenes/game_scene/game_world/entities/the_base/the_base.gd" id="1_hlwjb"]
 [ext_resource type="Texture2D" uid="uid://dcjrp4oma7lg5" path="res://assets/images/The Base/the_base.png" id="1_wocao"]
-[ext_resource type="PackedScene" uid="uid://cc8djsxlofw2t" path="res://scenes/game_scene/the_base/the_weapon.tscn" id="2_y2fgl"]
+[ext_resource type="PackedScene" uid="uid://cc8djsxlofw2t" path="res://scenes/game_scene/game_world/entities/the_base/the_weapon.tscn" id="2_y2fgl"]
 [ext_resource type="Texture2D" uid="uid://teeyqav7qxuh" path="res://assets/images/Particles/cross-explosion.png" id="4_37tka"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hlwjb"]
@@ -99,10 +99,10 @@ texture = ExtResource("1_wocao")
 shape = SubResource("RectangleShape2D_wocao")
 debug_color = Color(0, 0.64142996, 0.3393981, 0.41960785)
 
-[node name="TheWeapon" parent="." unique_id=1633694544 instance=ExtResource("2_y2fgl")]
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1513021350]
 position = Vector2(-4.7683716e-07, -4.7683716e-07)
 scale = Vector2(1.28, 1.28)
 sprite_frames = SubResource("SpriteFrames_r8w6p")
 animation = &"destroyed"
+
+[node name="TheWeapon" parent="." unique_id=1633694544 instance=ExtResource("2_y2fgl")]

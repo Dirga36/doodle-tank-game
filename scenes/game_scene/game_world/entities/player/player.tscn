@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://bsrn5vy51dj3u"]
 
-[ext_resource type="Script" uid="uid://d288m3yprbxp" path="res://scenes/game_scene/player/player.gd" id="1_i3pqv"]
+[ext_resource type="Script" uid="uid://cra00srfw61di" path="res://scenes/game_scene/game_world/entities/player/player.gd" id="1_i3pqv"]
 [ext_resource type="Texture2D" uid="uid://l2gj5x2ucxma" path="res://assets/images/Player/player.png" id="2_kyjql"]
-[ext_resource type="PackedScene" uid="uid://dbrfarya6an21" path="res://scenes/game_scene/player/turret.tscn" id="2_onrkg"]
+[ext_resource type="PackedScene" uid="uid://dbrfarya6an21" path="res://scenes/game_scene/game_world/entities/player/turret.tscn" id="2_onrkg"]
+[ext_resource type="Script" uid="uid://3xe7dfgpqpyx" path="res://scenes/game_scene/game_world/entities/player/camera2d.gd" id="4_0tyhp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7k1jl"]
 radius = 32.0
@@ -26,6 +27,12 @@ shape = SubResource("CapsuleShape2D_7k1jl")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1095696541]
 texture = ExtResource("2_kyjql")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=20965225]
+script = ExtResource("4_0tyhp")
+zoom_speed = 1.0
+min_zoom = 0.5
+max_zoom = 2.5
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1208316025]
 

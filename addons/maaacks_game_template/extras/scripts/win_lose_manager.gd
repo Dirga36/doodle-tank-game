@@ -7,9 +7,9 @@ extends Node
 ## Will attempt to read from AppConfig if left empty.
 @export_file("*.tscn") var ending_scene_path : String
 ## Optional screen to be shown after the game is won.
-@export var game_won_scene : PackedScene = preload("res://scenes/game_scene/endings/win.tscn")
+@export var game_won_scene : PackedScene = preload("res://scenes/game_scene/game_world/endings/win.tscn")
 ## Optional screen to be shown after the game is lost.
-@export var game_lost_scene : PackedScene = preload("res://scenes/game_scene/endings/lose.tscn")
+@export var game_lost_scene : PackedScene = preload("res://scenes/game_scene/game_world/endings/lose.tscn")
 
 var has_lost_game : bool = false
 var has_won_game : bool = false

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://lto5hy1b86uq"]
 
-[ext_resource type="Script" uid="uid://ciywae2431ywh" path="res://scenes/game_scene/allied_projectile/bullet_particle.gd" id="1_m1m86"]
+[ext_resource type="Script" uid="uid://cheqvs116bqal" path="res://scenes/game_scene/game_world/entities/allied_projectile/bullet_particle.gd" id="1_k600t"]
 
 [sub_resource type="Curve" id="Curve_wkupy"]
 _data = [Vector2(0, 0.846154), 0.0, 1.4, 0, 0, Vector2(0.604938, 0.571428), -2.52979, -2.52979, 0, 0, Vector2(1, 0.153846), 0.0, 0.0, 0, 0]
@@ -21,7 +21,7 @@ scale_max = 15.0
 scale_curve = SubResource("CurveTexture_yc0y3")
 
 [node name="BulletParticle" type="Node2D" unique_id=1160872311]
-script = ExtResource("1_m1m86")
+script = ExtResource("1_k600t")
 
 [node name="BulletEffect" type="GPUParticles2D" parent="." unique_id=1121323393]
 position = Vector2(-8, 0)

@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://dbrfarya6an21"]
 
-[ext_resource type="PackedScene" uid="uid://b5y1eohfoecdx" path="res://scenes/game_scene/allied_projectile/bullet.tscn" id="2_8myq8"]
-[ext_resource type="Script" uid="uid://bqsrgiwr1uxop" path="res://scenes/game_scene/player/turret.gd" id="2_tjdg3"]
-[ext_resource type="Script" uid="uid://tvxru0odebvt" path="res://addons/spawner/cuztomizable_packed_scenes/cuztomizable_packed_scene.gd" id="3_hwok1"]
+[ext_resource type="Script" uid="uid://joy1ix2d72tl" path="res://scenes/game_scene/game_world/entities/player/turret.gd" id="1_8gvr0"]
+[ext_resource type="PackedScene" uid="uid://b5y1eohfoecdx" path="res://scenes/game_scene/game_world/entities/allied_projectile/bullet.tscn" id="2_cm4gf"]
+[ext_resource type="Script" uid="uid://tvxru0odebvt" path="res://addons/spawner/cuztomizable_packed_scenes/cuztomizable_packed_scene.gd" id="3_dtqqc"]
 [ext_resource type="Texture2D" uid="uid://dgkfbmp315qvm" path="res://assets/images/Player/turret.png" id="3_nidy3"]
 [ext_resource type="AudioStream" uid="uid://dcyyvgb43cmuy" path="res://assets/sounds/sfx/universfield-powerful-cannon-shot-352459.mp3" id="3_y7b7t"]
 
-[sub_resource type="Resource" id="Resource_nd6f1"]
-script = ExtResource("3_hwok1")
-scene = ExtResource("2_8myq8")
+[sub_resource type="Resource" id="Resource_yfu1f"]
+script = ExtResource("3_dtqqc")
+scene = ExtResource("2_cm4gf")
 speed = 700.0
 damage = 10
 metadata/_custom_type_script = "uid://tvxru0odebvt"
@@ -61,8 +61,8 @@ radius = 25.298222
 
 [node name="Turret" type="Area2D" unique_id=1934434579]
 monitorable = false
-script = ExtResource("2_tjdg3")
-Bullet = SubResource("Resource_nd6f1")
+script = ExtResource("1_8gvr0")
+Bullet = SubResource("Resource_yfu1f")
 fire_cooldown = 0.5
 
 [node name="TurretSprite" type="AnimatedSprite2D" parent="." unique_id=1526957025]
@@ -81,5 +81,3 @@ stream = ExtResource("3_y7b7t")
 volume_db = 3.0
 pitch_scale = 5.0
 autoplay = true
-
-[connection signal="body_exited" from="." to="." method="_on_body_exited"]
