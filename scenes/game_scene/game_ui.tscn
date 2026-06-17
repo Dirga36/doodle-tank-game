@@ -119,5 +119,5 @@ script = ExtResource("13_wnl2j")
 [node name="MainObjective" type="Node" parent="." unique_id=561971914]
 script = ExtResource("12_bmy5n")
 
-[connection signal="base_destroyed" from="GameWorld/WorldRoot/TheBase" to="WinLoseManager" method="_on_the_base_base_destroyed"]
+[connection signal="player_die" from="GameWorld/Player" to="WinLoseManager" method="_on_player_player_die"]
 [connection signal="game_win" from="MainObjective" to="WinLoseManager" method="_on_main_objective_game_win"]

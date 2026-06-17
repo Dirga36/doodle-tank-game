@@ -72,5 +72,5 @@ func game_won() -> void:
 func _on_main_objective_game_win() -> void:
 	game_won()
 
-func _on_the_base_base_destroyed() -> void:
+func _on_player_player_die() -> void:
 	game_lost()
