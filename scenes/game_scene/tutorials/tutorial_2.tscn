@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://6gdbfi0172ji" path="res://addons/maaacks_game_template/base/nodes/windows/overlaid_window.tscn" id="1_sjjon"]
 
 [node name="OverlaidWindow" unique_id=902196267 instance=ExtResource("1_sjjon")]
+z_index = 5
 custom_minimum_size = Vector2(420, 200)
 update_content = true
 text = "Progress is saved.
@@ -15,13 +16,8 @@ theme_override_font_sizes/font_size = 20
 text = "Tutorial"
 
 [node name="DescriptionLabel" parent="ContentContainer/BoxContainer/BodyMargin" parent_id_path=PackedInt32Array(590613964) index="0" unique_id=617407155]
-text = "Control
-
-W = move forward
-S = move backward
-A = turn left
-D = turn right
-Right Click = shoot"
+text = "Progress is saved.
+Pressing Continue from the main menu will load at the last checkpoint."
 
 [node name="TextureRect" type="TextureRect" parent="ContentContainer/BoxContainer/BodyMargin" parent_id_path=PackedInt32Array(590613964) index="1" unique_id=1083982242]
 layout_mode = 2

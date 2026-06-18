@@ -16,11 +16,9 @@ func _ready() -> void:
 	_update_timer.start()
 
 func _resolve_game_timer() -> Node:
-	return get_node_or_null("../../../../../../GameTimer")
+	return get_node_or_null("../../../../../GameTimer")
 
 func _update_label() -> void:
-	if _game_timer == null:
-		_game_timer = _resolve_game_timer()
 	if _game_timer == null:
 		text = "00:00"
 		return

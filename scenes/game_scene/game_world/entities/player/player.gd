@@ -35,4 +35,5 @@ func take_damage(amount: int) -> void:
 		die()
 
 func die():
+	await get_tree().create_timer(0.1).timeout
 	player_die.emit()

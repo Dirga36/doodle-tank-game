@@ -28,6 +28,3 @@ func _ready() -> void:
 		if auto_open_delay > 0.0:
 			await get_tree().create_timer(auto_open_delay, false).timeout
 		open_tutorials.call_deferred()
-
-func _on_tutorial_button_pressed() -> void:
-	open_tutorials()
