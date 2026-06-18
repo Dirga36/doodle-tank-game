@@ -33,6 +33,8 @@ grow_vertical = 2
 stretch = true
 mouse_target = true
 
+[node name="HUD" parent="ViewportContainer" unique_id=746464302 instance=ExtResource("5_bqcs8")]
+
 [node name="ConfigurableSubViewport" type="SubViewport" parent="ViewportContainer" unique_id=204786699]
 handle_input_locally = false
 canvas_item_default_texture_filter = 0
@@ -44,7 +46,5 @@ script = ExtResource("11_ulq3g")
 
 [node name="GameTimer" type="Node" parent="." unique_id=116840261]
 script = ExtResource("12_gpor5")
-
-[node name="HUD" parent="." unique_id=746464302 instance=ExtResource("5_bqcs8")]
 
 [node name="GameWorld" parent="." unique_id=2011389920 instance=ExtResource("7_ul61k")]

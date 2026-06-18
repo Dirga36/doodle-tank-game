@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://hydunl0sl1tu"
-path="res://.godot/imported/Kenney Pixel.ttf-94b237fe404f119a13daa8c7ca3b4edf.fontdata"
+uid="uid://c8fg24pb18rpi"
+path="res://.godot/imported/Kenney Mini.ttf-e8df4ea89ab8048f8fd81834f47c2f8d.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/Custom Fonts/Kenney Pixel/Kenney Pixel.ttf"
-dest_files=["res://.godot/imported/Kenney Pixel.ttf-94b237fe404f119a13daa8c7ca3b4edf.fontdata"]
+source_file="res://assets/fonts/Custom Fonts/kenney_kenney-fonts/Fonts/Kenney Mini.ttf"
+dest_files=["res://.godot/imported/Kenney Mini.ttf-e8df4ea89ab8048f8fd81834f47c2f8d.fontdata"]
 
 [params]
 
