@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://o1t6xpltp2ra" path="res://scenes/game_scene/game_world/entities/the_base/the_base.gd" id="1_hlwjb"]
 [ext_resource type="Texture2D" uid="uid://dcjrp4oma7lg5" path="res://assets/images/The Base/the_base.png" id="1_wocao"]
 [ext_resource type="PackedScene" uid="uid://cc8djsxlofw2t" path="res://scenes/game_scene/game_world/entities/the_base/the_weapon.tscn" id="2_y2fgl"]
-[ext_resource type="Texture2D" uid="uid://teeyqav7qxuh" path="res://assets/images/Particles/cross-explosion.png" id="4_37tka"]
+[ext_resource type="Texture2D" uid="uid://lsqcj1s7s346" path="res://assets/images/Particles/wills_pixel_explosions_sample/X_plosion/spritesheet/spritesheet.png" id="3_0fnji"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hlwjb"]
 radius = 24.0
@@ -11,71 +11,71 @@ radius = 24.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wocao"]
 size = Vector2(64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_85c68"]
-atlas = ExtResource("4_37tka")
+[sub_resource type="AtlasTexture" id="AtlasTexture_wd8gh"]
+atlas = ExtResource("3_0fnji")
 region = Rect2(900, 600, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_amr2x"]
-atlas = ExtResource("4_37tka")
+[sub_resource type="AtlasTexture" id="AtlasTexture_q3mtv"]
+atlas = ExtResource("3_0fnji")
 region = Rect2(0, 0, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_uj8la"]
-atlas = ExtResource("4_37tka")
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7ec0"]
+atlas = ExtResource("3_0fnji")
 region = Rect2(0, 100, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_d5b7m"]
-atlas = ExtResource("4_37tka")
+[sub_resource type="AtlasTexture" id="AtlasTexture_hlds2"]
+atlas = ExtResource("3_0fnji")
 region = Rect2(0, 200, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jooyc"]
-atlas = ExtResource("4_37tka")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ivcp5"]
+atlas = ExtResource("3_0fnji")
 region = Rect2(0, 300, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fgtxv"]
-atlas = ExtResource("4_37tka")
+[sub_resource type="AtlasTexture" id="AtlasTexture_qr0gf"]
+atlas = ExtResource("3_0fnji")
 region = Rect2(0, 400, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cowk2"]
-atlas = ExtResource("4_37tka")
+[sub_resource type="AtlasTexture" id="AtlasTexture_0j2c1"]
+atlas = ExtResource("3_0fnji")
 region = Rect2(0, 500, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ilu3g"]
-atlas = ExtResource("4_37tka")
+[sub_resource type="AtlasTexture" id="AtlasTexture_hm8d6"]
+atlas = ExtResource("3_0fnji")
 region = Rect2(0, 600, 100, 100)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_q231b"]
-atlas = ExtResource("4_37tka")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ea31s"]
+atlas = ExtResource("3_0fnji")
 region = Rect2(800, 600, 100, 100)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_r8w6p"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_85c68")
+"texture": SubResource("AtlasTexture_wd8gh")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_amr2x")
+"texture": SubResource("AtlasTexture_q3mtv")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_uj8la")
+"texture": SubResource("AtlasTexture_i7ec0")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_d5b7m")
+"texture": SubResource("AtlasTexture_hlds2")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jooyc")
+"texture": SubResource("AtlasTexture_ivcp5")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fgtxv")
+"texture": SubResource("AtlasTexture_qr0gf")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_cowk2")
+"texture": SubResource("AtlasTexture_0j2c1")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ilu3g")
+"texture": SubResource("AtlasTexture_hm8d6")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_q231b")
+"texture": SubResource("AtlasTexture_ea31s")
 }],
 "loop": false,
 "name": &"destroyed",
@@ -101,8 +101,10 @@ debug_color = Color(0, 0.64142996, 0.3393981, 0.41960785)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1513021350]
 position = Vector2(-4.7683716e-07, -4.7683716e-07)
-scale = Vector2(1.28, 1.28)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_r8w6p")
 animation = &"destroyed"
+frame = 8
+frame_progress = 1.0
 
 [node name="TheWeapon" parent="." unique_id=1633694544 instance=ExtResource("2_y2fgl")]

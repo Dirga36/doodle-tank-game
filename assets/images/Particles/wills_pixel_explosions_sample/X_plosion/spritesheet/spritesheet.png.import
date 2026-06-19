@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://teeyqav7qxuh"
-path="res://.godot/imported/cross-explosion.png-4bae36ce88b3833cbc881e5635b257a9.ctex"
+uid="uid://lsqcj1s7s346"
+path="res://.godot/imported/spritesheet.png-e0cd4d7e2310a70eca5ab5e4ecab37f5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/Particles/cross-explosion.png"
-dest_files=["res://.godot/imported/cross-explosion.png-4bae36ce88b3833cbc881e5635b257a9.ctex"]
+source_file="res://assets/images/Particles/wills_pixel_explosions_sample/X_plosion/spritesheet/spritesheet.png"
+dest_files=["res://.godot/imported/spritesheet.png-e0cd4d7e2310a70eca5ab5e4ecab37f5.ctex"]
 
 [params]
 

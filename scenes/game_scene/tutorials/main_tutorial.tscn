@@ -4,11 +4,17 @@
 
 [node name="OverlaidWindow" unique_id=343706911 instance=ExtResource("1_8nrr8")]
 process_mode = 3
-offset_left = -192.0
-offset_top = -111.0
-offset_right = 192.0
-offset_bottom = 111.0
+anchors_preset = -1
+anchor_left = 0.33333334
+anchor_top = 0.3287037
+anchor_right = 0.6666667
+anchor_bottom = 0.6712963
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
 pauses_game = true
+metadata/_edit_use_anchors_ = true
 
 [node name="TitleLabel" parent="ContentContainer/BoxContainer/TitleMargin/BoxContainer" parent_id_path=PackedInt32Array(1788474031) index="0" unique_id=1049966061]
 text = "Tutorial"
@@ -16,4 +22,4 @@ text = "Tutorial"
 [node name="DescriptionLabel" parent="ContentContainer/BoxContainer/BodyMargin" parent_id_path=PackedInt32Array(590613964) index="0" unique_id=617407155]
 text = "To win, you have to survive within 20 minutes.
 
-But there are enemies that will kill you, so kill them before them will do."
+But there are enemies that will kill you, so kill them before they do."
