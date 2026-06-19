@@ -13,43 +13,43 @@ speed = 700.0
 damage = 10
 metadata/_custom_type_script = "uid://tvxru0odebvt"
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3phw2"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_cm4gf"]
 atlas = ExtResource("3_nidy3")
-region = Rect2(0, 0, 256, 48)
+region = Rect2(0, 0, 256, 47)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nidy3"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_dtqqc"]
 atlas = ExtResource("3_nidy3")
-region = Rect2(0, 48, 256, 48)
+region = Rect2(0, 47, 256, 47)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_y7b7t"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_yfu1f"]
 atlas = ExtResource("3_nidy3")
-region = Rect2(0, 96, 256, 48)
+region = Rect2(0, 94, 256, 47)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8myq8"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_c3lmy"]
 atlas = ExtResource("3_nidy3")
-region = Rect2(0, 144, 256, 48)
+region = Rect2(0, 141, 256, 47)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hwok1"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_8a6ik"]
 atlas = ExtResource("3_nidy3")
-region = Rect2(0, 192, 256, 48)
+region = Rect2(0, 188, 256, 47)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_s27pb"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3phw2")
+"texture": SubResource("AtlasTexture_cm4gf")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_nidy3")
+"texture": SubResource("AtlasTexture_dtqqc")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_y7b7t")
+"texture": SubResource("AtlasTexture_yfu1f")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8myq8")
+"texture": SubResource("AtlasTexture_c3lmy")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hwok1")
+"texture": SubResource("AtlasTexture_8a6ik")
 }],
 "loop": false,
 "name": &"shoot",
@@ -69,6 +69,8 @@ fire_cooldown = 0.5
 position = Vector2(88, 0)
 sprite_frames = SubResource("SpriteFrames_s27pb")
 animation = &"shoot"
+frame = 4
+frame_progress = 1.0
 
 [node name="Muzzle" type="Marker2D" parent="." unique_id=171710973]
 position = Vector2(128, 0)
