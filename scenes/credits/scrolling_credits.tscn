@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://oegq6p6wdgty"]
 
-[ext_resource type="Script" path="res://scenes/credits/scrolling_credits.gd" id="1_hgjqm"]
-[ext_resource type="PackedScene" path="res://scenes/credits/credits_label.tscn" id="2_cxj1u"]
+[ext_resource type="Script" uid="uid://b2q5wwj7iunis" path="res://scenes/credits/scrolling_credits.gd" id="1_hgjqm"]
+[ext_resource type="PackedScene" uid="uid://npqfx413mwvv" path="res://scenes/credits/credits_label.tscn" id="2_cxj1u"]
 
 [node name="ScrollingCredits" type="Control" unique_id=1162279489]
 layout_mode = 3
@@ -26,14 +26,15 @@ size_flags_horizontal = 3
 
 [node name="HeaderSpace" type="Control" parent="ScrollContainer/VBoxContainer" unique_id=1552560353]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 720)
+custom_minimum_size = Vector2(0, 648)
 layout_mode = 2
 
 [node name="CreditsLabel" parent="ScrollContainer/VBoxContainer" unique_id=1486745388 instance=ExtResource("2_cxj1u")]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(1152, 0)
 layout_mode = 2
 
 [node name="FooterSpace" type="Control" parent="ScrollContainer/VBoxContainer" unique_id=1703782196]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 720)
+custom_minimum_size = Vector2(0, 648)
 layout_mode = 2

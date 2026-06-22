@@ -39,7 +39,7 @@ layout_mode = 2
 [node name="OutputPathEdit" type="LineEdit" parent="ScrollContainer/MarginContainer/VBoxContainer/OutputContainer" unique_id=1592454874]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "res://"
+text = "res://.github/instructions/file contexts"
 
 [node name="BrowseButton" type="Button" parent="ScrollContainer/MarginContainer/VBoxContainer/OutputContainer" unique_id=1430634583]
 layout_mode = 2
@@ -86,14 +86,17 @@ text = ".gd"
 
 [node name="CheckTSCN" type="CheckBox" parent="ScrollContainer/MarginContainer/VBoxContainer/TogglesContainer" unique_id=557686246]
 layout_mode = 2
+button_pressed = true
 text = ".tscn"
 
 [node name="CheckTRES" type="CheckBox" parent="ScrollContainer/MarginContainer/VBoxContainer/TogglesContainer" unique_id=1772268042]
 layout_mode = 2
+button_pressed = true
 text = ".tres"
 
 [node name="CheckGDShader" type="CheckBox" parent="ScrollContainer/MarginContainer/VBoxContainer/TogglesContainer" unique_id=805017364]
 layout_mode = 2
+button_pressed = true
 text = ".gdshader"
 
 [node name="GenerateButton" type="Button" parent="ScrollContainer/MarginContainer/VBoxContainer" unique_id=1245089343]

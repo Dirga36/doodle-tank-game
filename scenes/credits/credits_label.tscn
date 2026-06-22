@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://npqfx413mwvv"]
 
-[ext_resource type="Script" path="res://addons/maaacks_game_template/base/nodes/labels/credits_label.gd" id="1_yhcaj"]
+[ext_resource type="Script" uid="uid://cc2wtqasev7le" path="res://addons/maaacks_game_template/base/nodes/labels/credits_label.gd" id="1_yhcaj"]
 
 [node name="CreditsLabel" type="RichTextLabel" unique_id=525943618]
 anchors_preset = 15
@@ -13,17 +13,30 @@ size_flags_vertical = 5
 bbcode_enabled = true
 text = "[font_size=48]Collaborators[/font_size]
 
-[font_size=32]Role[/font_size]
-Person 1  
-Person 2  
-[url=]Person w/ Link[/url]  
+[font_size=32]Created by [/font_size]
+[url=https://github.com/Dirga36]Dirge[/url]  
 
 [font_size=48]Sourced[/font_size]
-[font_size=32]Asset Type[/font_size]
-[font_size=24]Use Case[/font_size]
-Author: [url=]Name[/url]  
-Source: [url=]Domain : webpage.html[/url]  
-License: [url=]License[/url]
+
+[font_size=32]Sprites[/font_size]
+[font_size=24]Pixel health bar[/font_size]
+Author: [url=https://bdragon1727.itch.io]BDragon1727[/url]  
+Source: [url=https://bdragon1727.itch.io/basic-pixel-health-bar-and-scroll-bar]https://bdragon1727.itch.io/basic-pixel-health-bar-and-scroll-bar[/url]  
+License: Free to use on non-commercial games
+
+[font_size=32]SFX[/font_size]
+[font_size=24]Player shoot sound[/font_size]
+Powerful Cannon Shot
+Author: [url=https://pixabay.com/users/universfield-28281460/]Universfield[/url]  
+Source: [url=https://pixabay.com/sound-effects/film-special-effects-powerful-cannon-shot-352459/]https://pixabay.com/sound-effects/film-special-effects-powerful-cannon-shot-352459/[/url]  
+License: Free for use under the Pixabay [url=https://pixabay.com/service/license-summary/]Content License[/url]
+
+[font_size=32]BGM[/font_size]
+[font_size=24]Main Menu Music[/font_size]
+happy plucked strings sound effect - no copyright
+Author: [url=https://pixabay.com/users/poorartistt-45918667/]PoorArtistt[/url]  
+Source: [url=https://pixabay.com/sound-effects/musical-happy-plucked-strings-sound-effect-no-copyright-338981/]https://pixabay.com/sound-effects/musical-happy-plucked-strings-sound-effect-no-copyright-338981/[/url]  
+License: Free for use under the Pixabay [url=https://pixabay.com/service/license-summary/]Content License[/url]
 
 [font_size=24]Godot Engine Logo[/font_size]
 Author: Andrea Calabró  
@@ -41,7 +54,13 @@ License: [url=https://github.com/godotengine/godot/blob/master/LICENSE.txt]MIT L
 [img=80]res:///assets/plugin_logo/logo.png[/img]  
 Author: [url=https://github.com/Maaack/Godot-Game-Template/graphs/contributors]Marek Belski and contributors[/url]  
 Source: [url=https://github.com/Maaack/Godot-Game-Template]github: Godot-Game-Template[/url]  
-License: [url=LICENSE.txt]MIT License[/url]  
+License: [url=/addons/maaacks_game_template/LICENSE.txt]MIT License[/url]  
+
+[font_size=24]Spawner[/font_size]
+[img=80]res://addons/spawner/icons/SpawnerContainerIcon.svg[/img]  
+Author: [url=https://github.com/ArtinTheCoder]ArtinTheCoder[/url]  
+Source: [url=https://github.com/ArtinTheCoder/Spawner-Godot-Plugin]github: Spawner-Godot-Plugin[/url]  
+License: [url=/addons/spawner/LICENSE]MIT License[/url]  
 
 [font_size=24]Git[/font_size]
 [img=80]res:///assets/git_logo/Git-Logo-2Color.png[/img]  

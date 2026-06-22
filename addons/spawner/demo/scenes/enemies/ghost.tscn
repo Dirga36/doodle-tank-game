@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bmanbpk285aeq"]
 
-[ext_resource type="Script" uid="uid://tqqqd30jt2ca" path="res://addons/spawner/demo/scripts/enemy.gd" id="1_gefcy"]
+[ext_resource type="Script" uid="uid://cwevgnpvsf6cn" path="res://addons/spawner/demo/scripts/enemy.gd" id="1_gefcy"]
 [ext_resource type="Texture2D" uid="uid://ddr0ves24yqkb" path="res://addons/spawner/demo/assets/kenney_tiny-dungeon/Tilemap/tilemap.png" id="2_gfpxc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ftf5t"]

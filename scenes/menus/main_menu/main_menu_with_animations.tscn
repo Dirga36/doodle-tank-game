@@ -353,7 +353,6 @@ modulate = Color(1, 1, 1, 0)
 
 [node name="TitleLabel" parent="MenuContainer/TitleMargin/TitleContainer" index="0" unique_id=359406872]
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Doodle Tank"
 
 [node name="SubTitleMargin" parent="MenuContainer" index="1" unique_id=1510335937]
 z_index = 1

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dr58pmptfuq2"]
 
-[ext_resource type="Script" path="res://addons/maaacks_game_template/base/nodes/utilities/capture_focus.gd" id="1_1v5x4"]
-[ext_resource type="PackedScene" path="res://addons/maaacks_game_template/base/nodes/menus/options_menu/option_control/slider_option_control.tscn" id="2_goqr1"]
+[ext_resource type="Script" uid="uid://1nf36h0gms3q" path="res://addons/maaacks_game_template/base/nodes/utilities/capture_focus.gd" id="1_1v5x4"]
+[ext_resource type="PackedScene" uid="uid://cl416gdb1fgwr" path="res://addons/maaacks_game_template/base/nodes/menus/options_menu/option_control/slider_option_control.tscn" id="2_goqr1"]
 
 [node name="Inputs" type="MarginContainer" unique_id=998049297]
 anchors_preset = 15
@@ -44,6 +44,7 @@ text = "Mouse Sensitivity :"
 [node name="HSlider" parent="VBoxContainer/MarginContainer/VBoxContainer/MouseSensitivityControl" index="1" unique_id=424108384]
 min_value = 0.25
 max_value = 2.0
+value = 0.25
 tick_count = 8
 
 [node name="JoypadSensitivityControl" parent="VBoxContainer/MarginContainer/VBoxContainer" unique_id=256777414 instance=ExtResource("2_goqr1")]

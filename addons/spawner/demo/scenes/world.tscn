@@ -1,12 +1,12 @@
 [gd_scene format=4 uid="uid://5shwktcwgxlk"]
 
 [ext_resource type="Texture2D" uid="uid://n7uyavijrlsy" path="res://addons/spawner/demo/assets/kenney_tiny-dungeon/Tilemap/tilemap_packed.png" id="1_0ggv2"]
-[ext_resource type="Script" uid="uid://c8llrg1g5v430" path="res://addons/spawner/demo/scripts/level.gd" id="1_ggmd7"]
-[ext_resource type="Script" uid="uid://ssim1dkyyeb6" path="res://addons/spawner/scripts/wave_manager.gd" id="3_vdqq4"]
+[ext_resource type="Script" uid="uid://di8py2osyspai" path="res://addons/spawner/demo/scripts/level.gd" id="1_ggmd7"]
+[ext_resource type="Script" uid="uid://da2o6d42rof0e" path="res://addons/spawner/scripts/wave_manager.gd" id="3_vdqq4"]
 [ext_resource type="PackedScene" uid="uid://plmn76nkfm7k" path="res://addons/spawner/demo/scenes/spawner_types/single_enemy_spawner.tscn" id="3_x2l7e"]
 [ext_resource type="PackedScene" uid="uid://c6jknn8gpcs6y" path="res://addons/spawner/demo/scenes/spawner_types/multi_enemy_spawner.tscn" id="4_5chyv"]
-[ext_resource type="Script" uid="uid://553bncr723n0" path="res://addons/spawner/resources/wave_res.gd" id="4_fl2ki"]
-[ext_resource type="FontFile" uid="uid://5q2lgvb4npbf" path="res://addons/spawner/demo/assets/Minecraft.ttf" id="4_y6coj"]
+[ext_resource type="Script" uid="uid://byfjx6k0aw672" path="res://addons/spawner/resources/wave_res.gd" id="4_fl2ki"]
+[ext_resource type="FontFile" uid="uid://buxuk72dexd1o" path="res://addons/spawner/demo/assets/Minecraft.ttf" id="4_y6coj"]
 [ext_resource type="PackedScene" uid="uid://byis7a5o3hsb7" path="res://addons/spawner/demo/scenes/spawner_types/combined_enemy_spawner.tscn" id="6_glcp1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3bi2l"]
@@ -361,7 +361,6 @@ tile_set = SubResource("TileSet_3sbnv")
 script = ExtResource("3_vdqq4")
 waves = Array[ExtResource("4_fl2ki")]([SubResource("Resource_fl2ki"), SubResource("Resource_wd6xy"), SubResource("Resource_4pytf")])
 auto_start = true
-metadata/_custom_type_script = "uid://ssim1dkyyeb6"
 
 [node name="SingleEnemySpawner" parent="." unique_id=1098267430 instance=ExtResource("3_x2l7e")]
 position = Vector2(47, 130)

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://2g4agkd2jsfg"]
 
-[ext_resource type="Script" uid="uid://dw5gg0dq2w386" path="res://scenes/game_scene/game_world/entities/enemies/base_enemy.gd" id="1_l3bmd"]
+[ext_resource type="Script" uid="uid://dat2jxy07u4bb" path="res://scenes/game_scene/game_world/entities/enemies/base_enemy.gd" id="1_l3bmd"]
 [ext_resource type="Texture2D" uid="uid://etpl2a8qjngg" path="res://assets/images/Particles/wills_pixel_explosions_sample/round_explosion/spritesheet/spritesheet.png" id="2_x38dq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_grsbq"]
