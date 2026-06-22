@@ -6,7 +6,8 @@
 ```gdscript
 extends Node
 
-var player_node: CharacterBody2D
+var player_node
+var the_base_node
 
 ```
 
@@ -215,7 +216,60 @@ func _on_menu_button_pressed():
 
 #### game_scene
 
-##### allied_projectile
+**configurable_sub_viewport.gd**
+```gdscript
+extends SubViewport
+## Script to apply the anti-aliasing setting from [PlayerConfig] to a [SubViewport].
+
+## The name of the anti-aliasing variable in the [ConfigFile].
+@export var anti_aliasing_key : StringName = "Anti-aliasing"
+## The name of the section of the anti-aliasing variable in the [ConfigFile].
+@export var video_section : StringName = AppSettings.VIDEO_SECTION
+
+func _ready() -> void:
+	var anti_aliasing : int = PlayerConfig.get_config(video_section, anti_aliasing_key, Viewport.MSAA_DISABLED)
+	msaa_2d = anti_aliasing as MSAA
+	msaa_3d = anti_aliasing as MSAA
+
+```
+
+**game_timer.gd**
+```gdscript
+extends Node
+
+var play_time : int
+var total_time : int
+
+func _add_timers() -> void:
+	var play_timer := Timer.new()
+	play_timer.one_shot = false
+	play_timer.process_mode = Node.PROCESS_MODE_PAUSABLE
+	play_timer.timeout.connect(func() : play_time += 1)
+	add_child(play_timer)
+	play_timer.start(1)
+	var total_timer := Timer.new()
+	total_timer.one_shot = false
+	total_timer.process_mode = Node.PROCESS_MODE_ALWAYS
+	total_timer.timeout.connect(func() : total_time += 1)
+	add_child(total_timer)
+	total_timer.start(1)
+
+func _enter_tree() -> void:
+	_add_timers()
+
+func _exit_tree() -> void:
+	var game_state := GameState.get_or_create_state()
+	game_state.play_time += play_time
+	game_state.total_time += total_time
+	GlobalState.save()
+
+```
+
+##### game_world
+
+###### entities
+
+####### allied_projectile
 
 **bullet.gd**
 ```gdscript
@@ -224,23 +278,87 @@ extends Area2D
 @export var speed: float
 @export var damage: int
 
+@onready var bullet_particle = preload("res://scenes/game_scene/game_world/entities/allied_projectile/bullet_particle.tscn")
+
 func _physics_process(delta: float) -> void:
 	position += transform.x * speed * delta
-
-
-func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
-	queue_free()
-
 
 func _on_body_entered(body):
 	# Check if the body is the enemy's body
 	if body.is_in_group("enemy"):
 		body.take_damage(damage)
+		var bullet_effect = bullet_particle.instantiate()
+		get_tree().root.add_child(bullet_effect)
+		bullet_effect.setup(global_transform)
 		queue_free() # Destroy the bullet on impact
+
+func _on_lifespan_timeout() -> void:
+	queue_free() # Deletes the bullet when time runs out
 
 ```
 
-#### game_scene
+**bullet_particle.gd**
+```gdscript
+extends Node2D
+
+@onready var bullet_effect: GPUParticles2D = $BulletEffect
+
+func setup(trans: Transform2D):
+	bullet_effect.emitting = true
+	transform = trans
+	scale.x = -1
+
+func _on_bullet_effect_finished():
+	queue_free()
+
+```
+
+####### enemies
+
+**base_enemy.gd**
+```gdscript
+extends CharacterBody2D
+
+@export var speed: float
+@export var max_health: int
+@export var health: int
+@export var damage: int
+
+@onready var player = Global.player_node
+@onready var collision_shape: CollisionShape2D = $CollisionShape2D
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var polygon_2d: Polygon2D = $Polygon2D
+
+
+func _physics_process(_delta):
+	# Calculate direction from enemy to player
+	var direction: Vector2 = global_position.direction_to(player.global_position)
+		
+	# Set velocity and move
+	velocity = direction * speed
+	move_and_slide()
+
+func take_damage(amount):
+	health -= amount
+	if health <= 0:
+		die()
+
+func die():
+	# 1. Disable collisions to stop further interactions
+	polygon_2d.hide()
+	collision_shape.set_deferred("disabled", true)
+	speed = 0
+	
+	# 2. Play the death animation
+	animated_sprite_2d.play("death")
+	
+	# 3. Wait for the animation to finish before deleting the node
+	await animated_sprite_2d.animation_finished
+	queue_free()
+
+```
+
+####### player
 
 **camera2d.gd**
 ```gdscript
@@ -273,49 +391,113 @@ func _process(_delta: float) -> void:
 
 ```
 
-**configurable_sub_viewport.gd**
+**player.gd**
 ```gdscript
-extends SubViewport
-## Script to apply the anti-aliasing setting from [PlayerConfig] to a [SubViewport].
+extends CharacterBody2D
+signal player_die
 
-## The name of the anti-aliasing variable in the [ConfigFile].
-@export var anti_aliasing_key : StringName = "Anti-aliasing"
-## The name of the section of the anti-aliasing variable in the [ConfigFile].
-@export var video_section : StringName = AppSettings.VIDEO_SECTION
+@export var speed: float
+@export var rotation_speed: float
+@export var backward_multiplier: float
 
-func _ready() -> void:
-	var anti_aliasing : int = PlayerConfig.get_config(video_section, anti_aliasing_key, Viewport.MSAA_DISABLED)
-	msaa_2d = anti_aliasing as MSAA
-	msaa_3d = anti_aliasing as MSAA
+@export var max_health: int
+@export var health: int
+
+
+func _ready():
+	Global.player_node = self
+
+var rotation_direction: float = 0.0
+	
+func get_input() -> void:
+	rotation_direction = Input.get_axis("turn_left", "turn_right")
+	var throttle: float = Input.get_axis("move_backward", "move_forward")
+	velocity = _get_drive_velocity(throttle)
+
+func _get_drive_velocity(throttle: float) -> Vector2:
+	if throttle < 0.0:
+		throttle *= backward_multiplier
+	return -throttle * speed * transform.y
+
+func _physics_process(delta: float) -> void:
+	get_input()
+	rotation += rotation_direction * rotation_speed * delta
+	move_and_slide()
+
+func take_damage(amount: int) -> void:
+	health -= amount
+	if health <= 0:
+		die()
+
+func die():
+	await get_tree().create_timer(0.1).timeout
+	player_die.emit()
 
 ```
 
-##### enemy
-
-**enemy.gd**
+**turret.gd**
 ```gdscript
-extends CharacterBody2D
+extends Node2D
 
-@export var speed: float
+@export var Bullet: CustomizablePackedScene
+@export var fire_cooldown: float
+
+@onready var Muzzle: Marker2D = $Muzzle
+@onready var turret_sprite: AnimatedSprite2D = $TurretSprite
+@onready var shoot_sound: AudioStreamPlayer2D = $ShootSound
+
+var _cooldown_timer: float = 0.0
+
+
+func _physics_process(delta: float) -> void:
+	look_at(get_global_mouse_position())
+	_normalize_rotation()
+	_update_cooldown(delta)
+	if _can_fire():
+		_shoot()
+
+
+func _normalize_rotation() -> void:
+	rotation_degrees = wrap(rotation_degrees, 0, 360)
+
+
+func _update_cooldown(delta: float) -> void:
+	if _cooldown_timer > 0.0:
+		_cooldown_timer = maxf(_cooldown_timer - delta, 0.0)
+
+
+func _can_fire() -> bool:
+	return Input.is_action_pressed("shoot") and _cooldown_timer == 0.0
+
+
+func _shoot() -> void:
+	var bullet := Bullet.instantiate() as Area2D
+	if bullet == null:
+		return
+	bullet.global_transform = Muzzle.global_transform
+	var spawn_parent := get_tree().root
+	spawn_parent.add_child(bullet)
+	turret_sprite.play("shoot")
+	shoot_sound.play()
+	_cooldown_timer = fire_cooldown
+
+```
+
+####### the_base
+
+**the_base.gd**
+```gdscript
+extends StaticBody2D
+signal base_destroyed
+
 @export var max_health: int
 @export var health: int
-@export var damage: int
 
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
-@onready var player: CharacterBody2D = Global.player_node
-@onready var attack_cooldown: Timer = $"AttackCooldown"
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
-var can_attack: bool = true
-var target_in_range: bool = false
-
-func _physics_process(_delta):
-	if player:
-		# Calculate direction from enemy to player
-		var direction: Vector2 = global_position.direction_to(player.global_position)
-		
-		# Set velocity and move
-		velocity = direction * speed
-		move_and_slide()
+func _ready():
+	Global.the_base_node = self
 
 func take_damage(amount):
 	health -= amount
@@ -323,64 +505,109 @@ func take_damage(amount):
 		die()
 
 func die():
-	# Disable collisions so dead enemies don't block
-	collision_shape.set_deferred("disabled", true) 
+	animated_sprite_2d.play("destroyed")
+	await animated_sprite_2d.animation_finished
 	queue_free()
-
-func _do_attack(target) -> void:
-	if not can_attack:
-		return
-	can_attack = false
-	target.take_damage(damage)
-	attack_cooldown.start()
-
-func _on_hitbox_body_entered(body) -> void:
-	if body.is_in_group("ally"):
-		target_in_range = true
-		_do_attack(body)
-
-func _on_hitbox_body_exited(body) -> void:
-	if body.is_in_group("ally"):
-		target_in_range = false
-
-func _on_attack_cooldown_timeout() -> void:
-	can_attack = true
-	if target_in_range and player:
-		_do_attack(player)
+	base_destroyed.emit()
+	
 
 ```
 
-#### game_scene
+**the_weapon.gd**
+```gdscript
+extends Node2D
 
-**game_timer.gd**
+@export var Bullet: CustomizablePackedScene
+@export var fire_cooldown: float
+
+@onready var Muzzle: Marker2D = $Muzzle
+@onready var Radar: Area2D = $Radar
+
+var _cooldown_timer: float
+
+
+func _physics_process(delta: float) -> void:
+	var closest_enemy := _get_closest_enemy_in_radar()
+	if closest_enemy != null:
+		look_at(closest_enemy.global_position)
+	_normalize_rotation()
+	_update_cooldown(delta)
+	if _can_fire():
+		_shoot()
+
+
+func _normalize_rotation() -> void:
+	rotation_degrees = wrap(rotation_degrees, 0, 360)
+
+
+func _update_cooldown(delta: float) -> void:
+	if _cooldown_timer > 0.0:
+		_cooldown_timer = maxf(_cooldown_timer - delta, 0.0)
+
+
+func _can_fire() -> bool:
+	return _get_closest_enemy_in_radar() and _cooldown_timer == 0.0
+
+
+func _get_closest_enemy_in_radar() -> Node2D:
+	var closest_enemy = null
+	var closest_distance := INF
+
+	for body in Radar.get_overlapping_bodies():
+		if body is Node2D and body.is_in_group("enemy"):
+			var distance := global_position.distance_squared_to(body.global_position)
+			if distance < closest_distance:
+				closest_distance = distance
+				closest_enemy = body
+
+	return closest_enemy
+
+
+func _shoot() -> void:
+	var bullet := Bullet.instantiate() as Area2D
+	if bullet == null:
+		return
+	bullet.global_transform = Muzzle.global_transform
+	var spawn_parent := get_tree().root
+	spawn_parent.add_child(bullet)
+	_cooldown_timer = fire_cooldown
+
+```
+
+##### game_world
+
+**main_objective.gd**
 ```gdscript
 extends Node
 
-var play_time : int
-var total_time : int
+signal game_win
 
-func _add_timers() -> void:
-	var play_timer := Timer.new()
-	play_timer.one_shot = false
-	play_timer.process_mode = Node.PROCESS_MODE_PAUSABLE
-	play_timer.timeout.connect(func() : play_time += 1)
-	add_child(play_timer)
-	play_timer.start(1)
-	var total_timer := Timer.new()
-	total_timer.one_shot = false
-	total_timer.process_mode = Node.PROCESS_MODE_ALWAYS
-	total_timer.timeout.connect(func() : total_time += 1)
-	add_child(total_timer)
-	total_timer.start(1)
+const WIN_PLAY_TIME_SECONDS := 20 * 60
 
-func _enter_tree() -> void:
-	_add_timers()
+@onready var _game_timer := get_node_or_null("../GameTimer")
+var _has_won := false
+var _check_timer: Timer
 
-func _exit_tree() -> void:
-	var game_state := GameState.get_or_create_state()
-	game_state.play_time += play_time
-	game_state.total_time += total_time
-	GlobalState.save()
+func _ready() -> void:
+	_check_timer = Timer.new()
+	_check_timer.one_shot = false
+	_check_timer.wait_time = 1.0
+	_check_timer.process_mode = Node.PROCESS_MODE_PAUSABLE
+	_check_timer.timeout.connect(main_objective_completed)
+	add_child(_check_timer)
+	_check_timer.start()
+
+func win():
+	game_win.emit()
+	
+func main_objective_completed():
+	if _has_won:
+		return
+	if _game_timer == null:
+		return
+	if _game_timer.play_time >= WIN_PLAY_TIME_SECONDS:
+		_has_won = true
+		win()
 
 ```
 
@@ -436,6 +663,18 @@ func _health_to_index(current_health: int, max_health: int) -> int:
 
 ```
 
+**hud.gd**
+```gdscript
+extends CanvasLayer
+
+func open_tutorials() -> void:
+	$tutorial_manager.open_tutorials()
+
+func _on_tutorial_button_pressed() -> void:
+	open_tutorials()
+
+```
+
 **time_played.gd**
 ```gdscript
 extends Label
@@ -459,8 +698,6 @@ func _resolve_game_timer() -> Node:
 	return get_node_or_null("../../../../../../GameTimer")
 
 func _update_label() -> void:
-	if _game_timer == null:
-		_game_timer = _resolve_game_timer()
 	if _game_timer == null:
 		text = "00:00"
 		return
@@ -499,202 +736,6 @@ func _process(_delta : float) -> void:
 		text = ""
 
 ```
-
-##### main_objective
-
-**main_objective.gd**
-```gdscript
-extends Node
-
-signal game_win
-
-const WIN_PLAY_TIME_SECONDS := 20 * 60
-
-@onready var _game_timer := get_node_or_null("../GameTimer")
-var _has_won := false
-var _check_timer: Timer
-
-func _ready() -> void:
-	_check_timer = Timer.new()
-	_check_timer.one_shot = false
-	_check_timer.wait_time = 1.0
-	_check_timer.process_mode = Node.PROCESS_MODE_PAUSABLE
-	_check_timer.timeout.connect(main_objective_completed)
-	add_child(_check_timer)
-	_check_timer.start()
-
-func win():
-	game_win.emit()
-	
-func main_objective_completed():
-	if _has_won:
-		return
-	if _game_timer == null:
-		return
-	if _game_timer.play_time >= WIN_PLAY_TIME_SECONDS:
-		_has_won = true
-		win()
-
-```
-
-##### player
-
-**player.gd**
-```gdscript
-extends CharacterBody2D
-signal player_die
-
-@export var speed: float
-@export var rotation_speed: float
-@export var backward_multiplier: float
-
-@export var max_health: int
-@export var health: int
-
-
-func _ready():
-	Global.player_node = self
-
-var rotation_direction: float = 0.0
-	
-func get_input() -> void:
-	rotation_direction = Input.get_axis("turn_left", "turn_right")
-	var throttle: float = Input.get_axis("move_backward", "move_forward")
-	velocity = _get_drive_velocity(throttle)
-
-func _get_drive_velocity(throttle: float) -> Vector2:
-	if throttle < 0.0:
-		throttle *= backward_multiplier
-	return -throttle * speed * transform.y
-
-func _physics_process(delta: float) -> void:
-	get_input()
-	rotation += rotation_direction * rotation_speed * delta
-	move_and_slide()
-
-func take_damage(amount: int) -> void:
-	health -= amount
-	if health <= 0:
-		die()
-
-func die():
-	player_die.emit()
-
-```
-
-**turret.gd**
-```gdscript
-extends Node2D
-
-@export var Bullet: CustomizablePackedScene
-@export var fire_cooldown: float
-@onready var Muzzle: Marker2D = $Muzzle
-@onready var turret_sprite: AnimatedSprite2D = $TurretSprite
-@onready var shoot_sound: AudioStreamPlayer2D = $ShootSound
-
-var _cooldown_timer: float = 0.0
-
-
-func _physics_process(delta: float) -> void:
-	look_at(get_global_mouse_position())
-	_normalize_rotation()
-	_update_cooldown(delta)
-	if _can_fire():
-		_shoot()
-
-
-func _normalize_rotation() -> void:
-	rotation_degrees = wrap(rotation_degrees, 0, 360)
-
-
-func _update_cooldown(delta: float) -> void:
-	if _cooldown_timer > 0.0:
-		_cooldown_timer = maxf(_cooldown_timer - delta, 0.0)
-
-
-func _can_fire() -> bool:
-	return Input.is_action_pressed("shoot") and _cooldown_timer == 0.0
-
-
-func _shoot() -> void:
-	var bullet := Bullet.instantiate() as Area2D
-	if bullet == null:
-		return
-	bullet.global_transform = Muzzle.global_transform
-	var spawn_parent := get_tree().root
-	spawn_parent.add_child(bullet)
-	turret_sprite.play("shoot")
-	shoot_sound.play()
-	_cooldown_timer = fire_cooldown
-
-```
-
-##### the_base
-
-**the_base.gd**
-```gdscript
-extends StaticBody2D
-
-@export var max_health: int
-@export var health: int
-
-@onready var collision_shape: CollisionShape2D = $CollisionShape2D
-
-
-func take_damage(amount):
-	health -= amount
-	if health <= 0:
-		die()
-
-func die():
-	queue_free()
-
-```
-
-**the_weapon.gd**
-```gdscript
-extends Node2D
-
-@export var Bullet: CustomizablePackedScene
-@export var fire_cooldown: float
-@onready var Muzzle: Marker2D = $Muzzle
-
-var _cooldown_timer: float = 0.0
-
-
-func _physics_process(delta: float) -> void:
-	look_at(get_global_mouse_position())
-	_normalize_rotation()
-	_update_cooldown(delta)
-	if _can_fire():
-		_shoot()
-
-
-func _normalize_rotation() -> void:
-	rotation_degrees = wrap(rotation_degrees, 0, 360)
-
-
-func _update_cooldown(delta: float) -> void:
-	if _cooldown_timer > 0.0:
-		_cooldown_timer = maxf(_cooldown_timer - delta, 0.0)
-
-
-func _can_fire() -> bool:
-	return Input.is_action_pressed("shoot") and _cooldown_timer == 0.0
-
-
-func _shoot() -> void:
-	var bullet := Bullet.instantiate() as Area2D
-	if bullet == null:
-		return
-	bullet.global_transform = Muzzle.global_transform
-	var spawn_parent := get_tree().root
-	spawn_parent.add_child(bullet)
-	_cooldown_timer = fire_cooldown
-
-```
-
-#### game_scene
 
 **tutorial_manager.gd**
 ```gdscript

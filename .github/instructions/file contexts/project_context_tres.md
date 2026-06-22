@@ -743,6 +743,7 @@ WarningProgressBar/styles/fill = SubResource("StyleBoxFlat_gh53c")
 [gd_resource type="Theme" format=3 uid="uid://dwv2f8ajpbwsv"]
 
 [ext_resource type="FontFile" uid="uid://8vko1t8dx5so" path="res://assets/fonts/Xolonium-Regular.ttf" id="1_npx5i"]
+[ext_resource type="FontFile" uid="uid://cqcafv8uronk1" path="res://assets/fonts/Custom Fonts/kenney_kenney-fonts/Fonts/Kenney Mini Square.ttf" id="2_nykvh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7rtxy"]
 content_margin_left = 4.0
@@ -1208,7 +1209,7 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [resource]
-default_font = ExtResource("1_npx5i")
+default_font = ExtResource("2_nykvh")
 BoldLabel/base_type = &"Label"
 BoldLabel/fonts/font = ExtResource("1_npx5i")
 Button/colors/font_color = Color(0, 0, 0, 1)

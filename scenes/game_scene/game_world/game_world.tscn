@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://bjl146x7iekrx" path="res://addons/spawner/scripts/spawner_container.gd" id="6_uloni"]
 [ext_resource type="Script" uid="uid://c4v7hf5xwc8ey" path="res://addons/spawner/scripts/single_spawner.gd" id="7_7mc3r"]
 [ext_resource type="Script" uid="uid://tvxru0odebvt" path="res://addons/spawner/cuztomizable_packed_scenes/cuztomizable_packed_scene.gd" id="8_fki67"]
+[ext_resource type="PackedScene" uid="uid://dl733i5vg8rje" path="res://scenes/game_scene/game_world/entities/enemies/fast/fast.tscn" id="8_r33om"]
 [ext_resource type="Script" uid="uid://bmlwpkrav3q56" path="res://addons/maaacks_game_template/extras/scripts/win_lose_manager.gd" id="9_r33om"]
 [ext_resource type="Script" uid="uid://c1tuh5f3ddoi6" path="res://scenes/game_scene/game_world/main_objective.gd" id="10_v7vyc"]
 
@@ -21,6 +22,11 @@ metadata/_custom_type_script = "uid://tvxru0odebvt"
 
 [sub_resource type="Resource" id="Resource_j3kkf"]
 script = ExtResource("8_fki67")
+scene = ExtResource("8_r33om")
+speed = 120.0
+max_health = 30
+health = 30
+damage = 10
 
 [node name="GameWorld" type="Node" unique_id=2011389920]
 
