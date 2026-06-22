@@ -27,6 +27,7 @@ fire_cooldown = 2.0
 shape = SubResource("CircleShape2D_f3bdl")
 
 [node name="Polygon2D" type="Polygon2D" parent="." unique_id=1095805717]
+z_index = 2
 color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(-8, -16, -16, -8, -16, 8, -8, 16, 8, 16, 16, 8, 32, 8, 32, -8, 16, -8, 8, -16)
 
