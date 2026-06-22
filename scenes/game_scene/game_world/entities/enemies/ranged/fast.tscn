@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dl733i5vg8rje"]
+
+[ext_resource type="PackedScene" uid="uid://2g4agkd2jsfg" path="res://scenes/game_scene/game_world/entities/enemies/enemy.tscn" id="1_om1qs"]
+
+[node name="Enemy" unique_id=994043892 instance=ExtResource("1_om1qs")]
+metadata/_edit_group_ = true
+
+[node name="Polygon2D" type="Polygon2D" parent="." index="4" unique_id=1309270390]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(0, -28, 24, 12, -24, 12)

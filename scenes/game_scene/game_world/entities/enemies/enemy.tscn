@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://2g4agkd2jsfg"]
 
-[ext_resource type="Script" uid="uid://b0i03qtuauhya" path="res://scenes/game_scene/game_world/entities/enemy/enemy.gd" id="1_4dnko"]
+[ext_resource type="Script" path="res://scenes/game_scene/game_world/entities/enemy/enemy.gd" id="1_4dnko"]
 [ext_resource type="Texture2D" uid="uid://etpl2a8qjngg" path="res://assets/images/Particles/wills_pixel_explosions_sample/round_explosion/spritesheet/spritesheet.png" id="2_4dnko"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_grsbq"]
-radius = 24.0
+radius = 32.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_grsbq"]
-size = Vector2(48, 48)
+size = Vector2(64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4dnko"]
 atlas = ExtResource("2_4dnko")
@@ -91,10 +91,6 @@ animations = [{
 scale = Vector2(2, 2)
 script = ExtResource("1_4dnko")
 
-[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1838910600]
-color = Color(0.27450982, 0.28235295, 0.28627452, 1)
-polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2127871398]
 shape = SubResource("CircleShape2D_grsbq")
 
@@ -107,7 +103,7 @@ debug_color = Color(0, 0.6403249, 0.35628343, 0.41960785)
 [node name="AttackCooldown" type="Timer" parent="." unique_id=986968014]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1901009654]
-position = Vector2(4.7683716e-07, 4.7683716e-07)
+position = Vector2(8, -4)
 scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_kgdfs")
 animation = &"death"

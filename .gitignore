@@ -22,3 +22,6 @@ Exports/
 addons/script-ide/*
 
 *.uid
+
+# Temporary files
+*.tmp

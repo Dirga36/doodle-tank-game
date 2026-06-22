@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dfc8hws71ym71"]
+
+[ext_resource type="PackedScene" uid="uid://2g4agkd2jsfg" path="res://scenes/game_scene/game_world/entities/enemies/enemy.tscn" id="1_jwaf3"]
+
+[node name="Enemy" unique_id=994043892 instance=ExtResource("1_jwaf3")]
+
+[node name="Polygon2D" type="Polygon2D" parent="." index="4" unique_id=189216821]
+scale = Vector2(1.1428572, 1.1428572)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(0, -28, 28, 0, 0, 28, -28, 0)
+uv = PackedVector2Array(0, -28, 28, 0, 0, 28, -28, 0)
