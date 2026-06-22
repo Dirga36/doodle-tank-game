@@ -5,14 +5,11 @@ extends CharacterBody2D
 @export var health: int
 @export var damage: int
 
-@onready var collision_shape: CollisionShape2D = $CollisionShape2D
 @onready var player = Global.player_node
-@onready var attack_cooldown: Timer = $"AttackCooldown"
+@onready var collision_shape: CollisionShape2D = $CollisionShape2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var polygon_2d: Polygon2D = $Polygon2D
 
-var can_attack: bool = true
-var target_in_range: bool = false
 
 func _physics_process(_delta):
 	# Calculate direction from enemy to player
@@ -39,24 +36,3 @@ func die():
 	# 3. Wait for the animation to finish before deleting the node
 	await animated_sprite_2d.animation_finished
 	queue_free()
-
-func _do_attack(target) -> void:
-	if not can_attack:
-		return
-	can_attack = false
-	target.take_damage(damage)
-	attack_cooldown.start()
-
-func _on_hitbox_body_entered(body) -> void:
-	if body.is_in_group("ally"):
-		target_in_range = true
-		_do_attack(body)
-
-func _on_hitbox_body_exited(body) -> void:
-	if body.is_in_group("ally"):
-		target_in_range = false
-
-func _on_attack_cooldown_timeout() -> void:
-	can_attack = true
-	if target_in_range and player:
-		_do_attack(player)

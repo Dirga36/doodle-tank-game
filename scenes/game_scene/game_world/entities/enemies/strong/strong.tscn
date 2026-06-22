@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://biv731pat6m50"]
 
-[ext_resource type="PackedScene" uid="uid://2g4agkd2jsfg" path="res://scenes/game_scene/game_world/entities/enemies/enemy.tscn" id="1_ami1c"]
+[ext_resource type="PackedScene" uid="uid://2g4agkd2jsfg" path="res://scenes/game_scene/game_world/entities/enemies/base_enemy.tscn" id="1_ami1c"]
 
-[node name="Enemy" unique_id=994043892 instance=ExtResource("1_ami1c")]
+[node name="StrongEnemy" unique_id=994043892 instance=ExtResource("1_ami1c")]
 
 [node name="Polygon2D" type="Polygon2D" parent="." index="4" unique_id=1344953405]
 color = Color(0, 0, 0, 1)

@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c8kn6pu4yoms1" path="res://scenes/game_scene/game_world/map/map.tscn" id="1_iywvg"]
 [ext_resource type="PackedScene" uid="uid://dr70s2c1220ii" path="res://scenes/game_scene/game_world/entities/the_base/the_base.tscn" id="2_rlcbl"]
 [ext_resource type="PackedScene" uid="uid://bsrn5vy51dj3u" path="res://scenes/game_scene/game_world/entities/player/player.tscn" id="4_v7vyc"]
-[ext_resource type="PackedScene" uid="uid://2g4agkd2jsfg" path="res://scenes/game_scene/game_world/entities/enemies/enemy.tscn" id="6_rlcbl"]
+[ext_resource type="PackedScene" uid="uid://dl733i5vg8rje" path="res://scenes/game_scene/game_world/entities/enemies/fast/fast.tscn" id="6_rlcbl"]
 [ext_resource type="Script" uid="uid://bjl146x7iekrx" path="res://addons/spawner/scripts/spawner_container.gd" id="6_uloni"]
 [ext_resource type="Script" uid="uid://c4v7hf5xwc8ey" path="res://addons/spawner/scripts/single_spawner.gd" id="7_7mc3r"]
 [ext_resource type="Script" uid="uid://tvxru0odebvt" path="res://addons/spawner/cuztomizable_packed_scenes/cuztomizable_packed_scene.gd" id="8_fki67"]
@@ -39,6 +39,7 @@ rotation_speed = 1.97
 [node name="SpawnerContainer" type="Node2D" parent="Map" unique_id=1194091660]
 scale = Vector2(0.33333334, 0.33333334)
 script = ExtResource("6_uloni")
+max_active_enemies = 20
 
 [node name="SpawnerA" type="Marker2D" parent="Map/SpawnerContainer" unique_id=1442036558]
 position = Vector2(8, 8)
