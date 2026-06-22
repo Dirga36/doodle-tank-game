@@ -81,8 +81,8 @@ jobs:
           fi
           # Change to the web directory and zip its contents directly
           cd build/windows
-          zip -r ../${EXPORT_NAME}-windows.zip .
-          ls -lh ../${EXPORT_NAME}-windows.zip
+          zip -r "../${EXPORT_NAME}-windows.zip" .
+          ls -lh "../${EXPORT_NAME}-windows.zip"
         shell: bash
 
       - name: Upload to GitHub Release (if this run is a release)
