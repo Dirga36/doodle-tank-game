@@ -1,4 +1,4 @@
-﻿# Spawner
+# Spawner
 
 >Make an issue on github if you want to add anything or report a bug. Also thanks to micycle8778 for their customizable packed scene [script](https://github.com/micycle8778/customizable-packed-scene/tree/master)
 
@@ -33,10 +33,10 @@ extends Node2D
 @onready var single_enemy_spawner_container_node  = $SpawnerContainer
 
 func _on_start_single_pressed():
-    single_enemy_spawner_container_node.start_wave.emit(true)
+	single_enemy_spawner_container_node.start_wave.emit(true)
 
 func _on_stop_single_pressed():
-    single_enemy_spawner_container_node.start_wave.emit(false)
+	single_enemy_spawner_container_node.start_wave.emit(false)
 ```
 
 # Wave Manager
@@ -62,22 +62,22 @@ extends Node2D
 @onready var wave_manager : WaveManager = $WaveManager
 
 func _ready():
-    wave_manager.wave_started.connect(_on_wave_started)
-    wave_manager.wave_completed.connect(_on_wave_completed)
-    wave_manager.between_waves_countdown.connect(_on_countdown)
-    wave_manager.all_waves_completed.connect(_on_all_waves_completed)
+	wave_manager.wave_started.connect(_on_wave_started)
+	wave_manager.wave_completed.connect(_on_wave_completed)
+	wave_manager.between_waves_countdown.connect(_on_countdown)
+	wave_manager.all_waves_completed.connect(_on_all_waves_completed)
 
 func _on_wave_started(index):
-    print("Wave started: " + str(index))
+	print("Wave started: " + str(index))
 
 func _on_wave_completed(index):
-    print("Wave completed: " + str(index))
+	print("Wave completed: " + str(index))
 
 func _on_countdown(time_left):
-    print("Next wave in: " + str(time_left))
+	print("Next wave in: " + str(time_left))
 
 func _on_all_waves_completed():
-    print("All waves completed!")
+	print("All waves completed!")
 ```
 
 # Spawner
@@ -115,7 +115,7 @@ extends Node2D
 
 func _ready():
 	single_enemy_spawner_node.enemy_spawned.connect(single_spawner_enemy_spawned)
-    single_enemy_spawner_node.amount_enemy_spawned.connect(single_spawner_amount_of_enemy_spawned)
+	single_enemy_spawner_node.amount_enemy_spawned.connect(single_spawner_amount_of_enemy_spawned)
 	single_enemy_spawner_node.finished_spawning.connect(single_spawner_finished_spawning)
 
 func single_spawner_enemy_spawned(enemy):
@@ -169,7 +169,7 @@ extends Node2D
 
 func _ready():
 	multi_enemy_spawner_node.enemy_spawned.connect(multiple_spawner_enemy_spawned)
-    multi_enemy_spawner_node.amount_enemy_spawned.connect(multiple_spawner_amount_enemy_spawned)
+	multi_enemy_spawner_node.amount_enemy_spawned.connect(multiple_spawner_amount_enemy_spawned)
 	multi_enemy_spawner_node.finished_spawning.connect(multiple_spawner_finished_spawning)
 
 func multiple_spawner_enemy_spawned(enemy):
@@ -182,4 +182,3 @@ func multiple_spawner_finished_spawning():
 	print("Multiple enemy spawner finished spawning.")
 
 ```
-

@@ -37,7 +37,7 @@ window/stretch/mode="viewport"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/maaacks_game_template/plugin.cfg")
+enabled=PackedStringArray("res://addons/flatten_for_llm/plugin.cfg", "res://addons/maaacks_game_template/plugin.cfg", "res://addons/spawner/plugin.cfg")
 
 [global_group]
 

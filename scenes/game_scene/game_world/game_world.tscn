@@ -1,90 +1,42 @@
 [gd_scene format=3 uid="uid://cv1335inruxil"]
 
-[ext_resource type="PackedScene" uid="uid://c8kn6pu4yoms1" path="res://scenes/game_scene/game_world/map/map.tscn" id="1_iywvg"]
-[ext_resource type="PackedScene" uid="uid://dr70s2c1220ii" path="res://scenes/game_scene/game_world/entities/the_base/the_base.tscn" id="2_rlcbl"]
 [ext_resource type="PackedScene" uid="uid://bsrn5vy51dj3u" path="res://scenes/game_scene/game_world/entities/player/player.tscn" id="4_v7vyc"]
-[ext_resource type="Script" uid="uid://bjl146x7iekrx" path="res://addons/spawner/scripts/spawner_container.gd" id="6_rlcbl"]
-[ext_resource type="Script" uid="uid://blxfta30bclo6" path="res://addons/spawner/scripts/multiple_spawner.gd" id="7_mi0u7"]
-[ext_resource type="PackedScene" uid="uid://bogirg1i5trmp" path="res://scenes/game_scene/game_world/entities/enemies/fast/fast.tscn" id="8_iywvg"]
-[ext_resource type="Script" uid="uid://l1kowas8uk7i" path="res://addons/spawner/resources/enemy_spawn_res.gd" id="8_v7vyc"]
+[ext_resource type="Script" uid="uid://bjl146x7iekrx" path="res://addons/spawner/scripts/spawner_container.gd" id="5_6gv45"]
+[ext_resource type="PackedScene" uid="uid://yk0bf82tq6u6" path="res://scenes/game_scene/game_world/map/map.tscn" id="5_am3mj"]
+[ext_resource type="Script" uid="uid://blxfta30bclo6" path="res://addons/spawner/scripts/multiple_spawner.gd" id="6_6gv45"]
+[ext_resource type="Script" uid="uid://l1kowas8uk7i" path="res://addons/spawner/resources/enemy_spawn_res.gd" id="7_mi0u7"]
+[ext_resource type="PackedScene" uid="uid://biv731pat6m50" path="res://scenes/game_scene/game_world/entities/enemies/strong/strong.tscn" id="8_rlcbl"]
 [ext_resource type="Script" uid="uid://bmlwpkrav3q56" path="res://addons/maaacks_game_template/extras/scripts/win_lose_manager.gd" id="9_r33om"]
-[ext_resource type="Script" uid="uid://tvxru0odebvt" path="res://addons/spawner/cuztomizable_packed_scenes/cuztomizable_packed_scene.gd" id="9_rlcbl"]
+[ext_resource type="Script" uid="uid://tvxru0odebvt" path="res://addons/spawner/cuztomizable_packed_scenes/cuztomizable_packed_scene.gd" id="9_v7vyc"]
 [ext_resource type="Script" uid="uid://c1tuh5f3ddoi6" path="res://scenes/game_scene/game_world/main_objective.gd" id="10_v7vyc"]
-[ext_resource type="PackedScene" uid="uid://biv731pat6m50" path="res://scenes/game_scene/game_world/entities/enemies/strong/strong.tscn" id="12_hnhax"]
-[ext_resource type="PackedScene" uid="uid://25phqqg78520" path="res://scenes/game_scene/game_world/entities/enemies/ranged/ranged_enemy.tscn" id="12_uloni"]
 
-[sub_resource type="Resource" id="Resource_7mc3r"]
-script = ExtResource("9_rlcbl")
-scene = ExtResource("12_hnhax")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6gv45"]
+size = Vector2(12.799999, 58.879997)
+
+[sub_resource type="Resource" id="Resource_hnhax"]
+script = ExtResource("9_v7vyc")
+scene = ExtResource("8_rlcbl")
 speed = 120.0
 max_health = 30
 health = 30
 damage = 10
 metadata/_custom_type_script = "uid://tvxru0odebvt"
 
-[sub_resource type="Resource" id="Resource_fki67"]
-script = ExtResource("8_v7vyc")
-enemy_scene = SubResource("Resource_7mc3r")
-chance = 40
-max_amount = 9999999
+[sub_resource type="Resource" id="Resource_uloni"]
+script = ExtResource("7_mi0u7")
+enemy_scene = SubResource("Resource_hnhax")
+chance = 100
+max_amount = 999999999999
 metadata/_custom_type_script = "uid://l1kowas8uk7i"
-
-[sub_resource type="Resource" id="Resource_43f0n"]
-script = ExtResource("9_rlcbl")
-scene = ExtResource("8_iywvg")
-speed = 120.0
-max_health = 30
-health = 30
-damage = 10
-metadata/_custom_type_script = "uid://tvxru0odebvt"
-
-[sub_resource type="Resource" id="Resource_tqe41"]
-script = ExtResource("8_v7vyc")
-enemy_scene = SubResource("Resource_43f0n")
-chance = 30
-max_amount = 9999999
-metadata/_custom_type_script = "uid://l1kowas8uk7i"
-
-[sub_resource type="Resource" id="Resource_gmh4x"]
-script = ExtResource("9_rlcbl")
-scene = ExtResource("12_uloni")
-speed = 120.0
-max_health = 30
-health = 30
-damage = 10
-metadata/_custom_type_script = "uid://tvxru0odebvt"
-
-[sub_resource type="Resource" id="Resource_cq263"]
-script = ExtResource("8_v7vyc")
-enemy_scene = SubResource("Resource_gmh4x")
-chance = 30
-max_amount = 9999999
-metadata/_custom_type_script = "uid://l1kowas8uk7i"
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hnhax"]
-size = Vector2(32, 1808)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uloni"]
-size = Vector2(32, 1808)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7mc3r"]
-size = Vector2(3280, 32)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fki67"]
-size = Vector2(3280, 32)
 
 [node name="GameWorld" type="Node" unique_id=793484760]
 
+[node name="Map" parent="." unique_id=76860576 instance=ExtResource("5_am3mj")]
+scale = Vector2(50, 50)
+
 [node name="Player" parent="." unique_id=1079493297 instance=ExtResource("4_v7vyc")]
 z_index = 1
-position = Vector2(1464, 904)
-
-[node name="Map" parent="." unique_id=392409886 instance=ExtResource("1_iywvg")]
-z_index = -1
-
-[node name="TheBase" parent="." unique_id=908871103 instance=ExtResource("2_rlcbl")]
-position = Vector2(1696, 960)
-scale = Vector2(3, 3)
+position = Vector2(1248, 1601)
 
 [node name="MainObjective" type="Node" parent="." unique_id=1110675836]
 script = ExtResource("10_v7vyc")
@@ -92,61 +44,24 @@ script = ExtResource("10_v7vyc")
 [node name="WinLoseManager" type="Node" parent="." unique_id=249685600]
 script = ExtResource("9_r33om")
 
-[node name="SpawnerContainer" type="Node2D" parent="." unique_id=534851590]
-script = ExtResource("6_rlcbl")
+[node name="Area2D" type="Area2D" parent="." unique_id=2023795496]
+position = Vector2(5768, 784)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1746026983]
+position = Vector2(184, 816)
+scale = Vector2(50, 50)
+shape = SubResource("RectangleShape2D_6gv45")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=239898222]
+script = ExtResource("5_6gv45")
 max_active_enemies = 20
 
-[node name="SpawnerA" type="Marker2D" parent="SpawnerContainer" unique_id=1873258523 node_paths=PackedStringArray("area_2d")]
-script = ExtResource("7_mi0u7")
-enemy_scene_array = Array[ExtResource("8_v7vyc")]([SubResource("Resource_fki67"), SubResource("Resource_tqe41"), SubResource("Resource_cq263")])
+[node name="Marker2D" type="Marker2D" parent="Node2D" unique_id=407406066 node_paths=PackedStringArray("area_2d")]
+script = ExtResource("6_6gv45")
+enemy_scene_array = Array[ExtResource("7_mi0u7")]([SubResource("Resource_uloni")])
 use_random_time = true
 use_custom_areas = true
-area_2d = NodePath("../../SpawnAreaA/CollisionShape2D")
-
-[node name="SpawnerB" type="Marker2D" parent="SpawnerContainer" unique_id=1981240943 node_paths=PackedStringArray("area_2d")]
-script = ExtResource("7_mi0u7")
-enemy_scene_array = Array[ExtResource("8_v7vyc")]([SubResource("Resource_fki67"), SubResource("Resource_tqe41"), SubResource("Resource_cq263")])
-use_random_time = true
-use_custom_areas = true
-area_2d = NodePath("../../SpawnAreaB/CollisionShape2D")
-
-[node name="SpawnerC" type="Marker2D" parent="SpawnerContainer" unique_id=1155465215 node_paths=PackedStringArray("area_2d")]
-script = ExtResource("7_mi0u7")
-enemy_scene_array = Array[ExtResource("8_v7vyc")]([SubResource("Resource_fki67"), SubResource("Resource_tqe41"), SubResource("Resource_cq263")])
-use_random_time = true
-use_custom_areas = true
-area_2d = NodePath("../../SpawnAreaC/CollisionShape2D")
-
-[node name="SpawnerD" type="Marker2D" parent="SpawnerContainer" unique_id=525367172 node_paths=PackedStringArray("area_2d")]
-script = ExtResource("7_mi0u7")
-enemy_scene_array = Array[ExtResource("8_v7vyc")]([SubResource("Resource_fki67"), SubResource("Resource_tqe41"), SubResource("Resource_cq263")])
-use_random_time = true
-use_custom_areas = true
-area_2d = NodePath("../../SpawnAreaD/CollisionShape2D")
-
-[node name="SpawnAreaA" type="Area2D" parent="." unique_id=129930868]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnAreaA" unique_id=1572560296]
-position = Vector2(64, 960)
-shape = SubResource("RectangleShape2D_hnhax")
-
-[node name="SpawnAreaB" type="Area2D" parent="." unique_id=1250937145]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnAreaB" unique_id=304422631]
-position = Vector2(3392, 960)
-shape = SubResource("RectangleShape2D_uloni")
-
-[node name="SpawnAreaC" type="Area2D" parent="." unique_id=599448202]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnAreaC" unique_id=179383582]
-position = Vector2(1728, 64)
-shape = SubResource("RectangleShape2D_7mc3r")
-
-[node name="SpawnAreaD" type="Area2D" parent="." unique_id=1577982360]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnAreaD" unique_id=1308711123]
-position = Vector2(1728, 1856)
-shape = SubResource("RectangleShape2D_fki67")
+area_2d = NodePath("../../Area2D/CollisionShape2D")
 
 [connection signal="player_die" from="Player" to="WinLoseManager" method="_on_player_player_die"]
 [connection signal="game_win" from="MainObjective" to="WinLoseManager" method="_on_main_objective_game_win"]
