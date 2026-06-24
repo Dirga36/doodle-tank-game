@@ -9,6 +9,7 @@ extends CharacterBody2D
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var polygon_2d: Polygon2D = $Polygon2D
+@onready var hitbox: Area2D = $Hitbox
 
 
 func _physics_process(_delta):
@@ -28,6 +29,7 @@ func die():
 	# 1. Disable collisions to stop further interactions
 	polygon_2d.hide()
 	collision_shape.set_deferred("disabled", true)
+	hitbox.set_deferred("disabled", true)
 	speed = 0
 	
 	# 2. Play the death animation

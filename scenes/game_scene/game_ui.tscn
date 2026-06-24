@@ -24,6 +24,7 @@ focused_viewport = NodePath("../ViewportContainer/ConfigurableSubViewport")
 [node name="BackgroundMusicPlayer" parent="." unique_id=986713811 instance=ExtResource("3_3re04")]
 
 [node name="ViewportContainer" type="SubViewportContainer" parent="." unique_id=1831513653]
+z_index = -1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -47,4 +48,4 @@ script = ExtResource("11_ulq3g")
 [node name="GameTimer" type="Node" parent="." unique_id=116840261]
 script = ExtResource("12_gpor5")
 
-[node name="GameWorld" parent="." unique_id=2011389920 instance=ExtResource("7_ul61k")]
+[node name="GameWorld" parent="." unique_id=793484760 instance=ExtResource("7_ul61k")]

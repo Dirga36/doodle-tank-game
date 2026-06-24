@@ -4,6 +4,9 @@
 
 [node name="StrongEnemy" unique_id=994043892 instance=ExtResource("1_ami1c")]
 
+[node name="AnimatedSprite2D" parent="." index="2" unique_id=1901009654]
+scale = Vector2(1, 1)
+
 [node name="Polygon2D" type="Polygon2D" parent="." index="3" unique_id=1344953405]
 color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)

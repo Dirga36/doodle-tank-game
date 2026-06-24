@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://25phqqg78520"]
+
+[ext_resource type="PackedScene" uid="uid://2g4agkd2jsfg" path="res://scenes/game_scene/game_world/entities/enemies/base_enemy.tscn" id="1_ds26r"]
+
+[node name="RangedEnemy" unique_id=994043892 instance=ExtResource("1_ds26r")]
+
+[node name="Polygon2D" type="Polygon2D" parent="." index="3" unique_id=404730591]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(0, -32, 32, 0, 0, 32, -32, 0)

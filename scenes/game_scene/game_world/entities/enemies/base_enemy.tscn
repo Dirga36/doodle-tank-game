@@ -88,8 +88,11 @@ animations = [{
 }]
 
 [node name="BaseEnemy" type="CharacterBody2D" unique_id=994043892 groups=["enemy"]]
-scale = Vector2(2, 2)
 script = ExtResource("1_l3bmd")
+speed = 120.0
+max_health = 30
+health = 30
+damage = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2127871398]
 shape = SubResource("CircleShape2D_grsbq")
@@ -107,6 +110,3 @@ sprite_frames = SubResource("SpriteFrames_kgdfs")
 animation = &"death"
 frame = 9
 frame_progress = 1.0
-
-[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
-[connection signal="body_exited" from="Hitbox" to="." method="_on_hitbox_body_exited"]
