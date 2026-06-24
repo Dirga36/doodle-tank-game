@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://2g4agkd2jsfg" path="res://scenes/game_scene/game_world/entities/enemies/base_enemy.tscn" id="1_i6die"]
 
 [node name="FastEnemy" unique_id=994043892 instance=ExtResource("1_i6die")]
+speed = 300.0
 
 [node name="Polygon2D" type="Polygon2D" parent="." index="3" unique_id=84930383]
 color = Color(0, 0, 0, 1)

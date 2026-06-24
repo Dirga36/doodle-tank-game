@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://u0u6c0c5ljv2"]
+
+[ext_resource type="Script" uid="uid://l1kowas8uk7i" path="res://addons/spawner/resources/enemy_spawn_res.gd" id="2_8roqu"]
+[ext_resource type="Script" uid="uid://blxfta30bclo6" path="res://addons/spawner/scripts/multiple_spawner.gd" id="2_nj3cf"]
+[ext_resource type="PackedScene" uid="uid://biv731pat6m50" path="res://scenes/game_scene/game_world/entities/enemies/strong/strong.tscn" id="3_qxeph"]
+[ext_resource type="Script" uid="uid://tvxru0odebvt" path="res://addons/spawner/cuztomizable_packed_scenes/cuztomizable_packed_scene.gd" id="4_s3vyi"]
+[ext_resource type="PackedScene" uid="uid://bogirg1i5trmp" path="res://scenes/game_scene/game_world/entities/enemies/fast/fast.tscn" id="5_qxeph"]
+
+[sub_resource type="Resource" id="Resource_eguco"]
+script = ExtResource("4_s3vyi")
+scene = ExtResource("3_qxeph")
+speed = 150.0
+max_health = 50
+health = 50
+damage = 10
+metadata/_custom_type_script = "uid://tvxru0odebvt"
+
+[sub_resource type="Resource" id="Resource_vudq4"]
+script = ExtResource("2_8roqu")
+enemy_scene = SubResource("Resource_eguco")
+chance = 40
+max_amount = 9999999999
+metadata/_custom_type_script = "uid://l1kowas8uk7i"
+
+[sub_resource type="Resource" id="Resource_s3vyi"]
+script = ExtResource("4_s3vyi")
+scene = ExtResource("5_qxeph")
+speed = 300.0
+max_health = 30
+health = 30
+damage = 10
+metadata/_custom_type_script = "uid://tvxru0odebvt"
+
+[sub_resource type="Resource" id="Resource_doyic"]
+script = ExtResource("2_8roqu")
+enemy_scene = SubResource("Resource_s3vyi")
+chance = 30
+max_amount = 9999999999
+metadata/_custom_type_script = "uid://l1kowas8uk7i"
+
+[node name="EnemySpawner" type="Marker2D" unique_id=1017444689]
+script = ExtResource("2_nj3cf")
+enemy_scene_array = Array[ExtResource("2_8roqu")]([SubResource("Resource_vudq4"), SubResource("Resource_doyic")])
+use_random_time = true

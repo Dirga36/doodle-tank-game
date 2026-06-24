@@ -3,6 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://dr70s2c1220ii" path="res://scenes/game_scene/game_world/entities/the_base/the_base.tscn" id="2_fx03t"]
 [ext_resource type="Texture2D" uid="uid://chc8f2bhgjkne" path="res://assets/images/Tileset/blackWall.png" id="2_su2xs"]
 [ext_resource type="Texture2D" uid="uid://dwfrousp0ljb3" path="res://assets/images/Tileset/grayFloor.png" id="3_w6s3v"]
+[ext_resource type="Script" uid="uid://bjl146x7iekrx" path="res://addons/spawner/scripts/spawner_container.gd" id="4_pyypj"]
+[ext_resource type="PackedScene" uid="uid://u0u6c0c5ljv2" path="res://scenes/game_scene/game_world/enemy_spawner/enemy_spawner.tscn" id="5_wd75g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qxva8"]
 texture = ExtResource("3_w6s3v")
@@ -30,6 +32,9 @@ b = Vector2(128, 64)
 a = Vector2(128, 64)
 b = Vector2(0, 64)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_su2xs"]
+size = Vector2(8, 48)
+
 [node name="Map" type="Node2D" unique_id=76860576]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1892385161]
@@ -53,3 +58,18 @@ shape = SubResource("SegmentShape2D_wdx23")
 [node name="TheBase" parent="." unique_id=908871103 instance=ExtResource("2_fx03t")]
 position = Vector2(16, 31.999998)
 scale = Vector2(0.1, 0.1)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=488588716]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2052662410]
+position = Vector2(120, 32)
+shape = SubResource("RectangleShape2D_su2xs")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1688104751]
+script = ExtResource("4_pyypj")
+max_active_enemies = 20
+
+[node name="EnemySpawner" parent="Node2D" unique_id=1017444689 node_paths=PackedStringArray("area_2d") instance=ExtResource("5_wd75g")]
+scale = Vector2(0.03, 0.03)
+use_custom_areas = true
+area_2d = NodePath("../../Area2D/CollisionShape2D")

@@ -104,8 +104,7 @@ shape = SubResource("RectangleShape2D_grsbq")
 debug_color = Color(0, 0.6403249, 0.35628343, 0.41960785)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1901009654]
-position = Vector2(8, -4)
-scale = Vector2(1.2, 1.2)
+scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_kgdfs")
 animation = &"death"
 frame = 9

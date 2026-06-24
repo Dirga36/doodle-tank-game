@@ -3,9 +3,12 @@
 [ext_resource type="PackedScene" uid="uid://2g4agkd2jsfg" path="res://scenes/game_scene/game_world/entities/enemies/base_enemy.tscn" id="1_ami1c"]
 
 [node name="StrongEnemy" unique_id=994043892 instance=ExtResource("1_ami1c")]
+speed = 150.0
+max_health = 50
+health = 50
 
 [node name="AnimatedSprite2D" parent="." index="2" unique_id=1901009654]
-scale = Vector2(1, 1)
+scale = Vector2(2, 2)
 
 [node name="Polygon2D" type="Polygon2D" parent="." index="3" unique_id=1344953405]
 color = Color(0, 0, 0, 1)

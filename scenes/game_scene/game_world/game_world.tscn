@@ -1,33 +1,9 @@
 [gd_scene format=3 uid="uid://cv1335inruxil"]
 
 [ext_resource type="PackedScene" uid="uid://bsrn5vy51dj3u" path="res://scenes/game_scene/game_world/entities/player/player.tscn" id="4_v7vyc"]
-[ext_resource type="Script" uid="uid://bjl146x7iekrx" path="res://addons/spawner/scripts/spawner_container.gd" id="5_6gv45"]
 [ext_resource type="PackedScene" uid="uid://yk0bf82tq6u6" path="res://scenes/game_scene/game_world/map/map.tscn" id="5_am3mj"]
-[ext_resource type="Script" uid="uid://blxfta30bclo6" path="res://addons/spawner/scripts/multiple_spawner.gd" id="6_6gv45"]
-[ext_resource type="Script" uid="uid://l1kowas8uk7i" path="res://addons/spawner/resources/enemy_spawn_res.gd" id="7_mi0u7"]
-[ext_resource type="PackedScene" uid="uid://biv731pat6m50" path="res://scenes/game_scene/game_world/entities/enemies/strong/strong.tscn" id="8_rlcbl"]
 [ext_resource type="Script" uid="uid://bmlwpkrav3q56" path="res://addons/maaacks_game_template/extras/scripts/win_lose_manager.gd" id="9_r33om"]
-[ext_resource type="Script" uid="uid://tvxru0odebvt" path="res://addons/spawner/cuztomizable_packed_scenes/cuztomizable_packed_scene.gd" id="9_v7vyc"]
 [ext_resource type="Script" uid="uid://c1tuh5f3ddoi6" path="res://scenes/game_scene/game_world/main_objective.gd" id="10_v7vyc"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6gv45"]
-size = Vector2(12.799999, 58.879997)
-
-[sub_resource type="Resource" id="Resource_hnhax"]
-script = ExtResource("9_v7vyc")
-scene = ExtResource("8_rlcbl")
-speed = 120.0
-max_health = 30
-health = 30
-damage = 10
-metadata/_custom_type_script = "uid://tvxru0odebvt"
-
-[sub_resource type="Resource" id="Resource_uloni"]
-script = ExtResource("7_mi0u7")
-enemy_scene = SubResource("Resource_hnhax")
-chance = 100
-max_amount = 999999999999
-metadata/_custom_type_script = "uid://l1kowas8uk7i"
 
 [node name="GameWorld" type="Node" unique_id=793484760]
 
@@ -43,25 +19,6 @@ script = ExtResource("10_v7vyc")
 
 [node name="WinLoseManager" type="Node" parent="." unique_id=249685600]
 script = ExtResource("9_r33om")
-
-[node name="Area2D" type="Area2D" parent="." unique_id=2023795496]
-position = Vector2(5768, 784)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1746026983]
-position = Vector2(184, 816)
-scale = Vector2(50, 50)
-shape = SubResource("RectangleShape2D_6gv45")
-
-[node name="Node2D" type="Node2D" parent="." unique_id=239898222]
-script = ExtResource("5_6gv45")
-max_active_enemies = 20
-
-[node name="Marker2D" type="Marker2D" parent="Node2D" unique_id=407406066 node_paths=PackedStringArray("area_2d")]
-script = ExtResource("6_6gv45")
-enemy_scene_array = Array[ExtResource("7_mi0u7")]([SubResource("Resource_uloni")])
-use_random_time = true
-use_custom_areas = true
-area_2d = NodePath("../../Area2D/CollisionShape2D")
 
 [connection signal="player_die" from="Player" to="WinLoseManager" method="_on_player_player_die"]
 [connection signal="game_win" from="MainObjective" to="WinLoseManager" method="_on_main_objective_game_win"]
